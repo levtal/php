@@ -9,7 +9,7 @@
 <title><?php echo "Send me your Info";?></title>
 </head>
 <body>
-<form action="./phptest1.php" method="post">
+<form action="./phptest2.php" method="post">
 
 <p>Name:
 <input type="text" name="name" size="30" value="" />
