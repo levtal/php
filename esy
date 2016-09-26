@@ -1,6 +1,6 @@
 #!/bin/bash
 # /var/www/html/index.html 
-url1="www.youtube.com/watch?v=v2kcEnRHO5I&list=PLvVojG9m055JA6vn6nCPYpiVwqF4gr3wJ&index=2"
+url1="https://www.youtube.com/watch?v=smzYNZ4GEV4&list=PL21E20F9A122DC853&index=2"
 url2="vazlavgtt.esy.es"
 url3="cpanel.hostinger.co.il/hosting/index/aid/23070218"
 subl   esy    
