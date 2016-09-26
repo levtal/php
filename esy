@@ -1,0 +1,40 @@
+#!/bin/bash
+# /var/www/html/index.html 
+url1="www.youtube.com/watch?v=v2kcEnRHO5I&list=PLvVojG9m055JA6vn6nCPYpiVwqF4gr3wJ&index=2"
+url2="vazlavgtt.esy.es"
+url3="cpanel.hostinger.co.il/hosting/index/aid/23070218"
+subl   esy    
+
+ firefox -new-tab -url  $url1  -new-tab -url $url2  -new-tab -url $url3  &
+
+
+#You can start the MySQL daemon with:
+
+ # cd /usr ; /usr/bin/mysqld_safe &
+
+#You can test the MySQL daemon with mysql-test-run.pl
+
+ # cd mysql-test ; perl mysql-test-run.pl
+
+# kali apache2 configuration
+#apache2  -d ~/Desktop/d/php/prj/p1  #specify an alternate initial ServerRoot
+# apache2ctl -S
+# /etc/init.d/apache2 {start|stop|restart}
+ #  /etc/apache2/apache2.conf
+ # move to line that starts  with :Directory "/var/www"> 
+ # change what is in the quotes to your new directory
+# chmod 755 kodi-scan 
+ 
+#from /etc/apache2/sites-available/000-default.conf file 
+#sudo nano /etc/apache2/sites-available/000-default.conf):
+#change 
+#DocumentRoot /var/www/html  
+# first projects :/var/www/html/p1
+
+#to   DocumentRoot  /root/Desktop/d/php/prj
+
+#DocumentRoot /path/to/another/directory
+#and resturt  with
+ #service apache2 restart
+ #apachectl -k stop     #kill   apache2
+
