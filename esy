@@ -1,5 +1,6 @@
 #!/bin/bash
-# /var/www/html/index.html 
+# windows     /var/www/html/index.html  
+# linux       /usr/local/ampps/www      
 url1="https://www.youtube.com/watch?v=smzYNZ4GEV4&list=PL21E20F9A122DC853&index=2"
 url2="vazlavgtt.esy.es"
 url3="cpanel.hostinger.co.il/hosting/index/aid/23070218"
