@@ -18,13 +18,13 @@ $moreInfo = array("State" => "PA", "Age" => 35);
 
 $myInfo = array_merge($myInfo, $moreInfo);
 
-foreach( $myInfo as $key => $value)
-{
-echo $key, " ", $value, "<br />";
-}
+foreach( $myInfo as $key => $value) {
+                     echo $key, " ", $value, "<br />";
+ }
 echo "<br /><br />";
 
-if(array_key_exists("Name", $myInfo)) echo "The name stored is ", $myInfo["Name"];
+if(array_key_exists("Name", $myInfo)) 
+	         echo "The name stored is, <b>", $myInfo["Name"],"</b>";
 echo "<br /><br />";
 
 $citySearch = array_search("Pittsburgh", $myInfo);
@@ -37,20 +37,21 @@ echo "<br /><br />";
 print_r(array_values($myInfo));
 echo "<br /><br />";
 
+
+                         // Multidimntional  array
+
 $customer1 = array("Name" => "Derek", "Street" => "123 Main", "City" => "Pittsburgh");
 $customer2 = array("Name" => "Sally", "Street" => "23 Main", "City" => "Pittsburgh");
 
-$customers = array($customer1, $customer2);
+$customers = array($customer1, $customer2);//  the  new   array
 print_r(array_values($customers));
 echo "<br /><br />";
 
-foreach($customers as $key)
-{
-foreach($key as $key2 => $value)
-{
-echo $key2, " ", $value, "<br />";
-}
-}
+foreach($customers as $key)  {
+      foreach($key as $key2 => $value) {
+                 echo $key2, " : ", $value, "<br />";
+       }
+ }
 
 ?>
 
