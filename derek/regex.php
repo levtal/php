@@ -19,9 +19,8 @@ $randomArray = array(
 # Find my exact name and nothing else
 $matchName = preg_grep("%Derek%", $randomArray);
 
-foreach($matchName as $result)
-{
-echo $result, "<br /><br />";
+foreach($matchName as $result) {
+	echo $result, "<br /><br />";
 }
 
 # Find Zip Code
@@ -37,13 +36,12 @@ echo $result, "<br /><br />";
 # {n} – Whatever proceeds must occur n times
 # {n,m} – Whatever proceeds must occur between n and m times
 # {n,} – Whatever proceeds must occur at least n times
+ 
 
 # Find Random String
 $matchRand = preg_grep("%\w*\b\d\s$%", $randomArray);
-
-foreach($matchRand as $result)
-{
-echo $result, "<br /><br />";
+foreach($matchRand as $result){
+   echo $result, "<br /><br />"; # 'p* 1 '
 }
 
 # \w – Any word type character A-Z, a-z, 0-9, _
@@ -52,25 +50,23 @@ echo $result, "<br /><br />";
 # \S – Any non white space
 # \b – Any space that lies between 2 characters (Word Boundary)
 # \B – Anything but word boundaries
-
+echo "<br />===================<br />";
 # Find String between Tags
 $matchTags = preg_grep("%^<.*>(.*)<.*>$%", $randomArray);
-
-foreach($matchTags as $result)
-{
-echo $result, "<br />";
+echo "matchTags = ", $matchTags, "<br />";
+foreach($matchTags as $result){
+    echo $result, "<br />";   # 'Random Text'
 }
-
+echo "<br />===================<br />";
 # $ – End of string
 # . – Anything but newline
 # * – Occurs zero or more times
+# ^ – Stands for start of string
 
-# Find Jen Type Names
+# Find Jen Type: Jennifer Jenny  Jen
 $matchJen = preg_grep("%Je[n|nnifer|nny]%", $randomArray);
-
-foreach($matchJen as $result)
-{
-echo $result, "<br /><br />";
+foreach($matchJen as $result) {
+    echo $result, "<br /><br />";
 }
 
 # | – Is used for OR clause situations
@@ -86,13 +82,12 @@ echo $result, "<br /><br />";
 
 # ^ – Stands for start of string
 # [^ ] – Characters you don’t consider valid
-
+# $ – Stands for end of string
 # Find Address
 $matchAddress = preg_grep("%^\d{1,5}\s[A-Za-z.]+\s[A-Za-z.]{2,7}$%", $randomArray);
 
-foreach($matchAddress as $result)
-{
-echo $result, "<br /><br />";
+foreach($matchAddress as $result) {
+	echo $result, "<br /><br />";
 }
 
 # {n,m} – Whatever proceeds must occur between n and m times
@@ -102,12 +97,11 @@ echo $result, "<br /><br />";
 # + – Whatever proceeds must occur one or more times
 
 $matchMoney = preg_grep('%\$\d{1,3}[,]?\d{1,3}%', $randomArray);
-
-foreach($matchMoney as $result)
-{
-echo $result, "<br />";
+# \$ :escaping the '$' sign
+foreach($matchMoney as $result) { 
+echo $result, "<br />";    # $1,234
 }
-
+# ? –   0 or 1 
 # . ^ * + ? { } [ ] \ | ( ) – Characters that must be escaped or backslashed
 
 $matchSocial = preg_grep('%\d{3}[-. ]?\d{2}[-. ]?\d{4}%', $randomArray);
@@ -121,9 +115,8 @@ echo $result, "<br />";
 $matchState = preg_grep("%(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|
 LA|M[ADEINOST]|N{CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])%", $randomArray);
 
-foreach($matchState as $result)
-{
-echo '$result = ',$result, "<br /><br />";
+foreach($matchState as $result)  {
+	echo '$result = ',$result, "<br /><br />";
 }
 
 ?>
