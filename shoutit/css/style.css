@@ -1,0 +1,79 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body
+{
+	font-family:arial;
+	font-size:20px;
+	line-height:1.5em;
+	background:#f4f4f4;
+}
+
+
+/* Container Border */
+ #container
+{
+	background: #333333;
+	margin:50px  auto;
+	overflow:auto;
+	width:60%;
+	min-height:630px;
+	 border: 12px solid #B22222;
+	border-radius: 10px; 
+} 
+
+header h1 {
+	color:#FFFFFF;
+	font-size:28px;
+	padding:15px 0 10px 10px;
+	border-bottom:1px solid #FFFF22;
+}
+
+#shouts{
+	width:90%;
+	background:#FFFFFF;
+	height:400px;
+	margin:20px  auto;
+	overflow:auto;
+}
+
+.shout{
+	list-style:none;
+	padding:8;
+	border-bottom:1px dotted #ccccc2;
+}
+
+.shout span{
+	color:#aaaaaa;
+}
+
+#input {
+	width:90%;
+	min-height:80px;
+	margin: auto;
+	padding:0;
+}	
+/* this is html tag input inside div withe id="input" */
+#input input[type='text']{
+	heigth:25px;
+	width:40%;
+	padding:3px;
+	margin-bottom: 20px;
+	border:#666666 solid 2px;
+}
+/*class shout-btn inside div with id="input" */
+#input .shout-btn {
+	padding:5px;
+	margin-bottom: 20px;
+	width:100%;
+	margin: 10px auto;s
+}
+	
+@media only screens  and 	(max-width: 760px){
+	input input[type='text']{
+		width:98%;
+	}
+		
+}
