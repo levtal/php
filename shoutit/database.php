@@ -13,8 +13,11 @@ if (mysqli_connect_errno()) {
    echo "Connection failed: " .  mysqli_connect_errno() ;
 }
 
- echo "end"
-/*
+ echo "end";
+ /*
+ $query = "SELECT * FROM shouts";
+ $shouts = mysqli_query($con,$query);
+
 // sql to create table
 $sql = "CREATE TABLE MyGuests (
 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,

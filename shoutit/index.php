@@ -19,9 +19,9 @@ http://localhost/phpmyadmin/ # SQL Configuration file
 <head>
 	<title>Shout it</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="description" content="" />
+	<meta name="description" content="checkt  ghf" />
 	<meta name="keywords" content="" />
-	<meta name="robots" content="index,follow" />
+	<meta name="shout" content="index,follow" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
@@ -30,12 +30,22 @@ http://localhost/phpmyadmin/ # SQL Configuration file
    <header> <h1>Shout it </h1> </header>
 	<div id="shouts">
 	 <div>
-	  <li class = "shout"><span>10:15 pm </span>What 1 are you doing </li>
-	  <li class = "shout"><span>10:15 pm </span>What 2 are you doing </li>
-	  <li class = "shout"><span>10:15 pm </span>What 3 are you doing </li>
-	  <li class = "shout"><span>10:15 pm </span>What 50 are you doing </li>
-	  <li class = "shout"><span>10:15 pm </span>What 6 are you doing </li>
-	  <li class = "shout"><span>10:15 pm </span>What 7 are you doing </li>
+	  <ul>
+	 
+	    <?php 
+		    $query = "SELECT * FROM shouts";
+            $shouts = mysqli_query($con,$query);
+    		while ($row = mysqli_fetch_assoc($shouts)) { ?>
+           <li class = "shout">
+		     <span><?php echo $row['time']; ?></span>
+			 <?php 
+			    echo "<strong>" . $row['user'] . "</strong>";
+			    echo $row['message']; ?> 
+		   </li>
+        
+		<?php  }?>
+	  
+	    </ul>
 	</div>
 	</div > 
 	<div id = "input">
@@ -43,7 +53,7 @@ http://localhost/phpmyadmin/ # SQL Configuration file
 	    <input type="text" name="user"  placeholder="Name">
 		<input type="text" name="message"  placeholder="message">
 	    </br>
-	    <input class="shout-btn" type="submit" value="Shout it">
+	    <input class="shout-btn" name= "submit" type="submit" value="Shout it">
 	  </form>
 	</div>
     
