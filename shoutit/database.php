@@ -4,7 +4,7 @@
 
  include 'sqlcnfg.php'; //$servername $username $password $dbname
 
- echo "start";
+   
 
 // Create connection
 $con = mysqli_connect($servername, $username, $password, $dbname);
@@ -13,7 +13,7 @@ if (mysqli_connect_errno()) {
    echo "Connection failed: " .  mysqli_connect_errno() ;
 }
 
- echo "end";
+  
  /*
  $query = "SELECT * FROM shouts";
  $shouts = mysqli_query($con,$query);

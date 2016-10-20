@@ -33,13 +33,14 @@ http://localhost/phpmyadmin/ # SQL Configuration file
 	  <ul>
 	 
 	    <?php 
-		    $query = "SELECT * FROM shouts";
+		    
+		    $query = "SELECT * FROM shouts ORDER BY id DESC";
             $shouts = mysqli_query($con,$query);
     		while ($row = mysqli_fetch_assoc($shouts)) { ?>
            <li class = "shout">
 		     <span><?php echo $row['time']; ?></span>
 			 <?php 
-			    echo "<strong>" . $row['user'] . "</strong>";
+			    echo "<strong>" . $row['user'] . ": </strong>";
 			    echo $row['message']; ?> 
 		   </li>
         
@@ -47,8 +48,12 @@ http://localhost/phpmyadmin/ # SQL Configuration file
 	  
 	    </ul>
 	</div>
-	</div > 
-	<div id = "input">
+	</div> 
+	<div id="input"> 
+	
+	   <?php if(isset($_GET['error'])) { ?>
+	     <div class="error"><?php echo $_GET['error'];?></div>
+	   <?php } ?>
       <form method="post" action="process.php">
 	    <input type="text" name="user"  placeholder="Name">
 		<input type="text" name="message"  placeholder="message">

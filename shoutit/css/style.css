@@ -68,7 +68,15 @@ header h1 {
 	padding:5px;
 	margin-bottom: 20px;
 	width:100%;
-	margin: 10px auto;s
+	margin: 10px auto;
+}
+
+.error{
+	background:red;
+	padding:5px;
+	
+	color:#ffffff;
+	margin-bottom: 20px;
 }
 	
 @media only screens  and 	(max-width: 760px){
