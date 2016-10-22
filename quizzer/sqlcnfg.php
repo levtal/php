@@ -18,16 +18,16 @@ mysql -u root -p
  <?php  
     $servername = "localhost";
     $username = "root";
-    $password = "toor";
+    $password = "";
     $dbname = "myDB";
  
  
 /*  
-        // Remote host data
+        // Remote host data  quizz  u643891464_quizz
     $servername = "mysql.hostinger.co.il";
-    $username = "u643891464_root";
-    $password = "mysqlmysql";
-    $dbname = "u643891464_mydb";
+    $username = "u643891464_moggg";
+    $password = "paseri";
+    $dbname = "u643891464_quizz";
   
  
 
