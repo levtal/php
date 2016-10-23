@@ -47,10 +47,12 @@ a.start {
 	border:1px dotted #ccc;
 	padding 6px 13px;
 }
-
-@media only screens  and 	(max-width: 760px){
-	input input[type='text']{
-		width:98%;
-	}
+.current{
+	display: inline-block;
+	color: #666;
+	background: #f4f4f4;
+	border:1px dotted #ccc;
+	padding 6px 13px;
+} 
 		
-}
+ 
