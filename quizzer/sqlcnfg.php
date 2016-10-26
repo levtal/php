@@ -18,7 +18,7 @@ mysql -u root -p
  <?php  
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "mysqlmysql"; //put here the sql passward
     $dbname = "quizz";
  
  
