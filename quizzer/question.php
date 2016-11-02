@@ -1,6 +1,11 @@
- <!---
-https://www.youtube.com/watch?v=49vWRjNGCdE&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=9<!DOCTYPE html-->
+ <!--- 
+ https://www.youtube.com/watch?v=09ck8_YD3_E&index=10&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3
+ 
+ lesson 11 5:47
+ -->
+<?php include 'database.php' 
 
+?>
 <html>
 <head>
 	<title>PHP Quizzer</title>

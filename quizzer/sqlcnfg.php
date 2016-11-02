@@ -18,8 +18,8 @@ mysql -u root -p
  <?php  
     $db_host = "localhost";
     $db_user = "root";
-    $db_pass = "mysql";
-    $db_name = "myDB";
+    $db_pass = "";
+    $db_name = "quiz";
  
  
 /*  

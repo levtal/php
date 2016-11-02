@@ -18,7 +18,7 @@ mysql -u root -p
  <?php  
     $servername = "localhost";
     $username = "root";
-    $password = "toor";
+    $password = "";
     $dbname = "myDB";
  
  

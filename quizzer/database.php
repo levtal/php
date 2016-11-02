@@ -7,10 +7,12 @@
    
 
 // Create connection
-$con = mysqli_connect($servername, $username, $password, $dbname);
+
+$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 // Check connection
-if (mysqli_connect_errno()) {
-   echo "Connection failed: " .  mysqli_connect_errno() ;
+if ($mysqli->connect_error) {
+   printf( "Connection failed: %s \n ", $mysqli->connect_error);
+   exit();
 }
 
   

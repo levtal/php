@@ -1,6 +1,6 @@
 <!---
 https://www.youtube.com/watch?v=49vWRjNGCdE&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=9<!DOCTYPE html-->
-
+<?php include 'database.php' ?>
 <html>
 <head>
 	<title>PHP Quizzer</title>
