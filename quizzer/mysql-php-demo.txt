@@ -1,0 +1,36 @@
+//Open connnection to databse
+$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
+// Check connection
+if ($mysqli->connect_error) {
+   printf( "Connection to database failed: %s \n ", $mysqli->connect_error);
+   exit();
+}
+
+$query = "SELECT * FROM questions
+           WHERE question_number = $number" ;
+  
+$result = $mysqli->query($query)  
+                or  die($mysqli->error._LINE_);
+///------------------
+
+ $query = "SELECT * FROM  `choices` 
+	            WHERE question_number = $number  AND is_correct = 1";
+  
+ $result = $mysqli->query($query)  
+                or  die($mysqli->error._LINE_);
+ $row =  $result->fetch_assoc();
+ $correct_choise=$row['id']; 
+ number_of_results = $result->num_rows();
+ 
+///-------------
+INSERT INTO Table1 (field1, field2, field3) 
+   VALUES (1, 2, 3), 
+          (1, 2, 4), 
+          (2, 1, 9), 
+          (2, 3, 8);
+		  
+
+$sql = "INSERT INTO questions(question_number, text)
+        VALUES (1, 'What does PHP stand for?'),
+		       (2, 'How do you write -Hello World - in PHP')";
+		  

@@ -54,7 +54,10 @@
 		      </li>
 		 <?php endwhile;?>
 		</ul>
-		 <input  type ="submit"  value="submit">
+		 <input  type ="submit"  value="submit"/>
+		 <input  type ="hidden"  name="number" 
+		   value="<?php echo $number;?>" />
+		   
 	   </form>
   	 </div> 
   	</div>
@@ -62,6 +65,7 @@
   <footer>
   	 <div class = "container">
   	   Copyright  &copy 2017 PHP Quizzer
+	   
   	 </div>
   </footer>
 
