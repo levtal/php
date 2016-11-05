@@ -1,5 +1,7 @@
  <!---
  https://www.youtube.com/watch?v=9K5b3fvGfRA&spfreload=10 -->
+<?php session_start(); ?>
+
 <html>
 <head>
 	<title>PHP Quizzer</title>
@@ -15,8 +17,8 @@
     <div class = "container">
   	    <h2>Your  are done </h2>
         <p> Congrats You have completed the test</p>
-        <p> Finel score : 5</p>
-        <a href="question.php?n=5" class="start">Take again</a>
+        <p> Finel score :<?php echo $_SESSION['score'];  ?></p>
+        <a href="question.php?n=1" class="start">Take again</a>
      </div>
   </main>
   <footer>

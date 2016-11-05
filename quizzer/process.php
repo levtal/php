@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=gCDyR_6RBwY&index=16&list=PLFgUdubu2ofjuWm14mwzd
 
 <?php session_start(); ?>
 
-<?php
+ <?php
       //Check  to see if  score is set
 	if (!isset($_SESSION['score'])){
 		$_SESSION['score'] = 0;
@@ -15,32 +15,36 @@ https://www.youtube.com/watch?v=gCDyR_6RBwY&index=16&list=PLFgUdubu2ofjuWm14mwzd
    	if ($_POST){  
 	  $number = $_POST['number'];
 	  $selected_choise =  $_POST['choise'];
-	  $next =  $number++;// Update next question number
-	  
-	  // Get total number of  questions 
-	  $query = "SELECT * FROM  questions";
-      echo $query;
+	  $next =  $number+ 1;// Update next question number
+	   // Get total number of  questions 
+	  $query = "SELECT * FROM  `questions`";
+      
       $result = $mysqli->query($query)  
                 or  die($mysqli->error._LINE_);
-      $total =  $result->num_rows();
-      $correct_choise=$row['id']; 
+      $total =  $result->num_rows;
 
+      $correct_choise=$row['id']; 
+     
 
 	  
 	  
 	   // Get coorect choise
-	  $query = "SELECT * FROM   choices  
+	  $query = "SELECT * FROM   `choices`  
 	            WHERE question_number = $number  AND is_correct = 1";
-     
+      
 	  $result = $mysqli->query($query)  
                 or  die($mysqli->error._LINE_); //$mysqli defind in 'database.php'
 	  $row =  $result->fetch_assoc();				
       
 	  $correct_choise=$row['id']; //Get the correct choise from the database
-	if( $correct_choise = $selected_choise){
-		//  the coorrect  answer was chosen
+	  // echo "type correct_choise = " .  gettype($correct_choise);
+	  // echo "type selected_choise = " .  gettype($selected_choise);
+	 if((int)$correct_choise == (int)$selected_choise) { //  the coorrect  answer was chosen
+		//echo  "correct_choise = " . $correct_choise . "  selected_choise = " .  $selected_choise;
 		$_SESSION['score']++;
 	}
+     
+	//echo  " correct = " . $correct_choise . "  selected = " .  $selected_choise;
 	 
 	if($number == $total) {  // 
 		header("Location: final.php"); //This the last question
@@ -49,8 +53,8 @@ https://www.youtube.com/watch?v=gCDyR_6RBwY&index=16&list=PLFgUdubu2ofjuWm14mwzd
 		header("Location: question.php?n=$next"); 
 	 
 	}
-	 
-     	
+   }
+  	
 ?>
 <html>
 <head>
@@ -74,8 +78,3 @@ https://www.youtube.com/watch?v=gCDyR_6RBwY&index=16&list=PLFgUdubu2ofjuWm14mwzd
 
 </body>
 </html>
- 
-
-
-
- 

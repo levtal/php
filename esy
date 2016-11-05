@@ -5,7 +5,8 @@ url1="https://www.youtube.com/watch?v=smzYNZ4GEV4&list=PL21E20F9A122DC853&index=
 url2="vazlavgtt.esy.es"
 url3="cpanel.hostinger.co.il/hosting/index/aid/23070218"
 subl   esy    
-
+sudo ./Ampps &
+# phpMyAdmin was installed to /Applications/AMPPS/www/myadmin
  firefox -new-tab -url  $url1  -new-tab -url $url2  -new-tab -url $url3  &
 
 

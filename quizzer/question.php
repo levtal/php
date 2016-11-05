@@ -4,11 +4,22 @@
  lesson 11  
  -->
 <?php include 'database.php'?>
+<?php session_start(); ?>
+
 <?php
 
  //Get  question number
- $number = (int)$_GET['n']; // get the 'n' value from  url  ..../question.php?n=...
+ $number = (int)$_GET['n']; //the 'n' from /..../question.php?n=...
  
+ // Get total number of  questions 
+ $query = "SELECT * FROM  questions";
+ $result = $mysqli->query($query)  
+              or  die($mysqli->error._LINE_);
+ $total =  $result->num_rows ;
+
+
+
+
          //Get   question  number 'n='
  $query = "SELECT * FROM questions
            WHERE question_number = $number" ;
@@ -41,7 +52,8 @@
   </header>
   <main>
   	<div class = "container">
-  	 <div class = "current">  	     Question 1 of 5
+  	 <div class = "current">Question  <?php echo $question['question_number']; ?> of 
+            <?php echo $total ; ?>
 	   <p class = "question"> 
 	       <?php echo $question['text']; ?>
 	   </p>

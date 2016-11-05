@@ -1,5 +1,5 @@
 <!--- 
-run this script  once to create the  tables before anything else
+Run this script  once to create the  tables before anything else
 Creating two tables:  questions choices.
 Creating database is done  in phpadmin, before running this script
 
