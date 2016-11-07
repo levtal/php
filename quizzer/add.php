@@ -9,11 +9,39 @@ http://localhost/phpmyadmin/ # SQL Configuration file
 <?php  //
   if (isset($_POST['submit'])){ // If submit button in 'add.php' was pressed
 		//Get POST  varible
-		$question_number = $_POST['question_number'];
-		$question_text = $_POST['question_text'];
-		//Choises array
+	$question_number = $_POST['question_number'];
+	$question_text = $_POST['question_text'];
+		//Choices array
+	$choices = array();
+	$choices[1] = $_POST['choise1'];
+	$choices[2] = $_POST['choise2'];
+	$choices[3] = $_POST['choise3'];
+	$choices[4] = $_POST['choise4'];
+	$choices[5] = $_POST['choise5'];
+		//Insert question query
+	
+	
+	
+	$query = "INSERT INTO `questions`(question_number,text) 
+              VALUES ('$question_number', '$question_text')";
+     
+    
+	$insert_row = $mysqli->query($query) or 
+                	die($mysqli->error );	
+	              
+    //print_r($choices);
+    
+	//Validate   insert_row
+    if ($insert_row){ //Insert the choices
+         foreach($choices  as $val) {
+           echo $val. '<br>';
+         }     	  
+		 foreach ($choices as $choice->$value){ // number of choise
+			echo $choice->$value;
+		} 
 		
-	}
+	}  
+  }
  ?>
 <html>
 <head>

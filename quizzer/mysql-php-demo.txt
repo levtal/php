@@ -11,6 +11,9 @@ $query = "SELECT * FROM questions
   
 $result = $mysqli->query($query)  
                 or  die($mysqli->error._LINE_);
+if ($result)	{
+		echo  "Query  sucessful"
+	}  				
 ///------------------
 
  $query = "SELECT * FROM  `choices` 
