@@ -1,6 +1,6 @@
 <!---Add question
 https://www.youtube.com/watch?v=aejWA9vYEJQ&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=11
-
+11:01
 http://localhost/phpmyadmin/ # SQL Configuration file
 
 
@@ -8,9 +8,11 @@ http://localhost/phpmyadmin/ # SQL Configuration file
 <?php include 'database.php'?> 
 <?php  //
   if (isset($_POST['submit'])){ // If submit button in 'add.php' was pressed
-		//Get POST  varible
+	
+	     //Get POST  varible
 	$question_number = $_POST['question_number'];
-	$question_text = $_POST['question_text'];
+	$question_text   = $_POST['question_text'];
+	
 		//Choices array
 	$choices = array();
 	$choices[1] = $_POST['choise1'];
@@ -18,27 +20,32 @@ http://localhost/phpmyadmin/ # SQL Configuration file
 	$choices[3] = $_POST['choise3'];
 	$choices[4] = $_POST['choise4'];
 	$choices[5] = $_POST['choise5'];
-		//Insert question query
 	
+	$correct_choise  = $_POST['correct_choise'];
 	
-	
+	    //Insert question query
 	$query = "INSERT INTO `questions`(question_number,text) 
               VALUES ('$question_number', '$question_text')";
-     
-    
+        
 	$insert_row = $mysqli->query($query) or 
                 	die($mysqli->error );	
 	              
-    //print_r($choices);
-    
-	//Validate   insert_row
+    	//Validate   insert_row
     if ($insert_row){ //Insert the choices
-         foreach($choices  as $val) {
-           echo $val. '<br>';
-         }     	  
-		 foreach ($choices as $choice->$value){ // number of choise
-			echo $choice->$value;
-		} 
+             	  
+		foreach ($choices as $choice => $value){ 
+			// $choice = number of choise  $value = text of choice
+	       
+		    if (strcmp($value,'')){// not empty answer
+		        //This is  the correct choise
+			   echo $choice . " " . $value  ;  
+			   if ($correct_choise == $choice){ 
+			    echo  "correct  <br>";
+				}else {  //This is  not the correct choise
+					echo  "not correct <br>"; 
+					} 
+		  } 
+		} //foreach
 		
 	}  
   }
