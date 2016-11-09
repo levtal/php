@@ -24,6 +24,7 @@ https://www.youtube.com/watch?v=49vWRjNGCdE&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqY
   	<div class = "container">
   	    <h2>Test your knowledge </h2> 
   	    <p> This is a multiple choise quiz</p>
+		 <a href="add.php" class="start">Add new question</a>
   	    <ul>
   	         <li><strong>Number of questions </strong>
 			       <?php echo $totel ?>

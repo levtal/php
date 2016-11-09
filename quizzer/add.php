@@ -1,6 +1,6 @@
 <!---Add question
 https://www.youtube.com/watch?v=aejWA9vYEJQ&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=11
-11:01
+15:01
 http://localhost/phpmyadmin/ # SQL Configuration file
 
 
@@ -32,23 +32,34 @@ http://localhost/phpmyadmin/ # SQL Configuration file
 	              
     	//Validate   insert_row
     if ($insert_row){ //Insert the choices
-             	  
-		foreach ($choices as $choice => $value){ 
+        foreach ($choices as $choice => $value){ 
 			// $choice = number of choise  $value = text of choice
-	       
-		    if (strcmp($value,'')){// not empty answer
-		        //This is  the correct choise
-			   echo $choice . " " . $value  ;  
-			   if ($correct_choise == $choice){ 
-			    echo  "correct  <br>";
+	        if (strcmp($value,'')){// not empty answer
+		        if ($correct_choise == $choice){ //This is  the correct choise
+			    $is_correct = 1;
 				}else {  //This is  not the correct choise
-					echo  "not correct <br>"; 
-					} 
-		  } 
+					 $is_correct = 0;
+				} 
+				$query = "INSERT INTO `choices` (question_number,is_correct,text) 
+                                       VALUES ($question_number,$is_correct,'$value')";
+                $insert_row = $mysqli->query($query)  or  die($mysqli->error);
+                
+				if ($insert_row){ // Isert was sucssesful
+		            continue;
+	            }else{
+				   die('Error *=> ('. $mysqli->errno . ')' . $mysqli->errno);
+				} 
+		    } 
 		} //foreach
-		
-	}  
-  }
+	$msg = 'Question has been add';
+	} //if ($insert_row) 
+  }//  if (isset($_POST['submit']))
+  /* Get total number of questins 	*/
+  $query = "SELECT * FROM  questions";
+  $questions = $mysqli->query($query)  
+              or  die($mysqli->error._LINE_);
+  $total =  $questions->num_rows ;
+  $next  =  $total+1; // Number  of next  question
  ?>
 <html>
 <head>
@@ -64,9 +75,17 @@ http://localhost/phpmyadmin/ # SQL Configuration file
   <main>
      <div class = "container">
         <h2>Add a question</h2>
+		<?php 
+		if(isset($msg)){
+			echo  '<p>' . $msg . '</p>';
+		}
+		?>
         <form method="post" action="add.php">
           <p>
-            <label>Question Number</label><input type="number" name="question_number"/>
+            <label>Question Number</label>
+			<input type="number" 
+			       value =  "<?php echo $next; ?>" 
+				   name="question_number"/>
           </p>
           <p>
             <label>Question Text</label><input type="text" name="question_text"/>
