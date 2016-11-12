@@ -1,6 +1,3 @@
-4  15
-https://www.youtube.com/watch?v=TawgcrvRGAw&index=25&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3
-
 //Open connnection to databse
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 // Check connection
