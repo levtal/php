@@ -1,31 +1,40 @@
-<!--- footer
-http://localhost/phpmyadmin/ # SQL Configuration file
+    </div><!-- /.blog-main -->
+
+       <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Categories</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">News</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Tutoruials</a></li>
+              <li><a href="#">Misc</a></li>
+              <li><a href="#">April 2013</a></li>
+            </ol>
+          </div>
+           
+       </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Pandas blog &copy; 2017 </p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
 
 
---> 
-<?php include 'database.php'?> 
-<?php   ?>
-<html>
-<head>
-	<title>fffff</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
-  <header> 
-     <div  >
-        <h1>P er </h1>
-     </div>
-  </header>
-  <main>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
      
-  </main>
-  <footer>
-  	 
-  </footer>
-
-</body>
+    <script src="js/bootstrap.js"></script>
+   </body>
 </html>
- 
-
-
-

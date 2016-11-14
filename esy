@@ -1,9 +1,14 @@
+ 
+https://www.youtube.com/watch?v=TawgcrvRGAw&index=25&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3
+
+7:30
+
 #!/bin/bash
 # windows     /var/www/html/index.html  
 # linux       /usr/local/ampps/www      
 url1="https://www.youtube.com/watch?v=smzYNZ4GEV4&list=PL21E20F9A122DC853&index=2"
 url2="vazlavgtt.esy.es"
-url3="cpanel.hostinger.co.il/hosting/index/aid/23070218"
+url3="cpanel.hostinger.co.il"
 subl   esy    
 sudo ./Ampps &
 # phpMyAdmin was installed to /Applications/AMPPS/www/myadmin

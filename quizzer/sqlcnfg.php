@@ -15,21 +15,21 @@ Default root password = "mysql"
 mysql -u root -p
 -->
 
- <?php  
+ <?php   
     $db_host = "localhost";
     $db_user = "root";
     $db_pass = "";## unbunto::"mysqlmysql" , vista::"", kali  
     $db_name = "quiz";
  
- 
-/*  
-        // Remote host data  quizz  u643891464_quizz
+  
+ /*
+        // Remote host data  quizz  u710518084_quizz
      $db_host = "mysql.hostinger.co.il";
-     $db_user = "u643891464_moggg";
+     $db_user = "u710518084_moggg";
      $db_pass = "paseri";
-     $db_name = "u643891464_quizz";
+     $db_name = "u710518084_quizz";
   
  
-
-*/?>
+   */
+?>
  

@@ -1,124 +1,117 @@
-<!---Add question
-https://www.youtube.com/watch?v=aejWA9vYEJQ&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=11
-15:01
-http://localhost/phpmyadmin/ # SQL Configuration file
+  <!DOCTYPE html>
+ <!-- post.php -->  
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+     
+   
+    <title>Posts</title>
 
+       <link href="css/bootstrap.css" rel="stylesheet">
 
---> 
-<?php include 'database.php'?> 
-<?php  //
-  if (isset($_POST['submit'])){ // If submit button in 'add.php' was pressed
-	
-	     //Get POST  varible
-	$question_number = $_POST['question_number'];
-	$question_text   = $_POST['question_text'];
-	
-		//Choices array
-	$choices = array();
-	$choices[1] = $_POST['choise1'];
-	$choices[2] = $_POST['choise2'];
-	$choices[3] = $_POST['choise3'];
-	$choices[4] = $_POST['choise4'];
-	$choices[5] = $_POST['choise5'];
-	
-	$correct_choise  = $_POST['correct_choise'];
-	
-	    //Insert question query
-	$query = "INSERT INTO `questions`(question_number,text) 
-              VALUES ('$question_number', '$question_text')";
-        
-	$insert_row = $mysqli->query($query) or 
-                	die($mysqli->error );	
-	              
-    	//Validate   insert_row
-    if ($insert_row){ //Insert the choices
-        foreach ($choices as $choice => $value){ 
-			// $choice = number of choise  $value = text of choice
-	        if (strcmp($value,'')){// not empty answer
-		        if ($correct_choise == $choice){ //This is  the correct choise
-			    $is_correct = 1;
-				}else {  //This is  not the correct choise
-					 $is_correct = 0;
-				} 
-				$query = "INSERT INTO `choices` (question_number,is_correct,text) 
-                                       VALUES ($question_number,$is_correct,'$value')";
-                $insert_row = $mysqli->query($query)  or  die($mysqli->error);
-                
-				if ($insert_row){ // Isert was sucssesful
-		            continue;
-	            }else{
-				   die('Error *=> ('. $mysqli->errno . ')' . $mysqli->errno);
-				} 
-		    } 
-		} //foreach
-	$msg = 'Question has been add';
-	} //if ($insert_row) 
-  }//  if (isset($_POST['submit']))
-  /* Get total number of questins 	*/
-  $query = "SELECT * FROM  questions";
-  $questions = $mysqli->query($query)  
-              or  die($mysqli->error._LINE_);
-  $total =  $questions->num_rows ;
-  $next  =  $total+1; // Number  of next  question
- ?>
-<html>
-<head>
-	<title>PHP Quizzer</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
- <header> 
-     <div class = "container">
-        <h1>PHP Quizzer </h1>
-     </div>
-  </header>
-  <main>
-     <div class = "container">
-        <h2>Add a question</h2>
-		<?php 
-		if(isset($msg)){
-			echo  '<p>' . $msg . '</p>';
-		}
-		?>
-        <form method="post" action="add.php">
-          <p>
-            <label>Question Number</label>
-			<input type="number" 
-			       value =  "<?php echo $next; ?>" 
-				   name="question_number"/>
-          </p>
-          <p>
-            <label>Question Text</label><input type="text" name="question_text"/>
-          </p>
-          <p><label>Question Choise #1</label><input type="text" name="choise1"/></p>          
-          <p><label>Question Choise #2</label><input type="text" name="choise2"/></p>
-          <p><label>Question Choise #3</label><input type="text" name="choise3"/></p>
-          <p><label>Question Choise #4</label><input type="text" name="choise4"/></p>
-          <p><label>Question Choise #5</label><input type="text" name="choise5"/></p>
-          
-           <p>
-            <label>Correct Choise number</label><input type="number" name="correct_choise"/>
-          </p>
-          <p>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+ 
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="index.php">Home</a>
+          <a class="blog-nav-item" href="posts.php">All posts</a>
+           
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <div class="logo"><img src="images/logo.png"/></div>
+		<h1 class="blog-title">Pandas Blog</h1>
+        <p class="lead blog-description">Pandas examples.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Sample Pandas post</h2>
+            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+
+            <p>demo 1</p>
+            <p>demo 2</p> 
+            <a class="readmore"	href="post.php?id=1">Read more </a>	
+		   </div><!-- /.blog-post -->
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Name itom2   blog post</h2>
+            <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+
+            <p>demo 3</p>
+			<a class="readmore"	href="post.php?id=1">Read more </a>
+          </div><!-- /.blog-post -->
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">New feature</h2>
+            <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+
+            <p>Cdemo 444</p>
              
-            <input type="submit" name="submit" value="Submit"/>
-          </p>
-       </form>
+            <p>Donec ul gue.</p>
+			<a class="readmore"	href="post.php?id=1">Read more </a>
+          </div><!-- /.blog-post -->
 
-     </div>
-  
- 
-  	 
-  </main>
-  <footer>
-  	 <div class = "container">
-  	   Copyright  &copy 2017 PHP Quizzer
-  	 </div>
-  </footer>
+           
 
-</body>
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Categories</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">News</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Tutoruials</a></li>
+              <li><a href="#">Misc</a></li>
+              <li><a href="#">April 2013</a></li>
+            </ol>
+          </div>
+           
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Pandas blog &copy; 2017 </p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.js"></script>
+      </body>
 </html>
- 
-
-
-

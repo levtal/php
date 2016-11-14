@@ -1,52 +1,29 @@
-<!---
-https://www.youtube.com/watch?v=49vWRjNGCdE&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=9<!DOCTYPE html-->
-<?php include 'database.php' ?>
+<?php include 'includes/header.php';?>
 
-<?php 
-  // Get  total number of questions
-   $query = "SELECT * FROM questions" ;
-   $results = $mysqli->query($query)  
-                or die($mysqli->error._LINE_);
-	$totel =  $results->num_rows;			
- ?>
-<html>
-<head>
-	<title>PHP Quizzer</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
-  <header> 
-     <div class = "container">
-        <h1>PHP Quizzer </h1>
-     </div>
-  </header>
-  <main>
-  	<div class = "container">
-  	    <h2>Test your knowledge </h2> 
-  	    <p> This is a multiple choise quiz</p>
-		 <a href="add.php" class="start">Add new question</a>
-  	    <ul>
-  	         <li><strong>Number of questions </strong>
-			       <?php echo $totel ?>
-			 </li>
-  	         <li><strong>Type </strong>Multiple choise</li>
-  	         <li><strong>Estimated time: </strong>
-			       <?php echo $totel * 0.5 ?> Minutes
-			 </li>
-  	    </ul>
-  	    <a href="question.php?n=1" class="start">Start Quiz</a>
-  	</div>
-  </main>
-  <footer>
-  	 <div class = "container">
-  	   Copyright  &copy 2017 PHP Quizzer
-  	 </div>
-  </footer>
+          <div class="blog-post">
+            <h2 class="blog-post-title">Sample Pandas post</h2>
+            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
-</body>
-</html>
- 
+            <p>demo 1</p>
+            <p>demo 2</p> 
+            <a class="readmore"	href="post.php?id=1">Read more </a>	
+		   </div><!-- /.blog-post -->
 
+          <div class="blog-post">
+            <h2 class="blog-post-title">Name itom2   blog post</h2>
+            <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
 
+            <p>demo 3</p>
+			<a class="readmore"	href="post.php?id=1">Read more </a>
+          </div><!-- /.blog-post -->
 
- 
+          <div class="blog-post">
+            <h2 class="blog-post-title">New feature</h2>
+            <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+
+            <p>Cdemo 444</p>
+             
+            <p>Donec ul gue.</p>
+			<a class="readmore"	href="post.php?id=1">Read more </a>
+          </div><!-- /.blog-post -->
+<?php include 'includes/footer.php';?>
