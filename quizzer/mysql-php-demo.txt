@@ -1,6 +1,5 @@
-15 
-https://www.youtube.com/watch?v=TawgcrvRGAw&index=25&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3
-
+17 https://www.youtube.com/watch?v=7U-UXi4iC-w&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=15
+ 
 //Open connnection to databse
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 // Check connection
