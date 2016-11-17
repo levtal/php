@@ -16,5 +16,7 @@
   
  
    */
+   $site_description = " Arthur Deikman describes the phenomenon as an  intuitive knowing, a type of perception that bypasses the usual sensory channels and rational intellect ";
+   
 ?>
  

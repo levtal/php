@@ -1,31 +1,20 @@
-<!--- footer
-http://localhost/phpmyadmin/ # SQL Configuration file
-
-
---> 
-<?php include 'database.php'?> 
-<?php   ?>
-<html>
-<head>
-	<title>fffff</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
-  <header> 
-     <div  >
-        <h1>P er </h1>
-     </div>
-  </header>
-  <main>
-     
-  </main>
-  <footer>
-  	 
-  </footer>
-
-</body>
-</html>
  
 
 
-
+<?php 
+ /*format the date*/
+ function formatDate($date){
+	 return date('F j,Y, g:i a ',strtotime($date));
+ }//formatDate
+ 
+ 
+ function shortenText($text,$chars =450 ){
+	 $text = $text . " ";
+	 $text = substr($text,0,$chars);
+	 $text = substr($text,0,strrpos($text, ' ')); 
+	 $text = $text . "...";
+	 return $text ;  
+ }//shortenText 
+?> 
+<?php   ?>
+ 

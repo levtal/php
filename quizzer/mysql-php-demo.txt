@@ -1,5 +1,6 @@
-17 https://www.youtube.com/watch?v=7U-UXi4iC-w&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=15
- 
+
+18
+https://www.youtube.com/watch?v=DHAPF9dP_B0&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=13
 //Open connnection to databse
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 // Check connection
@@ -27,15 +28,20 @@ if ($result)	{
  $correct_choise=$row['id']; 
  number_of_results = $result->num_rows();
  
-///-------------
-INSERT INTO Table1 (field1, field2, field3) 
-   VALUES (1, 2, 3), 
-          (1, 2, 4), 
-          (2, 1, 9), 
-          (2, 3, 8);
-		  
 
 $sql = "INSERT INTO questions(question_number, text)
         VALUES (1, 'What does PHP stand for?'),
 		       (2, 'How do you write -Hello World - in PHP')";
+			   
+$db = new Database();  //libreries/Database.php
+  //Check URL  for  categoty
+  if(isset($_GET['category'])){
+	  $category = $_GET['category']; 
+	  $query = "SELECT * FROM posts
+	            WHERE category = " .$category;
+      $posts = $db->select($query);
+	}			  
+ while($row = $posts->fetch_assoc()):
+    echo $row['title'];
+ endwhile; 
 		  

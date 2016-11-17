@@ -8,9 +8,9 @@ Run this script  before anything,  to create the  tables
 -->
 <?php
  
- include 'config\config.php'; //$servername $username $password $dbname
+ include 'config/config.php'; //$servername $username $password $dbname
 
- 
+ echo "<b>Creating tables</b>  <br>-----------<br>  ";
 // Create connection
 $conn = new mysqli(DB_HOST, DB_USER , DB_PASS , DB_NAME);
 // The above DB constants are in the 'config\config.php' file
@@ -53,11 +53,11 @@ if ($conn->query($sql) === TRUE) {
 
 //  insert data to  table 'categories'
 
-$sql = "INSERT INTO categories(id, name)
-        VALUES (1, 'News'),
-		       (NULL, 'Events'),
-			   (NULL,'Tutorials'),
-			   (NULL,'Misc')";
+$sql = "INSERT INTO categories(  name)
+        VALUES (  'News'),
+		       (  'ph_Events'),
+			   ( 'Tutorials'),
+			   ( 'Misc')";
 
 if ($conn->query($sql) === TRUE) {
     echo  "<br> Categories inserted into question table successfully";
@@ -69,8 +69,12 @@ if ($conn->query($sql) === TRUE) {
 //  posts
 
 $sql = "INSERT INTO posts (  category,title,body,author,tags )
-        VALUES ( '1','tt1','body' ,'author','tags' ),
-		       ( '2','tt4441','b555dy' ,'auth4or','tag6s' )
+        VALUES ( '1','Maimonides',
+		        'Rabbinic scholar Maimonides, suggested that prophecy is, in truth and reality, an emanation sent forth by Divine Being through the medium of the Active Intellect, in the first instance to man s rational faculty, and then to his imaginative faculty.' ,
+		       'author','tags' ),
+		       ( '2','Spokesperson',
+			   'The Hebrew term for prophet Navi literally means  spokesperson ; he speaks to the people as a mouthpiece of God, and to God on behalf of the people.  The name prophet, from the Greek meaning  forespeaker  (πρὸ being used in the original local sense), is an equivalent of the Hebrew נבוא , which signifies properly a delegate or mouthpiece of another.  A major theme of the Nevi im is socia' ,
+			   'auth4or','tag6s' )
 				 ";
 
 if ($conn->query($sql) === TRUE) {

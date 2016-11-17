@@ -1,3 +1,7 @@
+<?php include 'config/config.php'; //$servername $username $password $dbname?>
+<?php include 'libraries/Database.php';?>
+<?php include 'helpers/format_helper.php';?> 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
