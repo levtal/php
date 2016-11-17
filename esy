@@ -31,17 +31,10 @@ sudo ./Ampps &
  # move to line that starts  with :Directory "/var/www"> 
  # change what is in the quotes to your new directory
 # chmod 755 kodi-scan 
+
+# root user with no passward the 'phpMyAdmin\config.inc.php ' # file should have the  next lines:
+
+# 1  $cfg['Servers'][$i]['user'] = 'root';
+# 2  $cfg['Servers'][$i]['password'] = '';
  
-#from /etc/apache2/sites-available/000-default.conf file 
-#sudo nano /etc/apache2/sites-available/000-default.conf):
-#change 
-#DocumentRoot /var/www/html  
-# first projects :/var/www/html/p1
-
-#to   DocumentRoot  /root/Desktop/d/php/prj
-
-#DocumentRoot /path/to/another/directory
-#and resturt  with
- #service apache2 restart
- #apachectl -k stop     #kill   apache2
-
+# 3  $cfg['Servers'][$i]['AllowNoPassword'] = true;
