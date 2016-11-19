@@ -15,7 +15,7 @@ mysql -u root -p
  <?php   
     $db_host = "localhost";
     $db_user = "root";
-    $db_pass = "";    ## unbunto::"mysqlmysql" , vista::"", kali  
+    $db_pass = "mysqlmysql";    ## unbunto::"mysqlmysql" , vista::"", kali  
     $db_name = "blog";
  
   
