@@ -3,7 +3,7 @@
  <?php   
     define('DB_HOST', '127.0.0.1');
     define('DB_USER', 'root');
-    define('DB_PASS', 'mysqlmysql');  ## unbunto::"mysqlmysql" , vista::"", kali ::"" 
+    define('DB_PASS', '');  ## unbunto::"mysqlmysql" , vista::"", kali ::"" 
     define('DB_NAME', 'blog');
  
   

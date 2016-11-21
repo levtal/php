@@ -1,31 +1,27 @@
-<!--- footer
-http://localhost/phpmyadmin/ # SQL Configuration file
+<!---admin/include/footer-->  
 
 
---> 
-<?php include 'database.php'?> 
-<?php   ?>
-<html>
-<head>
-	<title>fffff</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
-  <header> 
-     <div  >
-        <h1>P er </h1>
-     </div>
-  </header>
-  <main>
+          </div>    <!-- /.blog-main -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Pandas blog &copy; 2017 </p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
      
-  </main>
-  <footer>
-  	 
-  </footer>
-
-</body>
+    <script src="../js/bootstrap.js"></script>
+   </body>
 </html>
- 
+
 
 
 

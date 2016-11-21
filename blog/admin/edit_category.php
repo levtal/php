@@ -1,31 +1,24 @@
-<!--- footer
-http://localhost/phpmyadmin/ # SQL Configuration file
-
-
---> 
-<?php include 'database.php'?> 
-<?php   ?>
-<html>
-<head>
-	<title>fffff</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
-  <header> 
-     <div  >
-        <h1>P er </h1>
-     </div>
-  </header>
-  <main>
-     
-  </main>
-  <footer>
-  	 
-  </footer>
-
-</body>
-</html>
+<?php include 'includes/header.php'; ?>
  
+ <form role="form" method="post" action="edit_catgory.php">
+  <div class="form-group">
+    <label>Category Name</label>
+    <input name= "name" type="text" class="form-control"
+	  placeholder="Enter category">
+  </div>
+   
+   
+  <div> 
+  
+  <input name ="submit" type="submit" 
+	           class="btn btn-default" value="Submit"/>
 
-
-
+   <a href="index.php" class="btn btn-default">Cancel</a>
+  <input name ="delete" type="submit" 
+	           class="btn btn-danger" value="Delete"/>
+	
+  
+   </div>
+  <br>
+</form>
+<?php include 'includes/footer.php'; ?>
