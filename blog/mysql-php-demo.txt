@@ -37,3 +37,26 @@ $sql = "INSERT INTO questions(question_number, text)
         VALUES (1, 'What does PHP stand for?'),
 		       (2, 'How do you write -Hello World - in PHP')";
 		  
+
+
+ $db = new Database();  //libreries/Database.php
+  
+ $query = "SELECT  posts.* , categories.name FROM posts
+           INNER JOIN categories
+           ON posts.Category=categories.id";  //Get  all posts
+  $posts = $db->select($query);    
+
+
+
+  <?php  while($row = $posts->fetch_assoc()):?>
+    <tr>
+    <td><?php  echo $row['id'];?></td>
+    <td><a href="edit_post.php?id=<?php echo $row['id'];?>">
+          <?php echo $row['title'];?>
+        </a>  
+    </td>
+    <td><?php  echo $row['name'];?></td>
+    <td><?php  echo $row['author'];?></td>
+    <td><?php  echo formatDate($row['date']);?></td>
+  </tr> 
+  <?php  endwhile;?>  
