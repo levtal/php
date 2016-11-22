@@ -11,8 +11,8 @@
  $query = "SELECT * FROM categories";  //Get  all categories
  $categories = $db->select($query);
 ?>
-<?php ?>
 
+ <h1>Edit Post </h1>
  <form role="form" method="post" action="edit_post.php">
   <div class="form-group">
     <label>Post Title</label>
@@ -32,20 +32,29 @@
   <div class="form-group">
     <label>Category</label>
 	<select name="category" class="form-control">
-	 <?php while($row = $categories->fetch_assoc()):?>
-       <option> <?php echo $row['name'];?></option>
-    <?php endwhile;?>
+	 <?php 
+	   while($row = $categories->fetch_assoc()): 
+           if($row['id']== $post['category']){
+		      $selected='selected';
+			}else{$selected='';}  
+	 ?>
+		 <option <?php echo $selected; ?>> 
+		     <?php echo $row['name'];?>
+		 </option>
+        <?php endwhile;?>
 		 
 	</select>
   </div>
   
   <div class="form-group">
     <label>Author </label>
-    <input name ="author" type="text" class="form-control"   placeholder="Enter Author name">
+    <input name ="author" type="text" class="form-control"   
+	 placeholder="Enter Author name" value="<?php echo $post['author'];?>">
   </div>
   <div class="form-group">
     <label>Tag </label>
-    <input name ="tags" type="text" class="form-control"   placeholder="Enter Tag">
+    <input name ="tags" type="text" class="form-control"
+	placeholder="Enter Tag" value="<?php echo $post['tags'];?>">
   </div>
   
   <div>
