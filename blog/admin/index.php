@@ -1,14 +1,18 @@
 <!--admin/index.php -->
+ 
 <?php include 'includes/header.php'; ?>
 <?php
  $db = new Database();  //libreries/Database.php
  
  $query = "SELECT  posts.* , categories.name FROM posts
            INNER JOIN categories
-           ON posts.Category=categories.id";  //Get  all posts
+           ON posts.Category=categories.id
+		   ORDER BY posts.title DESC";  //Get  all posts
+ echo $query;
  $posts = $db->select($query);
 
- $query = "SELECT * FROM categories";  //Get  all categories
+ $query = "SELECT * FROM categories
+           ORDER BY name DESC";  //Get  all categories
  $categories = $db->select($query);
 ?>
 
@@ -45,7 +49,7 @@
 	<?php  while($row = $categories->fetch_assoc()):?>
    	<tr>
 		<td><?php  echo $row['id'];?></td>
-		<td><a href="category.php?id=<?php echo $row['id'];?>">
+		<td><a href="edit_category.php?id=<?php echo $row['id'];?>">
 		      <?php echo $row['name'];?>
 		    </a> 	
 		</td>

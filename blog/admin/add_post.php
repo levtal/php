@@ -1,7 +1,38 @@
  <!--admin/add_post.php -->
 <?php include 'includes/header.php'; ?>
+<?php
+  $db = new Database();  //libreries/Database.php
+  
+ if (isset($_POST['submit'])){ // The  submit vutton was pressed");
+	
+   
+    // db->$link is defined in //libreries/Database.php
+   //   as $this->link = new mysqli ...
+  $title = mysqli_real_escape_string($db->link, $_POST['title']);
+  $body = mysqli_real_escape_string($db->link, $_POST['body']);
+  $category = mysqli_real_escape_string($db->link, $_POST['category']);
+  $author = mysqli_real_escape_string($db->link, $_POST['author']);
+  $tags = mysqli_real_escape_string($db->link, $_POST['tags']);
+	
+       // Simple validation 
+  if($title ==''|| $body==''||$category ==''||$author=='' )	{
+	  $error=('Fill ALL fields');
+	   
+    }
+  else{
+	  $query = "INSERT INTO posts
+	          (title, body, category, author, tags) 
+              VALUES('$title', '$body', $category,'$author','$tags')";
+    
+	  $insert_row = $db->insert($query); 
+       //Function 'insert' defined  in  /libreries/Database.php
+   }
+ 
+ }
+ 
+ ?>
 <?php  
- $db = new Database();  //libreries/Database.php
+ 
   
  
  $query = "SELECT * FROM categories";  //Get  all categories
@@ -30,8 +61,9 @@
 		      $selected='selected';
 			}else{$selected='';}  
 	 ?>
-		 <option <?php echo $selected; ?>> 
-		     <?php echo $row['name'];?>
+		 <option <?php echo $selected; ?>
+		          value= "<?php echo $row['id'];?>" > 
+		    <?php echo $row['name'];?>
 		 </option>
         <?php endwhile;?>
 		 
