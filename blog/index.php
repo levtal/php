@@ -1,7 +1,7 @@
 <?php include 'includes/header.php';?>
 <?php  
  $db = new Database();  //libreries/Database.php
- $query = "SELECT * FROM posts";  //Get  all posts
+ $query = "SELECT * FROM posts ORDER BY id DESC";  //Get  all posts
  $posts = $db->select($query);
  
  $query = "SELECT * FROM categories";  //Get  all categories

@@ -8,7 +8,7 @@
 	            WHERE category = " .$category;
       $posts = $db->select($query);
 	}else {
-      $query = "SELECT * FROM posts";  //Get  all posts
+      $query = "SELECT * FROM posts ORDER BY id DESC";  //Get  all posts
       $posts = $db->select($query);
    }
  

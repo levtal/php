@@ -4,8 +4,6 @@
   $db = new Database();  //libreries/Database.php
   
  if (isset($_POST['submit'])){ // The  submit vutton was pressed");
-	
-   
     // db->$link is defined in //libreries/Database.php
    //   as $this->link = new mysqli ...
   $title = mysqli_real_escape_string($db->link, $_POST['title']);
@@ -17,8 +15,7 @@
        // Simple validation 
   if($title ==''|| $body==''||$category ==''||$author=='' )	{
 	  $error=('Fill ALL fields');
-	   
-    }
+   }
   else{
 	  $query = "INSERT INTO posts
 	          (title, body, category, author, tags) 
@@ -27,7 +24,6 @@
 	  $insert_row = $db->insert($query); 
        //Function 'insert' defined  in  /libreries/Database.php
    }
- 
  }
  
  ?>

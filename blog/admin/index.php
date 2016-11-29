@@ -8,7 +8,7 @@
            INNER JOIN categories
            ON posts.Category=categories.id
 		   ORDER BY posts.title DESC";  //Get  all posts
- echo $query;
+  
  $posts = $db->select($query);
 
  $query = "SELECT * FROM categories
@@ -26,9 +26,11 @@
    </tr> 
    
    <?php  while($row = $posts->fetch_assoc()):?>
-   	<tr>
+   
+	<tr>
 		<td><?php  echo $row['id'];?></td>
-		<td><a href="edit_post.php?id=<?php echo $row['id'];?>">
+		<td>	
+		   <a href="edit_post.php?id=<?php echo $row['id'];?>">
 		      <?php echo $row['title'];?>
 		    </a> 	
 		</td>
