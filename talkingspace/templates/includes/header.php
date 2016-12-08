@@ -1,38 +1,51 @@
-<?php include 'config/config.php'; //$servername $username $password $dbname?>
-<?php include 'libraries/Database.php';?>
-<?php include 'helpers/format_helper.php';?> 
-
+ <?php  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome To Pandas Blog </title>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+    
+    <title>Welcome to talking sapce</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="<?php echo BASE_URI; ?>templates/css/bootstrap.css" rel="stylesheet">
+ 
+    <!-- Custom styles for this template -->
+    <link href="<?php echo BASE_URI; ?>templates/css/custom.css" rel="stylesheet">
+
+     
   </head>
-  
+
   <body>
 
-    <div class="blog-masthead">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <nav class="blog-nav">
-          <a class="blog-nav-item active" href="index.php">Home</a>
-          <a class="blog-nav-item" href="posts.php">All posts</a>
-           
-        </nav>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.php">TalkingSpace</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="index.php">Home</a></li>
+            <li><a href="register.php">Create account</a></li>
+            <li><a href="create.php">Create Topic</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
-    </div>
+    </nav>
 
     <div class="container">
-
-      <div class="blog-header">
-        <div class="logo"><img src="images/logo.png"/></div>
-		<h1 class="blog-title">Pandas Blog posts</h1>
-        <p class="lead blog-description">Pandas examples.</p>
-      </div>
-
       <div class="row">
-
-        <div class="col-sm-8 blog-main">
+          <div class="col-md-8">
+             <div class="main-col">
+                <div class="block">
+                  <h1 class="pull-left">Welcom to the club</h1>
+                  <h4 class="pull-right">simple php form engine</h4>
+                  <div class="clearfix"> </div> 
+                  <hr>

@@ -1,90 +1,148 @@
 <!--- 
 creating Tables:    posts,  categories
-Create the database    in phpadmin, before running this script
-Run this script  before anything,  to create the  tables
-
-
+Steps:
+1. Create the database    in phpadmin, before running this script.
+2. Run this script  before anything,  to create the  tables in databas
  
+ http://culttt.com/2012/10/01/roll-your-own-pdo-php-class/
+
 -->
 <?php
- 
  include 'config/config.php'; //$servername $username $password $dbname
-
- echo "<b>Creating tables</b>  <br>-----------<br>  ";
-// Create connection
-$conn = new mysqli(DB_HOST, DB_USER , DB_PASS , DB_NAME);
-// The above DB constants are in the 'config\config.php' file
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// sql to create table posts (7 fields)
-$sql = "CREATE TABLE posts (
+ include 'libraries/Database.php';
+echo "Creating Databse tables <br>";  
+$database = new Database(); // Class Database defind in Database.php 
+ //---------------  users table  --------
+//set the query CREATE.
+$sql = 'CREATE TABLE IF NOT EXISTS users (
 	id INT(11) UNSIGNED   AUTO_INCREMENT PRIMARY KEY,
-	category INT(11),
-	title VARCHAR(255),
-	body TEXT,
-	author VARCHAR(255),
-	tags   VARCHAR(255),
-	date TIMESTAMP   default CURRENT_TIMESTAMP
-	)";
+	name VARCHAR(100),
+	email VARCHAR(100),
+	avatar VARCHAR(100),
+	username VARCHAR(10),
+	password   VARCHAR(64),
+	about   TEXT,
+	last_activity DATETIME,
+	join_date TIMESTAMP   default CURRENT_TIMESTAMP	)';
 	 
+$database->query($sql);
+$result = $database->execute();   //execute the statement CREATE.
 
-if ($conn->query($sql) === TRUE) {
-    echo "Table posts created successfully";
-} else {
-    echo "Error creating table posts : " . $conn->error;
-}
-echo "<br>";
+$database->query('INSERT INTO users 
+    (Name, Email, Avatar, Username, Password, About,  Last_activity ) 
+    VALUES 	     
+	(:name,:email,:avatar, :username, :password, :about, :last_activity )');
+//Bind the data to the placeholders.
+$database->bind(':name', 'Brad Tuglom');
+$database->bind(':email', 'Brad@Smith');
+$database->bind(':avatar', 'fer.jpg');
+$database->bind(':username', 'fhmale');
+$database->bind(':password', '1234');
+$database->bind(':about', ':Web aboutnuy75 :about6hfgh'); 
+$database->bind(':last_activity', 'last_activity');
+ 	
+$database->execute();   //execute the statement INSERT.
+ 
 
- // sql to create table  categories
-$sql = "CREATE TABLE categories (
+//---------------  categories  --------
+//set the query CREATE.
+ $sql = "CREATE TABLE IF NOT EXISTS categories (
     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) 
- )";
-echo $sql . "<br>";
-if ($conn->query($sql) === TRUE) {
-    echo "Table categories created successfully";
-} else {
-    echo "Error creating table categories: " . $conn->error;
-	
-}
+    name VARCHAR(255),
+    description TEXT )";
+	 
+$database->query($sql);
+$result = $database->execute();   //execute the statement CREATE.
 
-//  insert data to  table 'categories'
+$database->query('INSERT INTO categories 
+    (Name, Description) 
+     VALUES 	     
+	(:name,:description)');
+//Bind the data to the placeholders.
+$database->bind(':name', 'Web Programing');
+$database->bind(':description', 'me goo  Smith');
+$database->execute();   //execute the statement INSERT.
+ 
+$database->bind(':name', 'Web Des');
+$database->bind(':description', 'good doog  very good  ith');
+$database->execute();   //execute the statement INSERT.
+ 
 
-$sql = "INSERT INTO categories(  name)
-        VALUES (  'News'),
-		       (  'ph_Events'),
-			   ( 'Tutorials'),
-			   ( 'Misc')";
+//---------------  topics table  --------
+//set the query CREATE.
+$sql = "CREATE TABLE IF NOT EXISTS topics (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    category_id INT(11),
+	user_id INT(11),
+    title VARCHAR(100),
+    body TEXT,	
+	last_activity DATETIME,
+	create_date TIMESTAMP   default CURRENT_TIMESTAMP )";
+	 
+$database->query($sql);
+$result = $database->execute();   //execute the statement CREATE.
 
-if ($conn->query($sql) === TRUE) {
-    echo  "<br> Categories inserted into question table successfully";
-} else {
-    echo "<br> Error in insert into <categories> table: " . $conn->error;
-}
+$database->query('INSERT INTO topics 
+    (Category_id, User_id, Title, Body, Last_activity ) 
+    VALUES 	     
+	(:category_id,:user_id,:title, :body, :last_activity)');
+//Bind the data to the placeholders.
+$database->bind(':category_id', '1');
+$database->bind(':user_id', '1');
+$database->bind(':title', 'ferr Server no good');
+$database->bind(':body', 'what is your');
+$database->bind(':last_activity', 'last_activity');
+ 	
+$database->execute();   //execute the statement INSERT.
 
+ 
+$database->bind(':category_id', '1');
+$database->bind(':user_id', '2');
+$database->bind(':title', 'go home rttt good');
+$database->bind(':body', 'no me go you gooo what is your');
+$database->bind(':last_activity', 'last_activity');
+ 	
+$database->execute();   //execute the statement INSERT.
 
-//  posts
+//---------------  replies table  --------
+//set the query CREATE.
+  //   id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY
+ $sql = "CREATE TABLE IF NOT EXISTS replies (
+    id INT(11) ,
+    topic_id INT(11),
+	user_id INT(11),
+    title VARCHAR(100),
+    body TEXT,	
+    create_date TIMESTAMP   default CURRENT_TIMESTAMP )";
+$database->query($sql);
+$result = $database->execute();   //execute the statement CREATE.
 
-$sql = "INSERT INTO posts (  category,title,body,author,tags )
-        VALUES ( '1','Maimonides',
-		        'Rabbinic scholar Maimonides, suggested that prophecy is, in truth and reality, an emanation sent forth by Divine Being through the medium of the Active Intellect, in the first instance to man s rational faculty, and then to his imaginative faculty.' ,
-		       'author','tags' ),
-		       ( '2','Spokesperson',
-			   'The Hebrew term for prophet Navi literally means  spokesperson ; he speaks to the people as a mouthpiece of God, and to God on behalf of the people.  The name prophet, from the Greek meaning  forespeaker  (πρὸ being used in the original local sense), is an equivalent of the Hebrew נבוא , which signifies properly a delegate or mouthpiece of another.  A major theme of the Nevi im is socia' ,
-			   'auth4or','tag6s' )
-				 ";
+$database->query('INSERT INTO replies 
+    (Topic_id, User_id, Title, Body, Create_date ) 
+    VALUES 	     
+	(:topic_id,:user_id,:title, :body, :create_date)');
+//Bind the data to the placeholders.
+$database->bind(':topic_id', '1');
+$database->bind(':user_id', '2');
+$database->bind(':title', 'ferrrrrrr');
+$database->bind(':body', 'this is my reply: fsedfdfdfdfdle');
+$database->bind(':create_date', '1/2/3');
+ 	
+$database->execute();   //execute the statement INSERT.
 
-if ($conn->query($sql) === TRUE) {
-    echo  "<br> Posts inserted into posts table successfully";
-} else {
-    echo "<br> Error in insert into posts table: " . $conn->error;
-}
-echo "<br>"	;	
-echo $sql;
-$conn->close();
-?> 
+ 
+///Select a single row
+$database->query('SELECT  Topic_id, User_id, Title, Body 
+                  FROM
+				  replies WHERE Topic_id = :topic_id');
 
+$database->bind(':topic_id', '1'); // we bind the data to the placeholder.
+$row = $database->single(); 
+echo "<pre>";
+print_r($row);
+echo "</pre>";
+echo $database->lastInsertId(); 
+echo " <br> End Creating Databse tables <br>";  
+?>
 
+         
