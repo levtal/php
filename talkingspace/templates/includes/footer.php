@@ -27,18 +27,17 @@
               <div class="block">
                <h3>Categories</h3>
                <div class="list-group">
-                <a href="#" class="list-group-item active">All Topices
-                  <span class="badge pull-right">14</span>
-                </a>
-                <a href="#" class="list-group-item ">Design
-                  <span class="badge pull-right">4</span>
-                </a>
-                <a href="#" class="list-group-item ">Development
-                  <span class="badge pull-right">9</span>
-                </a>
-                <a href="#" class="list-group-item ">Business & Markting
-                  <span class="badge pull-right">4</span>
-                </a> 
+                <a href="topics.php" class="list-group-item 
+				              <?php echo is_active(null);  ?>">All Topices
+                  <span class="badge pull-right"></span>
+                </a>            
+                <?php foreach(getCategories() as $category): ?>
+				    <a href="topics.php?category=<?php echo  $category['id']; ?>" 
+					    class="list-group-item"  <?php  echo is_active($category['id']); ?> >
+						<?php echo  $category['name']; ?>
+						 
+				    </a>		
+				<?php endforeach;?>
               </div>
               </div><!-- /.block -->
         </div>

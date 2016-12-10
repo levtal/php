@@ -11,5 +11,8 @@
   //$template->heading ='This is template heading';
   
   $template->topics =  $topic->getAllTopics();
+  $template->totalTopics=$topic->getTotalTopics();
+  $template->totalCategories =$topic->getTotalCategories();
+  //print_r($template->totalCategories);
   //Display templates
   echo $template;

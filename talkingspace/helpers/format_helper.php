@@ -9,7 +9,7 @@ function  formatDate($date) {
  
  
  
- function urlFormat($str){
+function urlFormat($str){
 	//Strip out all whitespaces
 	$str = preg_replace('/\s*/','',$str);
 	//Convert the string to all lowercase
@@ -20,5 +20,19 @@ function  formatDate($date) {
 	
 }
  
- 
+function is_active($category) {
+	
+	if(isset($_GET['category'])){
+	          if ($_GET['category'] == $category){
+		             return 'active';
+	          }else{
+		              return '';
+	               }
+	}else {
+		if($category == null){
+			return 'active';
+		 }
+	}
+ }
+
  ?>  

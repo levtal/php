@@ -1,3 +1,11 @@
+
+echo "<br><pre>".print_r($row, true) . "</pre>";
+exit;
+
+
+
+
+
 //Open connnection to databse
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 // Check connection

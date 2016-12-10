@@ -13,8 +13,12 @@
  
     <!-- Custom styles for this template -->
     <link href="<?php echo BASE_URI; ?>templates/css/custom.css" rel="stylesheet">
-
-     
+     <?php
+	//check if title is set, if not assign iterator_apply
+     if(!isset($title)) {
+		 $title =SITE_TITLE;
+	 }
+	?> 
   </head>
 
   <body>
@@ -42,10 +46,24 @@
 
     <div class="container">
       <div class="row">
-          <div class="col-md-8">
-             <div class="main-col">
-                <div class="block">
-                  <h1 class="pull-left">Welcom to the club</h1>
-                  <h4 class="pull-right">simple php form engine</h4>
-                  <div class="clearfix"> </div> 
-                  <hr>
+        <div class="col-md-8">
+          <div class="main-col">
+           <div class="block">
+            <h1 class="pull-left"> <?php echo $title;  ?></h1>
+            <h4 class="pull-right">simple php form engine</h4>
+            <div class="clearfix"> </div> 
+               <hr>
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
