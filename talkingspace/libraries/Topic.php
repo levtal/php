@@ -41,13 +41,29 @@ public function getByCategory($category_id){
 	$this->db->query($sql);
 	//$this->db->bind(':category_id',$category_id); 
 	$results = $this->db->resultset();
-	   
-	//echo "<pre>".print_r($results, true) . "</pre>";
-	//exit;
-	return  $results;
+   return  $results;
   } 
   
-  
+public function getByUser($user_id){
+	 $sql = "SELECT topics.*, categories.*, users.* 
+				    FROM topics
+					INNER JOIN categories
+					ON topics.category_id = categories.id 
+					
+					INNER JOIN users
+					ON topics.user_id = users.id
+
+					WHERE topics.user_id =  ";
+    $sql = $sql . $user_id;
+    //echo  $sql;
+	$this->db->query($sql);
+	//$this->db->bind(':category_id',$category_id); 
+	$results = $this->db->resultset();
+	   
+	//echo "<pre>".print_r($results, true) . "</pre>";
+	// exit;
+	return  $results; 
+  }   
   
 //Get Total # of topics
   public function getTotalTopics(){
@@ -91,13 +107,9 @@ public function getByCategory($category_id){
 					 
 					WHERE topics.id = :id ";
     
-	 
 	$this->db->query($sql);
 	$this->db->bind(':id',$id); 
 	$row = $this->db->single();
-	    
-	// echo "<br><pre>".print_r($row, true) . "</pre>";
-	//exit;
 	return  $row;
   }
  
@@ -106,19 +118,13 @@ public function getByCategory($category_id){
 				    FROM replies
 					 
 					INNER JOIN users
-					ON replies.topic_id = users.id
+					ON replies.user_id = users.id
 					 
 					WHERE replies.topic_id = :topic_id 
 					ORDER BY create_date ASC";
-                    
-	echo $sql;
 	$this->db->query($sql);
 	$this->db->bind(':topic_id',$topic_id); 
-	 
 	$results =  $this->db->resultset(); 
-	  
-	echo "<br><pre>".print_r($results, true) . "</pre>";
-	exit;
 	return  $results;
   }
  

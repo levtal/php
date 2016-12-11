@@ -1,52 +1,65 @@
  <?php include('includes/header.php'); ?>
  <!--  center of page  -->
-		   
-		    <ul id="topics">
-			 <!--item 1  -->
-			<li id="main-topic" class="topic topic">
+  <ul id="topics">
+			 <!--Topic  -->
+	<li id="main-topic" class="topic topic">
+	  <div class="row">
+		<div class="col-md-2">
+          <div class="user-info">
+           <img class="avatar pull-left" 
+			   src="images/avatars/<?php echo $topic['avatar'];?>"/>	
+            <ul>
+              <li><strong><?php echo $topic['username'];?></strong></li>
+              <li><?php echo userPostCount($topic['user_id']);?> posts</li>
+              <li>
+			    <a href="<?php echo BASE_URI;?>topics.php?user=<?php echo $topic['user_id'];?>">View topics</a>
+			  </li>
+			       <a href="profile.php">Profile</a></li>						
+			</ul>
+		 </div>	
+		</div>	
+		<div class="col-md-10">
+		  <div class="topic-content pull-right">
+			<p><?php echo $topic['body'];?></p>
+		 </div>
+		</div>	
+	 </div>  
+	</li>	
+			 <!--end of Topic  -->
+             <!--Sart of reply  -->
+		<?php    ?>
+		<?php foreach ($replies as $reply):  ?>
+		<li class="topic topic">
 			  <div class="row">
 			     <div class="col-md-2">
                   <div class="user-info">
-                    <img class="avatar pull-left" src="./img/gravatar.png" />	
-                    <ul>
-                        <li><strong>gtre</strong></li>
-                        <li>55 posts</li>
-                       <li><a href="profile.php">Profile</a></li>						
+                    <img class="avatar pull-left" 
+					     src="images/avatars/<?php echo $reply['avatar'];?>" />	
+                     <ul>
+                        <li><strong><?php echo $reply['username'];  ?></strong></li>
+                        <li><?php echo userPostCount($reply['user_id']);?> posts</li>
+                       <li><a href="<?php echo BASE_URI;?>topics.php?user=<?php echo $reply['user_id'];?>">View topics</a></li>						
 			        </ul>
 				  </div>	
 				  </div>	
 			      <div class="col-md-10">
 				    <div class="topic-content pull-right">
-					   <p> this  is contentthis  is contentthis  is content</p>
+					   <p> 
+					   <?php 
+					    // echo "<br><pre>".print_r($reply, true) . "</pre>";
+    					   echo $reply['body']; 
+						   ?>
+					   </p>
 					</div>
 				  </div>	
 				</div>  
-			</li>	
-			 <!--end item 1  -->
-             <!--item2  -->
-			<li class="topic topic">
-			  <div class="row">
-			     <div class="col-md-2">
-                  <div class="user-info">
-                    <img class="avatar pull-left" src="./img/gravatar.png" />	
-                    <ul>
-                        <li><strong>fggf  re</strong></li>
-                        <li>66 posts</li>
-                       <li><a href="profile.php">Profile</a></li>						
-			        </ul>
-				  </div>	
-				  </div>	
-			      <div class="col-md-10">
-				    <div class="topic-content pull-right">
-					   <p>  item 2this  is contentthis  is contentthis  is content</p>
-					</div>
-				  </div>	
-				</div>  
-			</li>	
-			 <!--end item 2  -->
+			</li>
+         <?php endforeach;  ?>			
+			 <!--end reply  -->
 
-            </ul>
+        </ul>
              
+			
 			<h3>Reply to topic</h3>
 			 
 			<form role="form">

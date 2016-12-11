@@ -21,6 +21,30 @@ function getCategories() {
 	return  $resultes;  
 }
  
- 
- 
+function userPostCount($user_id){
+	$db = new Database;
+	//Count post of a user
+	$sql= "SELECT * FROM topics
+	      WHERE user_id = :user_id";
+    $db->query($sql); 
+	$db->bind(':user_id', $user_id);
+	$rows = $db->resultset();
+	$topic_count = $db->rowCount();
+	
+	//Count replies of a user
+	$sql= "SELECT * FROM replies
+	      WHERE user_id = :user_id";
+    $db->query($sql); 
+	$db->bind(':user_id', $user_id);
+	$rows = $db->resultset();
+	$reply_count = $db->rowCount();
+	
+	
+	
+	//echo "<br><pre>".print_r($rows, true) . "</pre>";
+   // echo "<br> reply_count = " . $reply_count;
+	
+    //exit;
+    return $topic_count + $reply_count;
+}
 ?>  

@@ -36,14 +36,27 @@ $database->query('INSERT INTO users
 $database->bind(':name', 'Brad Tuglom');
 $database->bind(':email', 'Brad@Smith');
 $database->bind(':avatar', 'fer.jpg');
-$database->bind(':username', 'fhmale');
+$database->bind(':username', 'skl.png');
 $database->bind(':password', '1234');
 $database->bind(':about', ':Web aboutnuy75 :about6hfgh'); 
 $database->bind(':last_activity', 'last_activity');
  	
 $database->execute();   //execute the statement INSERT.
  
-
+$database->bind(':name', 'sou twp Tuglom');
+$database->bind(':email', 'so@Smith');
+$database->bind(':avatar', 'so.png');
+$database->bind(':username', 'somag');
+$database->bind(':password', '1234');
+$database->bind(':about', ':fgr  hfrff kghghh 88 hfgh'); 
+$database->bind(':last_activity', '0');
+ 	
+$database->execute();   //execute the statement INSERT.
+ 
+ 
+ 
+ 
+ 
 //---------------  categories  --------
 //set the query CREATE.
  $sql = "CREATE TABLE IF NOT EXISTS categories (
@@ -108,7 +121,7 @@ $database->execute();   //execute the statement INSERT.
 //set the query CREATE.
   //   id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY
  $sql = "CREATE TABLE IF NOT EXISTS replies (
-    id INT(11) ,
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     topic_id INT(11),
 	user_id INT(11),
     title VARCHAR(100),
