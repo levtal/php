@@ -30,9 +30,12 @@
 	}
 	 
 	public function __toString() {
+		
 		extract($this->vars);
 	    chdir(dirname($this->template)); 
+		
 		ob_start();
+		//exit;
 		// turn output buffering on. No output is sent from the script (other than headers), 
 		//instead the output is stored in an internal buffer.
         //Contents of this internal bufferis copied into a string using ob_get_contents().
@@ -45,6 +48,10 @@
 		return ob_get_clean();//Get current buffer contents and delete current output buffer
 	}
 		
+ 
+ 
+ 
+ 
  }	
  
  ?>  

@@ -1,4 +1,4 @@
- <?php  ?>
+ <?php //echo "<br><pre>".print_r($_SESSION, true) . "</pre>"; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,12 +8,22 @@
     
     <title>Welcome to talking sapce</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo BASE_URI; ?>templates/css/bootstrap.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="<?php echo BASE_URI; ?>templates/css/bootstrap.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="<?php echo BASE_URI; ?>templates/css/custom.css" rel="stylesheet">
  
-    <!-- Custom styles for this template -->
-    <link href="<?php echo BASE_URI; ?>templates/css/custom.css" rel="stylesheet">
-     <?php
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+ </script>
+
+<script src="<?php echo BASE_URI; ?>templates/js/bootstrap.js"> </script>
+ 
+<script src="<?php echo BASE_URI; ?>templates/js/ckeditor/ckeditor.js"> </script>
+
+
+
+
+ <?php
 	//check if title is set, if not assign iterator_apply
      if(!isset($title)) {
 		 $title =SITE_TITLE;
@@ -36,10 +46,13 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="register.php">Create account</a></li>
-            <li><a href="create.php">Create Topic</a></li>
-          </ul>
+                    <li class="active"><a href="index.php">Home</a></li>
+                <?php if(!isLoggedIn()):// not login ?>
+			        <li><a href="register.php">Create account</a></li>
+                <?php else: ?>
+		            <li><a href="create.php">Create Topic</a></li>
+                 <?php endif; ?>
+		  </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -53,17 +66,10 @@
             <h4 class="pull-right">simple php form engine</h4>
             <div class="clearfix"> </div> 
                <hr>
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
+			    <?php 
+				echo  '<br>';
+				displayMesage();
+				?>
+ 				  
 				  
 				  

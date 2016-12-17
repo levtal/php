@@ -35,9 +35,9 @@ $database->query('INSERT INTO users
 //Bind the data to the placeholders.
 $database->bind(':name', 'Brad Tuglom');
 $database->bind(':email', 'Brad@Smith');
-$database->bind(':avatar', 'fer.jpg');
-$database->bind(':username', 'skl.png');
-$database->bind(':password', '1234');
+$database->bind(':avatar', '00.png');
+$database->bind(':username', 'sklpng');
+$database->bind(':password', md5('123gfrfggg4'));
 $database->bind(':about', ':Web aboutnuy75 :about6hfgh'); 
 $database->bind(':last_activity', 'last_activity');
  	
@@ -45,9 +45,9 @@ $database->execute();   //execute the statement INSERT.
  
 $database->bind(':name', 'sou twp Tuglom');
 $database->bind(':email', 'so@Smith');
-$database->bind(':avatar', 'so.png');
+$database->bind(':avatar', '0.jpg');
 $database->bind(':username', 'somag');
-$database->bind(':password', '1234');
+$database->bind(':password', md5('12deffrf34'));
 $database->bind(':about', ':fgr  hfrff kghghh 88 hfgh'); 
 $database->bind(':last_activity', '0');
  	

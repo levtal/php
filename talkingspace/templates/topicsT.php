@@ -10,12 +10,12 @@
         <div class="row">
           <div class="col-md-2">
                   <img class="avatar pull-left" 
-				   src ="images/avatars/<?php echo $topic['avatar']; ?>"/> 
+				   src ="images/avatar/<?php echo $topic['avatar']; ?>"/> 
           </div>   
           <div class="col-md-10">
             <div class="topic-content pull-right">
             <h3>
-                       <a href="topic.html">
+                       <a href="topic.php">
                          <?php echo $topic['title'];  ?>
                        </a>
              </h3>

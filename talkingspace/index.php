@@ -4,7 +4,9 @@
 
   //Create Topic Object
    $topic = new Topic;// Defind in /libreries/Topic.php
-  //Get template & assign vars
+   $user = new User;
+
+ //Get template & assign vars
   $template = new Template('templates/frontpage.php');
   
   //Assign varibles 
@@ -13,6 +15,6 @@
   $template->topics =  $topic->getAllTopics();
   $template->totalTopics=$topic->getTotalTopics();
   $template->totalCategories =$topic->getTotalCategories();
-  //print_r($template->totalCategories);
-  //Display templates
+  $template->totalUsers = $user->getTotalUsers();
+
   echo $template;

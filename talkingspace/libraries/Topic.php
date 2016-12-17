@@ -55,13 +55,11 @@ public function getByUser($user_id){
 
 					WHERE topics.user_id =  ";
     $sql = $sql . $user_id;
-    //echo  $sql;
+  
 	$this->db->query($sql);
 	//$this->db->bind(':category_id',$category_id); 
 	$results = $this->db->resultset();
-	   
-	//echo "<pre>".print_r($results, true) . "</pre>";
-	// exit;
+
 	return  $results; 
   }   
   
@@ -128,11 +126,29 @@ public function getByUser($user_id){
 	return  $results;
   }
  
+ public function create($data){
+	 $sql= "INSERT INTO topics 
+	       (category_id, user_id, title,body,last_activity)
+	 	   VALUES(:category_id, :user_id,:title,:body,:last_activity)";
+  
+    $this->db->query($sql);
+  
+    $this->db->bind(':category_id', $data['category_id'] );
+    $this->db->bind(':user_id',  $data['user_id'] );
+    $this->db->bind(':title',  $data['title'] );
+    $this->db->bind(':body',  $data['body'] );
+    $this->db->bind(':last_activity',  $data['last_activity'] );	  
+	 
+	if($this->db->execute()){
+	  return true;
+	 }else{
+	 	return false;
+	 } 
+ }//create
  
  
  
- 
-}//class
+}//Topic class
  
  
  

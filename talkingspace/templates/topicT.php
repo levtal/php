@@ -7,7 +7,7 @@
 		<div class="col-md-2">
           <div class="user-info">
            <img class="avatar pull-left" 
-			   src="images/avatars/<?php echo $topic['avatar'];?>"/>	
+			   src="images/avatar/<?php echo $topic['avatar'];?>"/>	
             <ul>
               <li><strong><?php echo $topic['username'];?></strong></li>
               <li><?php echo userPostCount($topic['user_id']);?> posts</li>
@@ -34,7 +34,7 @@
 			     <div class="col-md-2">
                   <div class="user-info">
                     <img class="avatar pull-left" 
-					     src="images/avatars/<?php echo $reply['avatar'];?>" />	
+					     src="images/avatar/<?php echo $reply['avatar'];?>" />	
                      <ul>
                         <li><strong><?php echo $reply['username'];  ?></strong></li>
                         <li><?php echo userPostCount($reply['user_id']);?> posts</li>
@@ -45,10 +45,7 @@
 			      <div class="col-md-10">
 				    <div class="topic-content pull-right">
 					   <p> 
-					   <?php 
-					    // echo "<br><pre>".print_r($reply, true) . "</pre>";
-    					   echo $reply['body']; 
-						   ?>
+					   <?php echo $reply['body'];   ?>
 					   </p>
 					</div>
 				  </div>	
@@ -58,12 +55,11 @@
 			 <!--end reply  -->
 
         </ul>
-             
-			
-			<h3>Reply to topic</h3>
-			 
-			<form role="form">
-			  <div class="form-group">
+        <h3>Reply to topic</h3>
+		<?php  if(isLoggedIn():  ?>
+		<form role="form" method="post" 
+		   action="topic.php?id=<?php echo $topic['ggggid'];  ?>">
+			<div class="form-group">
               	<textarea id="reply" rows="10" cols="80"
 				          class="form-control" name="body"> 
 				</textarea>
@@ -74,10 +70,13 @@
 				
 				
 				</script>
-			 </div>
-			 <button type="submit" class="btn btn_default">Submit</button>
-			</form>
-		   <!--    end  center of page-->
+			</div>
+			<button type="submit" class="btn btn_default">Submit</button>
+		 </form>
+		 <?php else:  ?>
+		 <p>Please login to reply</p>
+         <?php endif;  ?>
+		 <!--    end  center of page-->
  
  
  
