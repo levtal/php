@@ -150,11 +150,7 @@ public function getByUser($user_id){
  
 }//Topic class
  
- 
- 
- 
- 
- ?>  
+?>  
   
   
   

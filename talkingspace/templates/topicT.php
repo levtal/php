@@ -58,7 +58,7 @@
         <h3>Reply to topic</h3>
 		<?php  if(isLoggedIn():  ?>
 		<form role="form" method="post" 
-		   action="topic.php?id=<?php echo $topic['ggggid'];  ?>">
+		   action="topic.php?id=<?php echo $topic['id'];  ?>">
 			<div class="form-group">
               	<textarea id="reply" rows="10" cols="80"
 				          class="form-control" name="body"> 

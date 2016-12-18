@@ -1,7 +1,9 @@
-  lesson 34 
- https://www.youtube.com/watch?v=RZPCTkvSwlA&index=30&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3
- 13:30
-#!/bin/bash
+  lesson 37 https://www.youtube.com/watch?v=ArscpqE0yc8&list=PLFgUdubu2ofjuWm14mwzddzKTo5gqYvB3&index=35
+4:00
+Codeigniter
+https://www.codeigniter.com/download 
+ 
+ #!/bin/bash
 # windows     /var/www/html/index.html  
 # linux       /usr/local/ampps/www      
 url1="https://www.youtube.com/watch?v=smzYNZ4GEV4&list=PL21E20F9A122DC853&index=2"
