@@ -2,6 +2,9 @@
 <?php
  /* script  to create  4 tables in the  'ecom'  database
  
+ 1'sd step:   create dbase 'ecom'
+ 2'nd step:   run this script
+
  1. products:   id,category,title,description,image,price 
  
  
@@ -89,7 +92,7 @@ $sql = "CREATE TABLE orders (
 	zipcode  VARCHAR(30)
 	)";
 	 
-echo $sql . "<br>";
+echo"<br>". $sql . "<br>";
 echo "<br>";
 if ($conn->query($sql) === TRUE) {
     echo "Table [orders] created successfully";
@@ -111,7 +114,7 @@ $sql = "CREATE TABLE users (
 	)";
 	 
 
-echo $sql . "<br>";
+echo "<br>". $sql . "<br>";
 echo "<br>";
 
 if ($conn->query($sql) === TRUE) {
@@ -132,7 +135,7 @@ $sql = "INSERT INTO categories(name)
 			   ('Xbox 360'),
 			   ('es3')";
 
-echo $sql . "<br>";
+echo "<br>".$sql . "<br>";
 echo "<br>";
 			   
 if ($conn->query($sql) === TRUE) {
