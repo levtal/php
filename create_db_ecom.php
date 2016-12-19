@@ -21,7 +21,7 @@
 	 */
  define('DB_HOST', '127.0.0.1');
  define('DB_USER', 'root');
- define('DB_PASS', '');## unbunto:"mysqlmysql",vista:"", kali :"" 
+ define('DB_PASS', 'mysqlmysql');## unbunto:"mysqlmysql",vista:"", kali :"" 
  define('DB_NAME', 'ecom');
 
   /*
@@ -58,7 +58,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating table [products] : " . $conn->error;
 }
-echo $sql . "<br>";
+echo "<br>".$sql . "<br>";
 echo "<br>";
 
  // sql to create table  categories
@@ -66,7 +66,7 @@ $sql = "CREATE TABLE categories (
     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) 
  )";
-echo $sql . "<br>";
+echo "<br>".$sql . "<br>";
 echo "<br>";
 
 if ($conn->query($sql) === TRUE) {
@@ -151,7 +151,7 @@ $sql = "INSERT INTO users
 		       ( 'romeo' ,'fbml','fbmm@ur','nn','1234' )
 				 ";
 echo "<br>"	;	
-echo $sql;
+echo "<br>". $sql . "<br>";
 if ($conn->query($sql) === TRUE) {
     echo  "<br> Users inserted into users table successfully";
 } else {
@@ -170,7 +170,7 @@ $sql = "INSERT INTO products
 		       ( '1' ,'dcl','ser  tyffd  bbh','game4.jpg','49.99' )
 				 ";
 echo "<br>"	;	
-echo $sql;
+echo "<br>". $sql. "<br>";
 if ($conn->query($sql) === TRUE) {
     echo  "<br> Products inserted into products table successfully";
 } else {

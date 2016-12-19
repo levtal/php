@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--localhost/prj/tgp_html/   -->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -44,16 +45,80 @@
           </form>
         </div><!--/.nav-collapse -->
       </div>
-    </nav>
+  </nav>
 
-    <div class="container">
+  <div class="container">
 
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
+  <div class="row">
 
-    </div><!-- /.container -->
+  
+   <!-- start side bar -->
+   <div class="cool-md-4">
+     <div class="cart-block">
+      <form action="cart/update" method="post">
+       <table cellpadding="6" cellspacing="1" styles="width:1004" border="1">
+        <tr>
+          <th> QTY</th>
+          <th>Item Description</th>
+          <th style="text-align:right">Item price</th>
+        </tr>
+         <tr>
+          <td></td>
+          <td class="right"><strong>Total</strong></td>
+          <td class="right" style="text-align:right">$</td>
+        </tr>
+      </table>
+       <br>
+       <p>
+        <button class="btn btn-default" type="submit">Update Cart</button>
+        <a class="btn btn-default" href="cart">Go to cart</a>
+       </p>
+    </form>
+   </div>
+     <!--  upper side  panel -->
+    <div class="panel panel-default panel-list">
+        <div class="panel-heading panel-heading-dark">
+         <h3 class="panel-title">Categories</h3> <!--  panel title -->
+       </div>
+ 
+    <ul class="list-group">
+     <li class="list-group-item"><a href="#" class="list-group-item">Dapibus ac facilisis in</a></li>
+     <li class="list-group-item"><a href="#" class="list-group-item">fdfddvdvisis in</a></li>
+     <li class="list-group-item"><a href="#" class="list-group-item">fgv  tgcvc  dfffg</a></li>
+     <li class="list-group-item"><a href="#" class="list-group-item">ge</a></li>   
+    </ul>
+   </div>  <!-- end upper side  panel -->
+
+  <!--  lower side  panel -->
+    <div class="panel panel-default panel-list">
+        <div class="panel-heading panel-heading-dark">
+         <h3 class="panel-title">Categories</h3> <!--  panel title -->
+       </div>
+ 
+    <ul class="list-group">
+     <li class="list-group-item"><a href="#" class="list-group-item">Dapibus ac facilisis in</a></li>
+     <li class="list-group-item"><a href="#" class="list-group-item">fdfddvdvisis in</a></li>
+     <li class="list-group-item"><a href="#" class="list-group-item">fgv  tgcvc  dfffg</a></li>
+     <li class="list-group-item"><a href="#" class="list-group-item">ge</a></li>   
+    </ul>
+   </div>  <!-- end lower side  panel -->
+
+
+
+  </div> <!-- end side bar -->
+ 
+
+
+
+ 
+
+
+    <div class="cool-md-8"><!--main bar -->
+      main bar
+   </div><!--end main bar -->
+  </div>
+
+  </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
