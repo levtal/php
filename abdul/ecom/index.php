@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<?php include 'functions/functions.php';   ?>
  
 <html lang="en">
 <head>
@@ -46,28 +48,23 @@
 	
     <div class="content_wrapper"> 
 	 
-	 <div id="sidebar"><!-- side bar   -->
-       <div id="sidebar_title">Categories</div>
+	<div id="sidebar"><!-- side bar   -->
+        <div id="sidebar_title">Categories</div>
 		<ul id="cats">
-          <li class=" "><a href="#" >Dapibus ac faci</a></li>
-          <li class=" "><a href="#" >fdfddvdvisis in</a></li>
-          <li class=" "><a href="#" >fgv  tgcvc  dfffg</a></li>
-          <li class=" "><a href="#" >ge</a></li>   
-        </ul> 
-		  
-      
-       <div id="sidebar_title">Brands</div>
+          <?php  getCats();?>
+		</ul> 
+     
+        <div id="sidebar_title">Brands</div>
 		<ul id="cats">
-          <li class=" "><a href="#" >HP</a></li>
-          <li class=" "><a href="#" >Dell</a></li>
-          <li class=" "><a href="#" >fgv  tgcvc  dfffg</a></li>
-          <li class=" "><a href="#" >ge</a></li>   
-        </ul> 
+            <?php   getBrands() ;?>
+		</ul> 
 		  
-     </div>
+    </div>
 	
 	<div id="content_area"><!--  content  -->
-          this is content area
+         
+
+		 this is content area
      </div>
 	</div><!--end content_wrapper   -->
 	

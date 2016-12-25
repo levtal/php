@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--localhost/prj/tgp_html/   -->
+<?php include 'functions/functions.php';   ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -85,25 +85,19 @@
        </div>
  
     <ul class="list-group">
-     <li class="list-group-item"><a href="#" class="list-group-item">Dapibus ac facilisis in</a></li>
-     <li class="list-group-item"><a href="#" class="list-group-item">fdfddvdvisis in</a></li>
-     <li class="list-group-item"><a href="#" class="list-group-item">fgv  tgcvc  dfffg</a></li>
-     <li class="list-group-item"><a href="#" class="list-group-item">ge</a></li>   
+	 <?php  getCats();?>
     </ul>
    </div>  <!-- end upper side  panel -->
 
   <!--  lower side  panel -->
     <div class="panel panel-default panel-list">
         <div class="panel-heading panel-heading-dark">
-         <h3 class="panel-title">Categories</h3> <!--  panel title -->
+         <h3 class="panel-title">Brands</h3> <!--Lower left side  panel title -->
        </div>
  
     <ul class="list-group">
-     <li class="list-group-item"><a href="#" class="list-group-item">Dapibus ac facilisis in</a></li>
-     <li class="list-group-item"><a href="#" class="list-group-item">fdfddvdvisis in</a></li>
-     <li class="list-group-item"><a href="#" class="list-group-item">fgv  tgcvc  dfffg</a></li>
-     <li class="list-group-item"><a href="#" class="list-group-item">ge</a></li>   
-    </ul>
+     <?php  getBrands();?>
+	  </ul>
    </div>  <!-- end lower side  panel -->
 
 

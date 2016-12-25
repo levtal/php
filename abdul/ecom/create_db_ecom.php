@@ -10,26 +10,12 @@
  1. products: 
  2. categories:  
  3. brands
+ */
+ include 'config/config.php'; //$servername $username $password $dbname
+ 
   
-	 
 
-	 
-	 */
- define('DB_HOST', '127.0.0.1');
- define('DB_USER', 'root');
- define('DB_PASS', '');## unbunto:"mysqlmysql",vista:"", kali :"" 
- define('DB_NAME', 'ecom');
-
-  /*
-        // Remote host data  quizz  u710518084_quizz
-     define('DB_HOST' , 'mysql.hostinger.co.il');
-     define('DB_USER' , 'u643891464_moggg'); 
-     define('DB_PASS' , 'paseri');
-     define('DB_NAME' ,'u643891464_quizz'); 
-  
-  */
-
- echo "<b>Creating 8 tables in ecom db</b>  <br>--------------------<br>  ";
+ echo "<b>Creating 8 tables in ecom dbase</b>  <br>--------------------<br>  ";
 // Create connection
 $conn = new mysqli(DB_HOST, DB_USER , DB_PASS , DB_NAME);
  
