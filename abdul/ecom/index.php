@@ -32,6 +32,8 @@
           <li><a href="#">Sign up</a></li>
           <li><a href="#">Shopping Cart</a></li>
           <li><a href="#">Contect Us</a></li>
+		  <li><a href="admin_area/insert_product.php">admin_area</a></li>
+		  
        
 	   </ul>
 	   <div id="form">
@@ -69,7 +71,7 @@
 	</div><!--end content_wrapper   -->
 	
 	<div id="footer"><!--   footer -->
-      <p> The scab &copy 2017, All Rights Reserved</p>
+      <p style="text-align:center; pading-top:30px"> The Scjab &copy 2017, All Rights Reserved</p>
     </div>
  </div> <!-- main_wrapper end  -->
  

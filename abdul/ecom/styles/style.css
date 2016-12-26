@@ -91,14 +91,14 @@ font-family:COMIC SANS MS;
 }
 .content_wrapper{
 width:1000px;	
- height:800px;	
+ 	
  margin:auto;	
  background:pink ;	
   clear: both;
 }
 #content_area{
  width:800px;	
- height:800px;
+ 
  float:right; 
  background:BurlyWood;	
  
@@ -106,7 +106,7 @@ width:1000px;
 
 #sidebar{
  width:200px;	
- height:800px;
+ 
  background:#494939;	 
  float:left; 
  clear: both;
@@ -150,7 +150,7 @@ width:1000px;
  
 #footer{
  width:1000px;	
- height:100px;
+ height:50px;
  float:left; 
  background:gray;	
  clear:both;

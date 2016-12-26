@@ -13,8 +13,6 @@
  */
  include 'config/config.php'; //$servername $username $password $dbname
  
-  
-
  echo "<b>Creating 8 tables in ecom dbase</b>  <br>--------------------<br>  ";
 // Create connection
 $conn = new mysqli(DB_HOST, DB_USER , DB_PASS , DB_NAME);
