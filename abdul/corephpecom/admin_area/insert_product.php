@@ -34,7 +34,7 @@ include("includes/db.php");
 			<tr>
 				<td align="right"><b>Product Category:</b></td>
 				<td>
-				<select name="product_cat" >
+				<select name="product_cat" required/>
 					<option>Select a Category</option>
 					<?php 
 		$get_cats = "select * from categories";
@@ -61,28 +61,19 @@ include("includes/db.php");
 			<tr>
 				<td align="right"><b>Product Brand:</b></td>
 				<td>
-				<select name="product_brand" >
-					<option>Select a Brand</option>
-					<?php 
-		$get_brands = "select * from brands";
-	
-	$run_brands = mysqli_query($con, $get_brands);
-	
-	while ($row_brands=mysqli_fetch_array($run_brands)){
-	
-		$brand_id = $row_brands['brand_id']; 
-		$brand_title = $row_brands['brand_title'];
-	
-	echo "<option value='$brand_id'>$brand_title</option>";
-	
-	
-	}
-					
-					?>
-				</select>
-				
-				
-				</td>
+				 <select name="product_brand"required/>
+				 <option>Select a Brand</option>
+				  <?php 
+		            $get_brands = "select * from brands";
+                    $run_brands = mysqli_query($con, $get_brands);
+                	while ($row_brands=mysqli_fetch_array($run_brands)){
+		             $brand_id = $row_brands['brand_id']; 
+		             $brand_title = $row_brands['brand_title'];
+                     echo "<option value='$brand_id'>$brand_title</option>";
+                    }
+				  ?>
+				 </select>
+                </td>
 			</tr>
 			
 			<tr>

@@ -35,7 +35,7 @@
 		<tr>
 		    <td align="right"><b>Product Category:</b></td>
 			<td>
-				<select name="product_cat" >
+				<select name="product_cat" required/>
 					<option>Select a Category</option>
 				    <?php  getCats(); ?>
 				</select>
@@ -45,7 +45,7 @@
 		<tr>
 			<td align="right"><b>Product Brand:</b></td>
 			<td>
-				<select name="product_brand" >
+				<select name="product_brand" required/>
 					<option>Select a Brand</option>
 					<?php  getBrands(); ?>
 				</select>
@@ -109,6 +109,9 @@
 		echo  "product_image2= ".$product_image2;
 		
 		
+echo "<br><pre>".print_r($_POST, true) . "</pre>";
+		
+echo "<br><pre>".print_r($_FILES, true) . "</pre>";
 		
 		/*
 		move_uploaded_file($product_image_tmp,"product_images/$product_image");
