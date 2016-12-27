@@ -57,7 +57,7 @@
 			<td>
 			    <input type="file" name="product_image" />
 				 Image URL  
-				<input type="text" name="product_image2" size="40" />
+				<input type="text" name="image2" size="40" />
 			</td>
 		</tr>
 			
@@ -102,23 +102,21 @@
 		//getting the image from the field
 		$product_image = $_FILES['product_image']['name'];
 		$product_image_tmp = $_FILES['product_image']['tmp_name'];
-		$product_image2 =  $_POST['product_image2'];
+		$image2 =  $_POST['image2'];
 		
-		echo  "product_image= ". $product_image;
-		echo  "product_image_tmp= ".$product_image_tmp;
-		echo  "product_image2= ".$product_image2;
+		echo  "product_cat= [". $product_cat."]";
+		echo  "product_brand= [".$product_brand."]";
+		echo  "image2= ".$image2;
+	   /// echo "<br><pre>".print_r($_FILES, true) . "</pre>";
 		
 		
-echo "<br><pre>".print_r($_POST, true) . "</pre>";
-		
-echo "<br><pre>".print_r($_FILES, true) . "</pre>";
-		
-		/*
-		move_uploaded_file($product_image_tmp,"product_images/$product_image");
+		///move_uploaded_file($product_image_tmp,"product_images/$product_image");
 	
-		 $insert_product = "insert into products (product_cat,product_brand,product_title,product_price,product_desc,product_image,product_keywords) values ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$product_keywords')";
-		 
-		 $insert_pro = mysqli_query($con, $insert_product);
+		 $insert_product = "INSERT INTO products (product_cat,product_brand,product_title,product_price,product_desc,product_image,image2,product_keywords) 
+		  VALUES   
+		  ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$image2','$product_keywords')";
+		echo "<br>  $insert_product <br>";
+		/* $insert_pro = mysqli_query($con, $insert_product);
 		 
 		 if($insert_pro){
 		 
