@@ -65,7 +65,7 @@
 	
 	<div id="content_area"><!--  content  -->
          
-
+          <?php  getPro() ;?>
 		 this is content area
      </div>
 	</div><!--end content_wrapper   -->

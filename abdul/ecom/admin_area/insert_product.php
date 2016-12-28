@@ -89,41 +89,39 @@
 
 <?php 
 
-	if(isset($_POST['insert_post'])){
+ if(isset($_POST['insert_post'])){
 	
-		//getting the text data from the fields
-		$product_title = $_POST['product_title'];
-		$product_cat= $_POST['product_cat'];
-		$product_brand = $_POST['product_brand'];
-		$product_price = $_POST['product_price'];
-		$product_desc = $_POST['product_desc'];
-		$product_keywords = $_POST['product_keywords'];
+	 //getting the text data from the fields
+	$product_title = $_POST['product_title'];
+	$product_cat= $_POST['product_cat'];
+	$product_brand = $_POST['product_brand'];
+	$product_price = $_POST['product_price'];
+	$product_desc = $_POST['product_desc'];
+	$product_keywords = $_POST['product_keywords'];
 	
 		//getting the image from the field
-		$product_image = $_FILES['product_image']['name'];
-		$product_image_tmp = $_FILES['product_image']['tmp_name'];
-		$image2 =  $_POST['image2'];
-		
-		echo  "product_cat= [". $product_cat."]";
-		echo  "product_brand= [".$product_brand."]";
-		echo  "image2= ".$image2;
-	   /// echo "<br><pre>".print_r($_FILES, true) . "</pre>";
-		
-		
-		///move_uploaded_file($product_image_tmp,"product_images/$product_image");
+	$product_image = $_FILES['product_image']['name'];
+	$product_image_tmp = $_FILES['product_image']['tmp_name'];
+	$image2 =  $_POST['image2'];
+		 
+	/// echo "<br><pre>".print_r($_FILES, true) . "</pre>";
+	move_uploaded_file($product_image_tmp,"product_images/$product_image");
 	
-		 $insert_product = "INSERT INTO products (product_cat,product_brand,product_title,product_price,product_desc,product_image,image2,product_keywords) 
+	$sql = "INSERT INTO products (product_cat,product_brand,product_title,
+	                 product_price,product_desc,product_image,image2,product_keywords) 
 		  VALUES   
-		  ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image','$image2','$product_keywords')";
-		echo "<br>  $insert_product <br>";
-		/* $insert_pro = mysqli_query($con, $insert_product);
+		  ('$product_cat','$product_brand','$product_title','$product_price',
+		                '$product_desc','$product_image','$image2','$product_keywords')";
+		echo "<br>  $sql <br>";
+		$result = $con->query($sql);
+		
+		// $insert_pro = mysqli_query($con, $insert_product);
 		 
-		 if($insert_pro){
+	if($result){
+	   echo "<script>alert('Product Has been inserted!')</script>";
+	   echo "<script>window.open('insert_product.php','_self')</script>";
 		 
-		   echo "<script>alert('Product Has been inserted!')</script>";
-		   echo "<script>window.open('index.php?insert_product','_self')</script>";
-		 
-		 }*/
-	}
+	 }
+ }
 
  
