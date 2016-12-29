@@ -29,8 +29,8 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`user_id`, `user_email`, `user_pass`) VALUES
-(1, 'awpareshan@gmail.com', 'wali'),
-(2, 'saima@yahoo.com', 'khan');
+(1, 'gabrial@gmail.com', 'pase ri223'),
+(2, 'mnoel@yahoo.com', 'ragli 832');
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 
 --
 -- Dumping data for table `brands`
---
+-- https://en.wikipedia.org/wiki/List_of_art_movements
 
 INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
 (1, 'HP'),
@@ -54,7 +54,8 @@ INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
 (3, 'LG'),
 (4, 'Samsung'),
 (5, 'Sony'),
-(6, 'Toshiba');
+(6, 'Toshiba'),
+(7, 'Emile Munier');
 
 -- --------------------------------------------------------
 
@@ -91,8 +92,8 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 (3, 'Mobiles'),
 (4, 'Computers'),
 (5, 'Banana'),
-(6, 'iPhones');
-
+(6, 'iPhones'),
+(7, 'Academic art');
 -- --------------------------------------------------------
 
 --
@@ -118,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `customer_ip`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`) VALUES
-(6, '119.157.220.50', 'Abdul Wali', 'awpareshan@gmail.com', 'walikhan', 'Pakistan', 'Karachi', '3243423', 'dfads', 'abdul-wali-ustaad1.jpg');
+(6, '120.56.62.88', 'Grsti Dtfd', 'rsti@gmail.com', 'walikhan', 'Pakistan', 'Karachi', '3243423', 'dfads', 'abdul-wali-ustaad1.jpg');
 
 -- --------------------------------------------------------
 
@@ -211,10 +212,23 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`,`image2`,
  `product_keywords`) VALUES
-(5, 3, 4, 'Samsung Camera', 900, '<p>This is a great samsung mobile, you must buy it in order to have some really good fun.&nbsp;</p>', 'Samsung-Galaxy-Tab-tablet.jpg','http://web2course.wiki.co.il/images/thumb/c/c9/Salvador5.jpg/250px-Salvador5.jpg ',
+(5, 3, 4, 
+'Samsung Camera', 
+900, 
+'<p>This is a great samsung mobile, you must buy it in order to have some really good fun.&nbsp;</p>', 
+'Samsung-Galaxy-Tab-tablet.jpg','http://web2course.wiki.co.il/images/thumb/c/c9/Salvador5.jpg/250px-Salvador5.jpg ',
  'Samsung, Cameras, Special'),
-(6, 3, 6, 'HTC mobile ', 200, '<p>this one is a great one.</p>', 'HTC-Google-Nexus-One-2.jpg',' ', 'mobiles, new, special'),
-(7, 2, 6, 'Toshiba Camera ', 250, '<p>This is a great camera...</p>', 'professional-video-camera.jpg',' ', 'Toshiba, cameras, Special'),
+
+ (6, 7, 7,
+ 'Au Temps des Fraise',
+ 200, 
+ '<p>Currently only known through the line drawing that was used to illustrate the painting in the Salon catalogue.</p>', 
+ 'HTC-Google-Nexus-One-2.jpg',
+'http://www.emilemunier.org/catalogimages//munier_1895_04_au_temps_des_fraises.jpg ', 'mobiles, new, gray'),
+
+(7, 7, 7, 'May I Have One Too', 250, '<p>Oil on canvas...</p>',
+'professional-video-camera.jpg',
+'http://www.emilemunier.org/catalogimages/munier_1880_1_may_i_have_one_too.jpg ', 'Family, nature, oil'),
 (8, 3, 5, 'Nokia Tablet', 450, '<p>this is a great thing....</p>', 'nokia-windows-200-dollar-tablet2-640x353.jpg',' ', 'Samsung, Cameras, Special'),
 (9, 1, 2, 'Dell Pink Laptop', 500, '<p>this is a very nice <strong>laptop</strong> and I like it very much....</p>', '1.jpg',' ', 'dell, laptops, new, special'),
 (10, 1, 1, 'HP Envy Laptop', 400, '<p>this is so much nice laptop..</p>', 'original.jpg',' ', 'dell, laptops, new, special');

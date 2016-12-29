@@ -51,12 +51,12 @@
     <div class="content_wrapper"> 
 	 
 	<div id="sidebar"><!-- side bar   -->
-        <div id="sidebar_title">Categories</div>
+        <div id="sidebar_title">Movements</div>
 		<ul id="cats">
           <?php  getCats();?>
 		</ul> 
      
-        <div id="sidebar_title">Brands</div>
+        <div id="sidebar_title">Artists</div>
 		<ul id="cats">
             <?php   getBrands() ;?>
 		</ul> 
@@ -65,8 +65,8 @@
 	
 	<div id="content_area"><!--  content  -->
          
-          <?php  getPro() ;?>
-		 this is content area
+          <?php  getPro();?>
+		
      </div>
 	</div><!--end content_wrapper   -->
 	
