@@ -101,7 +101,7 @@ function getCatPro(){
 	
 	while($row_cat_pro=mysqli_fetch_array($run_cat_pro)){
 	
-		$pro_id = $row_cat_pro['product_id'];
+		$id = $row_cat_pro['product_id'];
 		$pro_cat = $row_cat_pro['product_cat'];
 		$pro_brand = $row_cat_pro['product_brand'];
 		$pro_title = $row_cat_pro['product_title'];
@@ -117,9 +117,15 @@ function getCatPro(){
 					
 					<p><b> $ $pro_price </b></p>
 					
-					<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
+					<a href='details.php?pro_id=$id' style='float:left;'>
+					     Details
+					</a>
 					
-					<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
+					<a href='index.php?pro_id=$id'>
+					  <button style='float:right'>
+					     Add to Cart
+					  </button>
+					</a>
 				
 				</div>
 		

@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 -- https://en.wikipedia.org/wiki/List_of_art_movements
 
 INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
-(1, 'HP'),
+(1, 'Albert Gleizes'),
 (2, 'DELL'),
 (3, 'LG'),
 (4, 'Samsung'),
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
-(1, 'Laptops'),
+(1, 'Abstract art'),
 (2, 'Cameras'),
 (3, 'Mobiles'),
 (4, 'Computers'),
@@ -216,7 +216,8 @@ INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_t
 'Samsung Camera', 
 900, 
 '<p>This is a great samsung mobile, you must buy it in order to have some really good fun.&nbsp;</p>', 
-'Samsung-Galaxy-Tab-tablet.jpg','http://web2course.wiki.co.il/images/thumb/c/c9/Salvador5.jpg/250px-Salvador5.jpg ',
+'Samsung-Galaxy-Tab-tablet.jpg',
+'http://web2course.wiki.co.il/images/thumb/c/c9/Salvador5.jpg/250px-Salvador5.jpg ',
  'Samsung, Cameras, Special'),
 
  (6, 7, 7,
@@ -226,10 +227,21 @@ INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_t
  'HTC-Google-Nexus-One-2.jpg',
 'http://www.emilemunier.org/catalogimages//munier_1895_04_au_temps_des_fraises.jpg ', 'mobiles, new, gray'),
 
-(7, 7, 7, 'May I Have One Too', 250, '<p>Oil on canvas...</p>',
+(7, 7, 7, 
+  'May I Have One Too', 
+  250,
+   '<p>Oil on canvas...</p>',
 'professional-video-camera.jpg',
-'http://www.emilemunier.org/catalogimages/munier_1880_1_may_i_have_one_too.jpg ', 'Family, nature, oil'),
-(8, 3, 5, 'Nokia Tablet', 450, '<p>this is a great thing....</p>', 'nokia-windows-200-dollar-tablet2-640x353.jpg',' ', 'Samsung, Cameras, Special'),
+'http://www.emilemunier.org/catalogimages/munier_1880_1_may_i_have_one_too.jpg ',
+ 'Family, nature, oil'),
+
+(8, 1, 1, 
+  'Bords de la Marne', 
+  450,
+   '<p>Museum of Fine Arts of Lyon</p>', 
+   'nokia-windows-200-dollar-tabMuseum of Fine Arts of Lyonlet2-640x353.jpg',
+   'https://upload.wikimedia.org/wikipedia/en/4/4a/Albert_Gleizes%2C_1909%2C_Bords_de_la_Marne%2C_oil_on_canvas%2C_54_x_65_cm%2C_Mus%C3%A9e_des_Beaux-Arts%2C_Lyon..jpg ',
+    'Marne, Bords, oil'),
 (9, 1, 2, 'Dell Pink Laptop', 500, '<p>this is a very nice <strong>laptop</strong> and I like it very much....</p>', '1.jpg',' ', 'dell, laptops, new, special'),
 (10, 1, 1, 'HP Envy Laptop', 400, '<p>this is so much nice laptop..</p>', 'original.jpg',' ', 'dell, laptops, new, special');
 

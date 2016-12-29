@@ -43,9 +43,6 @@
 		</form>
 	   </div>
 	   
-	   
-	   
-	   
 	</div>
 	
     <div class="content_wrapper"> 
@@ -64,9 +61,17 @@
     </div>
 	
 	<div id="content_area"><!--  content  -->
-         
+        <div id="shopping_cart">
+          <span style="font-size:18px;float:right;padding:5px;line-height:40px;">
+              Welcome  Guest <b style= "color:yellow">Shopping cart - </b>
+              Total items:   Total price:
+              <a href="cart.php" style= "color:yellow">Go to Cart</a>
+          </span>
+        </div>
+
+        <div id="products_box"> 
           <?php  getPro();?>
-		
+		</div>
      </div>
 	</div><!--end content_wrapper   -->
 	
