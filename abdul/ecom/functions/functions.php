@@ -2,8 +2,36 @@
 
 include ('config/database.php'); //create $mysqli con 
 
+//Get the category which id is num
+function getCat($num) {  
+	global $con;// connection defind in  'config/database.php'
+	$sql = "SELECT * FROM categories
+	        WHERE cat_id='$num'" ;
+ 
+    $result = $con->query($sql)  
+                or  die($con->error);
+    
+    //$row=mysqli_fetch_array($result);
+    //echo "<br><pre>".print_r($result, true) . "</pre>";
+    //echo $sql;
+    //exit;
+	while($row=mysqli_fetch_array($result)){
+		$cat_id = $row['cat_id'];
+		$cat_title = $row['cat_title'];
+		 
+        $out= "<a href=";
+		$out = $out ."'categories.php?cat_id=$cat_id'";
+		$out = $out.">$cat_title</a>";
+		echo $out;
+	}
+} 
 
-//Get the categories
+
+
+
+
+
+//Get the all thecategories
 function getCats() {
 	global $con;// connection defind in  'config/database.php'
 	$sql = "SELECT * FROM categories" ;
@@ -20,6 +48,28 @@ function getCats() {
 	}
 }
  
+function getBrand($num) { // Return brand name of a numerical code
+	global $con;// connection defind in  'config/database.php'
+	$sql = "SELECT * FROM brands
+	        WHERE brand_id='$num'" ;
+ 
+    $result = $con->query($sql)  
+                or  die($con->error);
+    
+    //$row=mysqli_fetch_array($result);
+    //echo "<br><pre>".print_r($result, true) . "</pre>";
+    //echo $sql;
+    //exit;
+	while($row=mysqli_fetch_array($result)){
+		$brand_id = $row['brand_id'];
+		$brand_title = $row['brand_title'];
+		 
+        $out= "<a href=";
+		$out=$out."'brands.php?brand_id=$brand_id'"." >$brand_title</a>";
+		echo $out;
+	}
+} 
+
 
 function getBrands() {
 	global $con;// connection defind in  'config/database.php'
