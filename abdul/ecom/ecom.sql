@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 
 INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
 (1, 'Albert Gleizes'),
-(2, 'DELL'),
+(2, 'Maurice de Vlaminck'),
 (3, 'LG'),
 (4, 'Samsung'),
 (5, 'Sony'),
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 (1, 'Abstract art'),
-(2, 'Cameras'),
+(2, 'Fauvisme'),
 (3, 'Mobiles'),
 (4, 'Computers'),
 (5, 'Banana'),
@@ -212,12 +212,16 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`,`image2`,
  `product_keywords`) VALUES
-(5, 3, 4, 
-'Samsung Camera', 
+(5, 2,2, 
+'Paysage Orageux', 
 900, 
-'<p>This is a great samsung mobile, you must buy it in order to have some really good fun.&nbsp;</p>', 
+'<p>Medium: Paintings, Oil on canvas
+Size:   19.7 x 25.6 in. (50 x 65 cm.)
+Size Notes:  29.5 x 35.4 in (with frame)
+Movement:    Modern Art
+Catalogue:    Hélène Bailly Gallery Inventory ;</p>', 
 'Samsung-Galaxy-Tab-tablet.jpg',
-'http://web2course.wiki.co.il/images/thumb/c/c9/Salvador5.jpg/250px-Salvador5.jpg ',
+' http://www.artnet.com/WebServices/images/ll1070199llgJ1jR3CfDrCWvaHBOAD/maurice-de-vlaminck-paysage-orageux.jpg ',
  'Samsung, Cameras, Special'),
 
  (6, 7, 7,

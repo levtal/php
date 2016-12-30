@@ -64,10 +64,10 @@ function getPro(){
         <h3>$pro_title</h3>
 	    <img src='$image_src' width='180' height='180'/>
 	    <p><b> Price: $ $price </b></p>
-	    <a href='details.php?pro_id = $id' style='float:left;'> 
+	    <a href='details.php?pro_id=$id' style='float:left;'> 
 		  Details:
 	    </a>
-	    <a href='index.php?add_cart = $id'>
+	    <a href='index.php?add_cart=$id'>
 		  <button style='float:right'>
 		       Add to Cart
 		  </button>
