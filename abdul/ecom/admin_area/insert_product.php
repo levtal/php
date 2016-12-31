@@ -1,8 +1,7 @@
  <!DOCTYPE html>
+ 
 <?php include 'admin_functions.php';   ?>
-<?php  //  /admin_area/insert_product.php
 
-//include '../functions/functions.php';   ?>
   
 <html lang="en">
 <head>

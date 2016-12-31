@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 
-<?php include 'functions/functions.php';   ?>
+<?php $home = getenv("HOME");
+  echo "{".$home ." }";
+  echo getcwd() . "\n";
+   echo "{".($_SERVER['DOCUMENT_ROOT'])." }";
+  exit;
+
+
+include '../functions/functions.php';   ?>
  
 <html lang="en">
 <head>
@@ -19,20 +26,18 @@
 <body>
  <div class="main_wrapper">
     <div class="header_wrapper"> <!--  header -->
-       <a href="index.php">
-	         <img id="logo" src="images/logo.png">
-		</a>	 
+       <img id="logo" src="images/logo.png">
 	   <img id="banner" src="images/ad_banner.png">
 	   
     </div>
 	
 	<div class="menubar"> <!-- upper menu bar   -->
         <ul id="menu">
-    	  <li><a href="index.php">Home</a></li>
-          <li><a href="all_products.php">All Products</a></li>
-          <li><a href="customer/my_account.php">My Account</a></li>
+    	  <li><a href="#">Home</a></li>
+          <li><a href="#">All Products</a></li>
+          <li><a href="#">My Account</a></li>
           <li><a href="#">Sign up</a></li>
-          <li><a href="cart.php">Shopping Cart</a></li>
+          <li><a href="#">Shopping Cart</a></li>
           <li><a href="#">Contect Us</a></li>
 		  <li><a href="admin_area/insert_product.php">admin_area</a></li>
 		  
