@@ -4,8 +4,13 @@
  Abdul Khan  
    
  http://www.onlinetuting.com/
- https://www.youtube.com/watch?v=7V1mIr1aupY&list=PL3oMl9a6mutmWThi6I3Wsz9uL8xWI7Epz&index=22
- #!/bin/bash
+ 
+ https://www.youtube.com/watch?v=2t7G9BDUg6g&list=PL3oMl9a6mutmWThi6I3Wsz9uL8xWI7Epz&index=24
+ 
+ 
+ 
+ 
+  #!/bin/bash
 # windows     /var/www/html/index.html  
 # linux       /usr/local/ampps/www      
 url1="https://www.youtube.com/watch?v=smzYNZ4GEV4&list=PL21E20F9A122DC853&index=2"

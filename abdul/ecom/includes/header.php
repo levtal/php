@@ -35,11 +35,9 @@
           <li><a href="cart.php">Shopping Cart</a></li>
           <li><a href="#">Contect Us</a></li>
 		  <li><a href="admin_area/insert_product.php">admin_area</a></li>
-		  
-       
-	   </ul>
+        </ul>
 	   <div id="form">
-	    <form class="" method="get" action="result.php" enctype="multipart/form-data">
+	    <form class="" method="get" action="results.php" enctype="multipart/form-data">
           <input type="text" name="user_query"   placeholder="Search"/>
           <input type="submit" name="search"  value="search"/>          
 		</form>

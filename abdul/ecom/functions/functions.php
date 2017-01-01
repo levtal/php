@@ -89,7 +89,8 @@ function getPro(){
 
  if(!isset($_GET['cat'])){
   if(!isset($_GET['brand'])){
-   global $con; 
+   global $con;
+   
    $sql = "SELECT * FROM products ORDER BY RAND() LIMIT 0,6";//6 random items" ;
    $result = $con->query($sql) or  die($con->error);
    while($row=mysqli_fetch_array($result)){
