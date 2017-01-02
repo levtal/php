@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <?php include 'functions/functions.php';   ?>
  
 <html lang="en">
 <head>
-         <title>E-Commerce</title>
+    <title>E-Commerce</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="styles/style.css" media="all"/>
@@ -13,7 +12,6 @@
     <link href="css/custom.css" rel="stylesheet">
 	 
     <script src="/js/bootstrap.js"></script>
-    
 </head>
 
 <body>
@@ -27,7 +25,8 @@
     </div>
 	
 	<div class="menubar"> <!-- upper menu bar   -->
-        <ul id="menu">
+       <?php echo "ip=[".getIp()."]"; ?>
+	   <ul id="menu">
     	  <li><a href="index.php">Home</a></li>
           <li><a href="all_products.php">All Products</a></li>
           <li><a href="customer/my_account.php">My Account</a></li>
@@ -59,11 +58,12 @@
 		</ul> 
 		  
     </div>
-	<div id="content_area"><!--  content  -->
-        <div id="shopping_cart">
+	<div id="content_area"> <!--  content  -->
+        <?php cart(); ?>
+       <div id="shopping_cart">
           <span style="font-size:18px;float:right;padding:5px;line-height:40px;">
               Welcome  Guest <b style= "color:yellow">Shopping cart - </b>
-              Total items:   Total price:
+              Total items: <?php total_items() ;?>   Total price:
               <a href="cart.php" style= "color:yellow">Go to Cart</a>
           </span>
         </div>

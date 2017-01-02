@@ -8,7 +8,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `onlinetu_ecommerce`
+-- Database: `ecom`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`user_id`, `user_email`, `user_pass`) VALUES
-(1, 'gabrial@gmail.com', 'pase ri223'),
+(1, 'dani@gmail.com', 'paseri*30'),
 (2, 'mnoel@yahoo.com', 'ragli 832');
 
 -- --------------------------------------------------------

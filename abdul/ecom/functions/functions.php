@@ -1,7 +1,106 @@
 <?php
 
 include ('config/database.php'); //create $mysqli con 
+ 
 
+ //Geting user IP   
+function getIp() {
+  $ip = $_SERVER['REMOTE_ADDR'];
+ 
+ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+ } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+ return $ip;
+}
+  
+  
+  
+//Creating the shopping cart
+function cart(){
+ if(isset($_GET['add_cart'])){
+	 // the button add to cart was pressed ( defind in getPro line 232)
+	 // in the tag <a href='index.php?add_cart=$id'> 
+ global $con; 
+ $ip = getIp();
+ $pro_id = $_GET['add_cart'];
+ $sql = "SELECT * FROM cart 
+	       WHERE 
+		   ip_add='$ip' AND p_id='$pro_id'";
+ // you cant add the sampe product again from  the same ip		   
+ $result = $con->query($sql)  or  die($con->error);
+ $total =  $result->num_rows;
+ if($total >0){  	echo "";}
+ else {// this is a new product(p_id) or new ip(ip_add)
+	$sql = "INSERT INTO cart (p_id,ip_add) 
+	        VALUES ('$pro_id','$ip')";
+    $result = $con->query($sql) or  die($con->error);
+    echo "<script>window.open('index.php','_self')</script>";
+  }
+ }//if(isset($_GET
+}//cart
+
+
+ // getting the total added items
+function total_items(){
+  //if(isset($_GET['add_cart'])){// ( defind in getPro line 232)
+	global $con; 
+	$ip = getIp(); 
+	$sql = "select * from cart where ip_add='$ip'";
+	$result = $con->query($sql)  or  die($con->error);
+    $count_items =  $result->num_rows;
+ /* }else {
+	 global $con; 
+	 $ip = getIp(); 
+	 $sql = "select * from cart where ip_add='$ip'";
+	 $run_items = mysqli_query($con, $get_items); 
+	 $count_items = mysqli_num_rows($run_items);
+//	}*/
+	
+	echo $count_items;
+}
+  
+// Getting the total price of the items in the cart 
+	
+	function total_price(){
+	
+		$total = 0;
+		
+		global $con; 
+		
+		$ip = getIp(); 
+		
+		$sel_price = "select * from cart where ip_add='$ip'";
+		
+		$run_price = mysqli_query($con, $sel_price); 
+		
+		while($p_price=mysqli_fetch_array($run_price)){
+			
+			$pro_id = $p_price['p_id']; 
+			
+			$pro_price = "select * from products where product_id='$pro_id'";
+			
+			$run_pro_price = mysqli_query($con,$pro_price); 
+			
+			while ($pp_price = mysqli_fetch_array($run_pro_price)){
+			
+			$product_price = array($pp_price['product_price']);
+			
+			$values = array_sum($product_price);
+			
+			$total +=$values;
+			
+			}
+		
+		
+		}
+		
+		echo "$" . $total;
+		
+	
+	}
+/////////////////////////////////////////////////////////////
 //Get the category which id is num
 function getCat($num) {  
 	global $con;// connection defind in  'config/database.php'
@@ -83,7 +182,7 @@ function getBrands() {
 		echo $out;
 	}
 } 
-
+ 
 // getPro: print products in index page
 function getPro(){
 
@@ -240,9 +339,4 @@ function getBrandPro(){
 	
 }
 }
-
-	
-	
-    
-
 ?>  

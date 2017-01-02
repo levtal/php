@@ -5,9 +5,11 @@
    
  http://www.onlinetuting.com/
  
- https://www.youtube.com/watch?v=2t7G9BDUg6g&list=PL3oMl9a6mutmWThi6I3Wsz9uL8xWI7Epz&index=24
+ https://www.youtube.com/watch?v=TsQsDYi5c40&list=PL3oMl9a6mutmWThi6I3Wsz9uL8xWI7Epz&index=26
  
  
+echo "<br><pre>".print_r($row, true) . "</pre>";
+exit;
  
  
   #!/bin/bash
