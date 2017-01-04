@@ -63,7 +63,8 @@
        <div id="shopping_cart">
           <span style="font-size:18px;float:right;padding:5px;line-height:40px;">
               Welcome  Guest <b style= "color:yellow">Shopping cart - </b>
-              Total items: <?php total_items() ;?>   Total price:
+              Total items: <?php total_items();//function.php?> 
+              Total price: <?php total_price();//function.php?>
               <a href="cart.php" style= "color:yellow">Go to Cart</a>
           </span>
         </div>

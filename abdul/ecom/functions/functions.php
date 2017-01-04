@@ -20,7 +20,7 @@ function getIp() {
 //Creating the shopping cart
 function cart(){
  if(isset($_GET['add_cart'])){
-	 // the button add to cart was pressed ( defind in getPro line 232)
+	 // the button 'add_cart' was pressed ( defind in getPro line 217)
 	 // in the tag <a href='index.php?add_cart=$id'> 
  global $con; 
  $ip = getIp();
@@ -62,28 +62,22 @@ function total_items(){
 }
   
 // Getting the total price of the items in the cart 
+ function total_price(){
+  $total = 0;
+  global $con; 
+  $ip = getIp(); 
+  $sql = "SELECT * from cart where ip_add='$ip'";//get producets of one ip address
+  $result = $con->query($sql)  or  die($con->error);
+  //$count_items =  $result->num_rows;		
+  while($p_price=mysqli_fetch_array($result)){
+	// fields of cart: p_id, ip_add, qty		
+	$pro_id = $p_price['p_id'];//get one prduct_id 
 	
-	function total_price(){
-	
-		$total = 0;
-		
-		global $con; 
-		
-		$ip = getIp(); 
-		
-		$sel_price = "select * from cart where ip_add='$ip'";
-		
-		$run_price = mysqli_query($con, $sel_price); 
-		
-		while($p_price=mysqli_fetch_array($run_price)){
+	$sql2 = "SELECT * FROM products 
+	              WHERE  product_id='$pro_id'";
+	$run_pro_price = mysqli_query($con,$sql2); 
 			
-			$pro_id = $p_price['p_id']; 
-			
-			$pro_price = "select * from products where product_id='$pro_id'";
-			
-			$run_pro_price = mysqli_query($con,$pro_price); 
-			
-			while ($pp_price = mysqli_fetch_array($run_pro_price)){
+	while ($pp_price = mysqli_fetch_array($run_pro_price)){
 			
 			$product_price = array($pp_price['product_price']);
 			
@@ -100,7 +94,7 @@ function total_items(){
 		
 	
 	}
-/////////////////////////////////////////////////////////////
+ 
 //Get the category which id is num
 function getCat($num) {  
 	global $con;// connection defind in  'config/database.php'
