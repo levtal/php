@@ -1,6 +1,6 @@
 <div>
 <?php 
-		include("functions/functions.php");
+		//include ('config/database.php'); //create $mysqli con 
 		
 		$total = 0;
 		

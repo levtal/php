@@ -1,6 +1,6 @@
 <?php 
 // After uploading to online server, change this connection accordingly
-$con = mysqli_connect("localhost","root","","ecommerce1");
+$con = mysqli_connect("localhost","root","","ecommerce");
 
 if (mysqli_connect_errno())
   {

@@ -60,7 +60,32 @@ function total_items(){
 	
 	echo $count_items;
 }
-  
+ /*
+function total_price2(){
+  $total = 0;
+  global $con; 
+  $ip = getIp(); 
+  $sql = "SELECT * from cart where ip_add='$ip'";//get producets of one ip address
+  $result = $con->query($sql)  or  die($con->error);
+  //Scan products of user from a spcific ip address		
+  while($p_price=mysqli_fetch_array($result)){
+	// fields of cart: p_id, ip_add, qty		
+	$pro_id = $p_price['p_id'];//get one prduct_id 
+	$sql2 = "SELECT * FROM products 
+	         WHERE  product_id='$pro_id'";
+	//find the price of the product 
+	$run_pro_price = $con->query($sql2) or die($con->error);		
+	while ($product_data = mysqli_fetch_array($run_pro_price)){
+	      	//$product_data = holds all data of one product
+    	$product_price = array($product_data['product_price']);
+		$values = array_sum($product_price);
+		$total +=$values;
+	}
+  }
+ 	echo "$" . $total;
+	}
+*/
+ 
 // Getting the total price of the items in the cart 
  function total_price(){
   $total = 0;
@@ -68,44 +93,28 @@ function total_items(){
   $ip = getIp(); 
   $sql = "SELECT * from cart where ip_add='$ip'";//get producets of one ip address
   $result = $con->query($sql)  or  die($con->error);
-  //$count_items =  $result->num_rows;		
-  while($p_price=mysqli_fetch_array($result)){
+  //Scan products of user from a spcific ip address(cart table)
+  while($user_cart=mysqli_fetch_array($result)){
 	// fields of cart: p_id, ip_add, qty		
-	$pro_id = $p_price['p_id'];//get one prduct_id 
-	
-	$sql2 = "SELECT * FROM products 
-	              WHERE  product_id='$pro_id'";
-	$run_pro_price = mysqli_query($con,$sql2); 
-			
-	while ($pp_price = mysqli_fetch_array($run_pro_price)){
-			
-			$product_price = array($pp_price['product_price']);
-			
-			$values = array_sum($product_price);
-			
-			$total +=$values;
-			
-			}
-		
-		
-		}
-		
-		echo "$" . $total;
-		
-	
-	}
+ 	$pro_id = $user_cart['p_id'];//get one prduct_id from user_cart
+ 	$sql2 = "SELECT * FROM products 
+	         WHERE  product_id='$pro_id'";
+	$pro = $con->query($sql2) or die($con->error);		
+	$product_data = mysqli_fetch_array($pro);
+	$product_price = $product_data['product_price']; 
+	$total +=$product_price;
+  }
+ echo "$" . $total;
+}
  
 //Get the category which id is num
 function getCat($num) {  
 	global $con;// connection defind in  'config/database.php'
 	$sql = "SELECT * FROM categories
 	        WHERE cat_id='$num'" ;
- 
     $result = $con->query($sql)  
                 or  die($con->error);
-    
-   
-	while($row=mysqli_fetch_array($result)){
+ 	while($row=mysqli_fetch_array($result)){
 		$cat_id = $row['cat_id'];
 		$cat_title = $row['cat_title'];
 		 
