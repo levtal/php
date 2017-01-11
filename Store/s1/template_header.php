@@ -25,7 +25,7 @@
       <a href="#">Help</a> 
 	    &nbsp; &middot; &nbsp; 
 	  <a href="#">Contact</a>
-	   <a href="./host_data.php">hostdata</a>
+	   <a href="storeadmin/host_data.php">hostdata</a>
 	</td>
    </tr>
   </table>
