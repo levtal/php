@@ -19,7 +19,7 @@ mysql -u root -p
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "myDB";
+    $dbname = "ecom";
  
  
 /*  

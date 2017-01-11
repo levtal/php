@@ -90,7 +90,8 @@ include("functions/functions.php");
 					}
 					?>
 					
-					<b style="color:yellow">Shopping Cart -</b> Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" style="color:yellow">Go to Cart</a>
+					<b style="color:yellow">Shopping Cart -</b>
+					Total Items: <?php total_items();?> Total Price: <?php total_price(); ?> <a href="cart.php" style="color:yellow">Go to Cart</a>
 					
 					
 					<?php 

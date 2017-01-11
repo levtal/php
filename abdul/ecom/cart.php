@@ -1,9 +1,21 @@
 <?php 
- session_start(); 
- include 'includes/header.php'; 
+   
+ //
  ?>
+  
+ <!DOCTYPE>
+<?php 
+session_start(); 
+include 'includes/header.php'; 
  
- <form action="" method="post" enctype="multipart/form-data">
+
+ 
+?>
+ 
+			
+				<div id="products_box">
+				
+			<form action="" method="post" enctype="multipart/form-data">
 			
 				<table align="center" width="700" bgcolor="skyblue">
 					
@@ -14,7 +26,7 @@
 						<th>Total Price</th>
 					</tr>
 					
-		<?php 
+		 <?php  
 		$total = 0;
 		
 		global $con; 
@@ -77,8 +89,7 @@
 							$total = $total*$qty;
 						}
 						
-						
-						?>
+						 ?> 
 						
 						
 						<td><?php echo "$" . $single_price; ?></td>
@@ -95,14 +106,7 @@
 					<tr align="center">
 						<td colspan="2"><input type="submit" name="update_cart" value="Update Cart"/></td>
 						<td><input type="submit" name="continue" value="Continue Shopping" /></td>
-						 
-					    <td>  <a  href="checkout.php" class="button" 
-						         style= "appearance: button; ">
- 
-							       Checkout
-							</a>
-					    </td>
-					
+						<td> <a href="checkout.php">Checkout</a> </td>
 					</tr>
 					
 				</table> 
@@ -144,7 +148,8 @@
 	echo @$up_cart = updatecart();
 	
 	?>
-
+   
+  
 <?php include 'includes/footer.php';   ?>		 
   
  
