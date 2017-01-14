@@ -34,19 +34,21 @@ ini_set('display_errors', '1');
 <?php 
           // Delete Item Question to Admin, and Delete Product if they choose
 if (isset($_GET['deleteid'])) {
-	echo 'Do you really want to delete product with ID of ' . 
-	$_GET['deleteid'] . 
-	'? <a href="inventory_list.php?yesdelete=' .
-	$_GET['deleteid'] . '">Yes</a> | <a href="inventory_list.php">No</a>';
+	echo 'Do you really want to delete product with ID of ' . $_GET['deleteid'] . 
+	'? 
+	<a href="inventory_list.php?yesdelete=' . 	$_GET['deleteid'] . '">  Yes  </a>
+	| 
+	<a href="inventory_list.php">  No  </a>';
 	exit();
 }
 if (isset($_GET['yesdelete'])) {
 	// remove item from system and delete its picture
 	// delete from database
 	$id_to_delete = $_GET['yesdelete'];
-	$sql = mysql_query("DELETE FROM products WHERE id='$id_to_delete' LIMIT 1") or die (mysql_error());
-	// unlink the image from server
-	// Remove The Pic -------------------------------------------
+	$sql =  "DELETE FROM products WHERE id='$id_to_delete' LIMIT 1";
+	
+	$result = mysqli_query($conn,$sql ) or die (mysql_error());
+	// Remove The Pic  = unlink the image from server	
     $pictodelete = ("../inventory_images/$id_to_delete.jpg");
     if (file_exists($pictodelete)) {
        		    unlink($pictodelete);
@@ -57,15 +59,15 @@ if (isset($_GET['yesdelete'])) {
 ?>
 <?php 
 // Parse the form data and add inventory item to the system
-if (isset($_POST['product_name'])) {
+if (isset($_POST['product_name'])) { //  <input name="product_name"  line 153 
 	
     $product_name = mysqli_real_escape_string($conn,$_POST['product_name']);
 	$price = mysqli_real_escape_string($conn,$_POST['price']);
 	$category = mysqli_real_escape_string($conn,$_POST['category']);
 	$subcategory = mysqli_real_escape_string($conn,$_POST['subcategory']);
 	$details = mysqli_real_escape_string($conn,$_POST['details']);
-	// See if that product name is an identical match to another product in the system
 	
+	// See if that product name is an identical match to another product in the system
 	$sql = "SELECT id FROM products 
 	        WHERE product_name='$product_name' LIMIT 1";
 	$result = mysqli_query($conn,$sql);
@@ -83,7 +85,7 @@ if (isset($_POST['product_name'])) {
     
 	
 	$reault = mysqli_query($conn,$sql ) or die (mysql_error());
-    $pid = mysqli_insert_id();
+    $pid = mysqli_insert_id(); //Get the id of last insert
 	// Place image in the folder 
 	$newname = "$pid.jpg";
 	move_uploaded_file( $_FILES['fileField']['tmp_name'], "../inventory_images/$newname");
@@ -105,13 +107,14 @@ if ($productCount > 0) {
 		$product_name = $row["product_name"];
 		$price = $row["price"];
 		$date_added = strftime("%b %d, %Y", strtotime($row["date_added"]));
-		$product_list .= "Product ID: $id - 
+		$product_list .= 
+		    "Product ID: $id - 
 		    <strong>$product_name</strong> - $$price - 
 			<em>Added $date_added</em> &nbsp; &nbsp; &nbsp; 
 			<a href='inventory_edit.php?pid=$id'>edit</a> &bull;
 			<a href='inventory_list.php?deleteid=$id'>delete</a>
 			<br />";
-    }
+    }//delete line 36 this file
 } else {
 	$product_list = "You have no products listed in your store yet";
 }
