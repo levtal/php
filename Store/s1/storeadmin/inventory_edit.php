@@ -26,6 +26,8 @@ if (isset($_POST['product_name'])) {
 	$category = mysqli_real_escape_string($conn,$_POST['category']);
 	$subcategory = mysqli_real_escape_string($conn,$_POST['subcategory']);
 	$details = mysqli_real_escape_string($conn,$_POST['details']);
+    $img_url  = mysqli_real_escape_string($conn,$_POST['img_url']);
+
 	// See if that product name is an identical match to another product in the system
 	$sql = "UPDATE products 
 	        SET 
@@ -33,12 +35,13 @@ if (isset($_POST['product_name'])) {
 			price='$price', 
 	        details='$details', 
 			category='$category', 
-	        subcategory='$subcategory' 
+	        subcategory='$subcategory', 
+			image2='$img_url'
 	        WHERE id='$pid' ";
-    //echo $sql;
+      
 $result = mysqli_query( $conn,$sql);
-//echo "<br><pre>".print_r($result, true) . "</pre>";
-//exit;
+
+  
  
 
 
@@ -71,7 +74,7 @@ if (isset($_GET['pid'])) {
 		 $product_name = $row["product_name"];
 		 $price = $row["price"];
 		 $date_added = strftime("%b %d, %Y", strtotime($row["date_added"]));
-		  
+		 $img_url  = $row['image2'];  
 
 
  }
@@ -154,6 +157,21 @@ if (isset($_GET['pid'])) {
         </label></td>
       </tr>      
       <tr>
+        <td align="right">Product Image URL</td>
+        <td>
+		 <label>
+           <input name="img_url" type="text" id="img_url" size="64" 
+              value="<?php echo $img_url; ?>"/>
+         </label>
+		</td>
+      </tr>  
+	  
+	  
+	  
+	  
+	  
+	  
+	  <tr>
         <td>&nbsp;</td>
         <td>
 		 <label>

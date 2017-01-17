@@ -66,7 +66,7 @@ if (isset($_POST['product_name'])) { //  <input name="product_name"  line 153
 	$category = mysqli_real_escape_string($conn,$_POST['category']);
 	$subcategory = mysqli_real_escape_string($conn,$_POST['subcategory']);
 	$details = mysqli_real_escape_string($conn,$_POST['details']);
-	
+	$img_url  = mysqli_real_escape_string($conn,$_POST['img_url']);
 	// See if that product name is an identical match to another product in the system
 	$sql = "SELECT id FROM products 
 	        WHERE product_name='$product_name' LIMIT 1";
@@ -78,11 +78,11 @@ if (isset($_POST['product_name'])) { //  <input name="product_name"  line 153
 	}
 	// Add this product into the database now
 	$sql = "INSERT INTO products
-      (product_name, price, details, category, subcategory, date_added) 
+      (product_name, price, details, category, subcategory, date_added,image2) 
       VALUES
-	 ('$product_name','$price','$details','$category','$subcategory',now())";
+	 ('$product_name','$price','$details','$category','$subcategory',now(),'$img_url')";
    
-    
+     
 	
 	$reault = mysqli_query($conn,$sql ) or die (mysql_error());
     $pid = mysqli_insert_id(); //Get the id of last insert
@@ -187,6 +187,7 @@ if ($productCount > 0) {
           <textarea name="details" id="details" cols="64" rows="5"></textarea>
         </label></td>
       </tr>
+
       <tr>
         <td align="right">Product Image</td>
         <td><label>
@@ -194,7 +195,19 @@ if ($productCount > 0) {
         </label></td>
       </tr>      
       <tr>
-        <td>&nbsp;</td>
+ 
+     <tr>
+        <td align="right">Product Image URL</td>
+        <td>
+		 <label>
+           <input name="img_url" type="text" id="img_url" size="64" />
+         </label>
+		</td>
+      </tr>      
+      <tr>
+ 
+ 
+      <td>&nbsp;</td>
         <td><label>
           <input type="submit" name="button" id="button" value="Add This Item Now" />
         </label></td>

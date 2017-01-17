@@ -97,9 +97,36 @@ CREATE TABLE IF NOT EXISTS transactions(
  
 -- Dumping data for table `products`
 --
- INSERT INTO `products` (`id`, `product_name`, `price`, `details`, `category`, 
-`subcategory`, `date_added`,image2) VALUES
-(1,'Paysage Orageux', 900,'Paintings Oil on canvas','cat1','sub333','22',
-'http://www2.montgomerycollege.edu/departments/planet/Shows/SpaceTimeInvarianceQG/Desintegration.jpg') ;
+ INSERT INTO `products` (`id`, `product_name`,
+                         `price`, `details`, 
+						 `category`, `subcategory`,
+						 `date_added`,
+						 `image2`)
+ VALUES
+(1,'Nighthawks', 
+ 900,'Paintings Oil on canvas',
+ 'cat1','sub333',
+ '22',
+'https://www.ibiblio.org/wm/paint/auth/hopper/street/hopper.nighthawks.jpg'),
+
+(2,'Hopper self portret',
+ 8900,'self portret',
+ 'cat2','sub4',
+ '12',
+'https://www.ibiblio.org/wm/paint/auth/hopper/hopper.self-portrait.jpg'),
+
+(3,'hopper drug-store',
+ 8900,'drug-store',
+ 'cat4','sub5',
+ '17',
+'https://www.ibiblio.org/wm/paint/auth/hopper/street/hopper.drug-store.jpg'),
+ 
+ (2,'lighthouse-2',
+ 8900,'lighthouse-2',
+ 'cat2','sub4',
+ '12',
+' https://www.ibiblio.org/wm/paint/auth/hopper/landscapes/hopper.lighthouse-2-lights.jpg')
+ 
+ ;
 
   

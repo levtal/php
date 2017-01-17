@@ -5,7 +5,7 @@
    
  http://www.onlinetuting.com/ 
  
- https://www.youtube.com/watch?v=WrbaISEEihM&list=PL442E340A42191003&index=6
+ https://www.youtube.com/watch?v=Y2JLHSyGH10&index=8&list=PL442E340A42191003
  
  
 echo "<br><pre>".print_r($row, true) . "</pre>";

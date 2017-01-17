@@ -1,23 +1,25 @@
 <?php 
-// This file is www.developphp.com curriculum material
-// Written by Adam Khoury January 01, 2011
-// http://www.youtube.com/view_play_list?p=442E340A42191003
 session_start();
 if (!isset($_SESSION["manager"])) {
     header("location: admin_login.php"); 
     exit();
-}
+} 
+ 
 
-// Be sure to check that this manager SESSION value is in fact in the database
+include "../storescripts/connect_to_mysql.php"; 
+// Be sure to check that this manager SESSION value is in fact
+// in the database
 $managerID = preg_replace('#[^0-9]#i', '', $_SESSION["id"]); // filter everything but numbers and letters
 $manager = preg_replace('#[^A-Za-z0-9]#i', '', $_SESSION["manager"]); // filter everything but numbers and letters
 $password = preg_replace('#[^A-Za-z0-9]#i', '', $_SESSION["password"]); // filter everything but numbers and letters
-// Run mySQL query to be sure that this person is an admin and that their password session var equals the database information
-// Connect to the MySQL database  
-include "../storescripts/connect_to_mysql.php"; 
+ 
 
-$sql = "SELECT * FROM admins WHERE id='$managerID' AND username='$manager' AND password='$password' LIMIT 1";
+$sql = "SELECT * FROM admins 
+       WHERE id='$managerID' 
+	   AND username='$manager' 
+       AND password='$password' LIMIT 1";
 $result = mysqli_query($conn,$sql ); // query the person
+
 // ------- MAKE SURE PERSON EXISTS IN DATABASE ---------
  
 

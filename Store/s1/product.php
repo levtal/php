@@ -14,18 +14,21 @@ if (isset($_GET['id'])) {
 	$id = preg_replace('#[^0-9]#i', '', $_GET['id']); 
 	// Use this var to check to see if this ID exists, if yes then get the product 
 	// details, if no then exit this script and give message why
-	$sql = mysql_query("SELECT * FROM products WHERE id='$id' LIMIT 1");
-	$productCount = mysql_num_rows($sql); // count the output amount
+	$sql =  "SELECT * FROM products 
+	         WHERE id='$id' LIMIT 1" ;
+	$result = mysqli_query($conn,$sql);
+	$productCount = mysqli_num_rows($result); // count the output amount
     if ($productCount > 0) {
 		// get all the product details
-		while($row = mysql_fetch_array($sql)){ 
+		while($row = mysqli_fetch_array($result)){ 
 			 $product_name = $row["product_name"];
 			 $price = $row["price"];
 			 $details = $row["details"];
 			 $category = $row["category"];
 			 $subcategory = $row["subcategory"];
 			 $date_added = strftime("%b %d, %Y", strtotime($row["date_added"]));
-         }
+             $img_url  =  $row["image2"];
+     	}
 		 
 	} else {
 		echo "That item does not exist.";
@@ -36,7 +39,7 @@ if (isset($_GET['id'])) {
 	echo "Data to render this page is missing.";
 	exit();
 }
-mysql_close();
+mysqli_close($conn);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,8 +54,17 @@ mysql_close();
   <div id="pageContent">
   <table width="100%" border="0" cellspacing="0" cellpadding="15">
   <tr>
-    <td width="19%" valign="top"><img src="inventory_images/<?php echo $id; ?>.jpg" width="142" height="188" alt="<?php echo $product_name; ?>" /><br />
-      <a href="inventory_images/<?php echo $id; ?>.jpg">View Full Size Image</a></td>
+
+   <td width="19%" valign="top">
+	  <img src=" <?php echo $img_url; ?> " width="142" height="188" 
+	  alt="<?php echo $product_name; ?>" />
+	  <br />
+      <a href=" <?php echo $img_url; ?> ">
+	     View Full Size Image
+	  </a>
+	</td>
+
+
     <td width="81%" valign="top"><h3><?php echo $product_name; ?></h3>
       <p><?php echo "$".$price; ?><br />
         <br />

@@ -3,10 +3,20 @@
 // Written by Adam Khoury January 01, 2011
 // http://www.youtube.com/view_play_list?p=442E340A42191003
 session_start();
+
 if (isset($_SESSION["manager"])) {
-    header("location: index.php"); 
+   echo " _SESSION[ manager ] = ". $_SESSION["manager"];
+exit;
+   header("location: index.php"); 
     exit();
 }
+/*
+if (!isset($_SESSION["manager"])) {
+  
+  header("location: admin_login.php"); 
+    exit();
+}
+*/
 ?>
 <?php 
 // Parse the log in form if the user has filled it out and pressed "Log In"
