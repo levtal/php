@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS transactions(
  '17',
 'https://www.ibiblio.org/wm/paint/auth/hopper/street/hopper.drug-store.jpg'),
  
- (2,'lighthouse-2',
+ (4,'lighthouse-2',
  8900,'lighthouse-2',
  'cat2','sub4',
  '12',

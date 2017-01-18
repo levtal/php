@@ -59,8 +59,8 @@ mysqli_close($conn);
 	  <img src=" <?php echo $img_url; ?> " width="142" height="188" 
 	  alt="<?php echo $product_name; ?>" />
 	  <br />
-      <a href=" <?php echo $img_url; ?> ">
-	     View Full Size Image
+      <a href="full_image.php?img=<?php echo $img_url; ?>">
+	       Full Size Image
 	  </a>
 	</td>
 

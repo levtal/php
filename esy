@@ -4,9 +4,7 @@
  Abdul Khan  
    
  http://www.onlinetuting.com/ 
- 
- https://www.youtube.com/watch?v=Y2JLHSyGH10&index=8&list=PL442E340A42191003
- 
+https://www.youtube.com/watch?v=EnJXm0POwP0&index=9&list=PL442E340A42191003
  
 echo "<br><pre>".print_r($row, true) . "</pre>";
 exit;
