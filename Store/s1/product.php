@@ -47,6 +47,12 @@ mysqli_close($conn);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $product_name; ?></title>
 <link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+<script>
+function newPopup(url) {
+    popupWindow = window.open(
+        url,'popUpWindow','height=800,width=800,left=10,top=10,resizable=yes,scrollbars=no,toolbar=no,menubar=yes,location=no,directories=no,status=yes')
+}
+</script>
 </head>
 <body>
 <div align="center" id="mainWrapper">
@@ -58,11 +64,11 @@ mysqli_close($conn);
    <td width="19%" valign="top">
 	  <img src=" <?php echo $img_url; ?> " width="142" height="188" 
 	  alt="<?php echo $product_name; ?>" />
-	  <br />
-      <a href="full_image.php?img=<?php echo $img_url; ?>">
-	       Full Size Image
-	  </a>
-	</td>
+	  <br />   
+      <a href="javascript:void(0);" onClick="newPopup('<?php echo $img_url;?>');">
+        Full Size Image
+      </a>
+  </td>
 
 
     <td width="81%" valign="top"><h3><?php echo $product_name; ?></h3>
