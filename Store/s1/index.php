@@ -90,6 +90,15 @@ mysqli_close($conn);
      <td width="33%" valign="top">
 	   <h3>Handy Tips</h3>
        <p>If you operate any store online you should read the documentation provided to you by the online payment gateway you choose for handling the checkout process. You can get much more insight than I can offer on the various details of a gateway, from the gateway providers themselves. They are there to help you with whatever you need since they get a cut of your online business dealings.</p>
+	   <?php
+       $db_str = "Show me some <3 right now. It is raining today [umbr], that gives me peace [peace].";
+       echo $db_str;
+       echo "<hr />";
+       $chars = array("<3", "[peace]", "[umbr]");
+       $icons = array("&#10084;", "&#9774;", "&#9730;");
+       $new_str = str_replace($chars,$icons,$db_str);
+       echo $new_str;
+       ?>
 	 </td>
   </tr>
 </table>

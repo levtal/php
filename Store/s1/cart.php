@@ -1,7 +1,5 @@
 <?php 
-// This file is www.developphp.com curriculum material
-// Written by Adam Khoury January 01, 2011
-// http://www.youtube.com/view_play_list?p=442E340A42191003
+  
 session_start(); // Start session first thing in script
 // Script Error Reporting
 error_reporting(E_ALL);
@@ -9,50 +7,62 @@ ini_set('display_errors', '1');
 // Connect to the MySQL database  
 include "storescripts/connect_to_mysql.php"; 
 ?>
+
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 1 (if user attempts to add something to the cart from the product page)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if (isset($_POST['pid'])) {
+// Section 1: (if user attempts to add something to the cart from the 
+// product page)
+  
+if (isset($_POST['pid'])) {//  'pid' loaded in 'product.php'
     $pid = $_POST['pid'];
 	$wasFound = false;
-	$i = 0;
+	$i = 0;//index of the array item
 	// If the cart session variable is not set or cart array is empty
 	if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) { 
 	    // RUN IF THE CART IS EMPTY OR NOT SET
 		$_SESSION["cart_array"] = array(0 => array("item_id" => $pid, "quantity" => 1));
-	} else {
-		// RUN IF THE CART HAS AT LEAST ONE ITEM IN IT
-		foreach ($_SESSION["cart_array"] as $each_item) { 
-		      $i++;
-		      while (list($key, $value) = each($each_item)) {
-				  if ($key == "item_id" && $value == $pid) {
-					  // That item is in cart already so let's adjust its quantity using array_splice()
-					  array_splice($_SESSION["cart_array"], $i-1, 1, array(array("item_id" => $pid, "quantity" => $each_item['quantity'] + 1)));
-					  $wasFound = true;
-				  } // close if condition
-		      } // close while loop
-	       } // close foreach loop
-		   if ($wasFound == false) {
-			   array_push($_SESSION["cart_array"], array("item_id" => $pid, "quantity" => 1));
-		   }
+	}
+	else {
+	
+    	// RUN IF THE CART HAS AT LEAST ONE ITEM IN IT
+	 foreach ($_SESSION["cart_array"] as $each_item) { 
+	  $i++;
+	
+      while (list($key, $value) = each($each_item)) {
+		  // 'each'---> Return the current key and value pair from 
+		  // an array and advance the array cursor. 
+		if ($key == "item_id" && $value == $pid) {
+		  // Item is in cart already so adjust its quantity
+          // using array_splice().   offset= $i-1 length=1
+		  array_splice($_SESSION["cart_array"],
+       		   $i-1, 1,
+    		   array(array("item_id" => $pid, 
+			  "quantity" => $each_item['quantity'] + 1))
+			);
+		  $wasFound = true;
+		} // close if condition
+	  } // close while loop
+	 } // close foreach loop
+	 if ($wasFound == false) {
+	   array_push($_SESSION["cart_array"], 
+	             array("item_id" => $pid, "quantity" => 1)
+		);
+	 }
 	}
 	header("location: cart.php"); 
     exit();
 }
 ?>
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 2 (if user chooses to empty their shopping cart)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 2: (if user chooses to empty their shopping cart)
+// 
 if (isset($_GET['cmd']) && $_GET['cmd'] == "emptycart") {
     unset($_SESSION["cart_array"]);
 }
 ?>
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 3 (if user chooses to adjust item quantity)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Section 3: (if user chooses to adjust item quantity)
+ 
 if (isset($_POST['item_to_adjust']) && $_POST['item_to_adjust'] != "") {
     // execute some code
 	$item_to_adjust = $_POST['item_to_adjust'];
@@ -63,13 +73,13 @@ if (isset($_POST['item_to_adjust']) && $_POST['item_to_adjust'] != "") {
 	if ($quantity == "") { $quantity = 1; }
 	$i = 0;
 	foreach ($_SESSION["cart_array"] as $each_item) { 
-		      $i++;
-		      while (list($key, $value) = each($each_item)) {
-				  if ($key == "item_id" && $value == $item_to_adjust) {
-					  // That item is in cart already so let's adjust its quantity using array_splice()
-					  array_splice($_SESSION["cart_array"], $i-1, 1, array(array("item_id" => $item_to_adjust, "quantity" => $quantity)));
-				  } // close if condition
-		      } // close while loop
+	 $i++;
+	 while (list($key, $value) = each($each_item)) {
+		if ($key == "item_id" && $value == $item_to_adjust) {
+		 // That item is in cart already so let's adjust its quantity using array_splice()
+		array_splice($_SESSION["cart_array"], $i-1, 1, array(array("item_id" => $item_to_adjust, "quantity" => $quantity)));
+	    } // close if condition
+	 } // close while loop
 	} // close foreach loop
 }
 ?>
@@ -108,16 +118,22 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 	$i = 0; 
     foreach ($_SESSION["cart_array"] as $each_item) { 
 		$item_id = $each_item['item_id'];
-		$sql = mysql_query("SELECT * FROM products WHERE id='$item_id' LIMIT 1");
-		while ($row = mysql_fetch_array($sql)) {
+		$sql =  "SELECT * FROM products 
+		         WHERE id='$item_id' LIMIT 1" ;
+        $result = mysqli_query($conn,$sql);
+
+		while ($row = mysqli_fetch_array($result)) {
 			$product_name = $row["product_name"];
 			$price = $row["price"];
 			$details = $row["details"];
-		}
+            $img = $row["image2"];
+			}
 		$pricetotal = $price * $each_item['quantity'];
 		$cartTotal = $pricetotal + $cartTotal;
 		setlocale(LC_MONETARY, "en_US");
-        $pricetotal = money_format("%10.2n", $pricetotal);
+        //echo money_format('%i', $pricetotal) . "\n";
+       //   $pricetotal = money_format("%10.2n", $pricetotal);
+
 		// Dynamic Checkout Btn Assembly
 		$x = $i + 1;
 		$pp_checkout_btn .= '<input type="hidden" name="item_name_' . $x . '" value="' . $product_name . '">
@@ -127,7 +143,12 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 		$product_id_array .= "$item_id-".$each_item['quantity'].","; 
 		// Dynamic table row assembly
 		$cartOutput .= "<tr>";
-		$cartOutput .= '<td><a href="product.php?id=' . $item_id . '">' . $product_name . '</a><br /><img src="inventory_images/' . $item_id . '.jpg" alt="' . $product_name. '" width="40" height="52" border="1" /></td>';
+		$cartOutput .= 
+		'<td>
+		<a href="product.php?id=' . $item_id . '">' . $product_name . '</a>
+		<br />
+        <img src="' . $img . '" alt="' . $product_name. '" width="40" height="52" border="1" />
+		</td>';
 		$cartOutput .= '<td>' . $details . '</td>';
 		$cartOutput .= '<td>$' . $price . '</td>';
 		$cartOutput .= '<td><form action="cart.php" method="post">
@@ -142,7 +163,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 		$i++; 
     } 
 	setlocale(LC_MONETARY, "en_US");
-    $cartTotal = money_format("%10.2n", $cartTotal);
+    //$cartTotal = money_format("%10.2n", $cartTotal);
 	$cartTotal = "<div style='font-size:18px; margin-top:12px;' align='right'>Cart Total : ".$cartTotal." USD</div>";
     // Finish the Paypal Checkout Btn
 	$pp_checkout_btn .= '<input type="hidden" name="custom" value="' . $product_id_array . '">
@@ -157,6 +178,8 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 	</form>';
 }
 ?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -176,9 +199,9 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
         <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
         <td width="45%" bgcolor="#C5DFFA"><strong>Product Description</strong></td>
         <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Remove</strong></td>
+        <td width="9%"  bgcolor="#C5DFFA"><strong>Quantity</strong></td>
+        <td width="9%"  bgcolor="#C5DFFA"><strong>Total</strong></td>
+        <td width="9%"  bgcolor="#C5DFFA"><strong>Remove</strong></td>
       </tr>
      <?php echo $cartOutput; ?>
      <!-- <tr>

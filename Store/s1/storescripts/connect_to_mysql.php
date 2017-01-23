@@ -26,7 +26,7 @@ if (mysqli_connect_errno()) {
  
 $db_host = "localhost"; 
 $db_username = "root";  
-$db_pass = "mysqlmysql";  // ## unbunto::"mysqlmysql" , vista::"", kali ::"" 
+$db_pass = "";  // ## unbunto::"mysqlmysql" , vista::"", kali ::"" 
 $db_name = "store"; 
  
 // Run the actual connection here  
