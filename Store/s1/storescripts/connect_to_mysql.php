@@ -18,6 +18,9 @@ if (mysqli_connect_errno()) {
 // This file is www.developphp.com curriculum material
 // Written by Adam Khoury January 01, 2011
 // http://www.youtube.com/view_play_list?p=442E340A42191003
+
+
+
 /*  
 1: "die()" will exit the script and show an error statement if something goes wrong with the "connect" or "select" functions. 
 2: A "mysql_connect()" error usually means your username/password are wrong  

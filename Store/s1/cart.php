@@ -6,6 +6,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 // Connect to the MySQL database  
 include "storescripts/connect_to_mysql.php"; 
+
+function money_format($value) {
+  return '$' . number_format($value, 2);
+}
+
+ 
+
+
+
 ?>
 
 <?php 
@@ -62,8 +71,7 @@ if (isset($_GET['cmd']) && $_GET['cmd'] == "emptycart") {
 <?php 
 
 //Section 3: (if user chooses to adjust item quantity)
- 
-if (isset($_POST['item_to_adjust']) && $_POST['item_to_adjust'] != "") {
+ if (isset($_POST['item_to_adjust']) && $_POST['item_to_adjust'] != "") {
     // execute some code
 	$item_to_adjust = $_POST['item_to_adjust'];
 	$quantity = $_POST['quantity'];
@@ -84,9 +92,9 @@ if (isset($_POST['item_to_adjust']) && $_POST['item_to_adjust'] != "") {
 }
 ?>
 <?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 4 (if user wants to remove an item from cart)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//  Section 4 (if user wants to remove an item from cart)
+ 
 if (isset($_POST['index_to_remove']) && $_POST['index_to_remove'] != "") {
     // Access the array and run code to remove that array index
  	$key_to_remove = $_POST['index_to_remove'];
@@ -98,10 +106,8 @@ if (isset($_POST['index_to_remove']) && $_POST['index_to_remove'] != "") {
 	}
 }
 ?>
-<?php 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//       Section 5  (render the cart for the user to view on the page)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<?php  ///// Section 5: (render the cart for the user to view on the page)
+ 
 $cartOutput = "";
 $cartTotal = "";
 $pp_checkout_btn = '';
@@ -109,12 +115,14 @@ $product_id_array = '';
 if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     $cartOutput = "<h2 align='center'>Your shopping cart is empty</h2>";
 } else {
+	 
 	// Start PayPal Checkout Button
 	$pp_checkout_btn .= '<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
     <input type="hidden" name="cmd" value="_cart">
     <input type="hidden" name="upload" value="1">
     <input type="hidden" name="business" value="you@youremail.com">';
 	// Start the For Each loop
+   
 	$i = 0; 
     foreach ($_SESSION["cart_array"] as $each_item) { 
 		$item_id = $each_item['item_id'];
@@ -131,15 +139,16 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 		$pricetotal = $price * $each_item['quantity'];
 		$cartTotal = $pricetotal + $cartTotal;
 		setlocale(LC_MONETARY, "en_US");
-        //echo money_format('%i', $pricetotal) . "\n";
-       //   $pricetotal = money_format("%10.2n", $pricetotal);
+        //echo money_format( $pricetotal) . "\n";
+        $pricetotal = money_format( $pricetotal);
 
 		// Dynamic Checkout Btn Assembly
 		$x = $i + 1;
 		$pp_checkout_btn .= '<input type="hidden" name="item_name_' . $x . '" value="' . $product_name . '">
         <input type="hidden" name="amount_' . $x . '" value="' . $price . '">
         <input type="hidden" name="quantity_' . $x . '" value="' . $each_item['quantity'] . '">  ';
-		// Create the product array variable
+	 	
+ 	// Create the product array variable
 		$product_id_array .= "$item_id-".$each_item['quantity'].","; 
 		// Dynamic table row assembly
 		$cartOutput .= "<tr>";
@@ -163,7 +172,9 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 		$i++; 
     } 
 	setlocale(LC_MONETARY, "en_US");
-    //$cartTotal = money_format("%10.2n", $cartTotal);
+    
+	
+	 $cartTotal = money_format( $cartTotal);
 	$cartTotal = "<div style='font-size:18px; margin-top:12px;' align='right'>Cart Total : ".$cartTotal." USD</div>";
     // Finish the Paypal Checkout Btn
 	$pp_checkout_btn .= '<input type="hidden" name="custom" value="' . $product_id_array . '">
@@ -176,7 +187,10 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 	<input type="hidden" name="currency_code" value="USD">
 	<input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - its fast, free and secure!">
 	</form>';
-}
+
+	 
+	
+	}
 ?>
 
 

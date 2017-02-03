@@ -6,8 +6,7 @@
  http://www.onlinetuting.com/ 
   http://www.developphp.com 
   
-https://www.youtube.com/watch?v=TZKmYZeZvic&list=PL442E340A42191003&index=11  
-  
+https://www.youtube.com/watch?v=-4H8E-FhhDw&index=18&list=PL442E340A42191003 
 echo "<br><pre>".print_r($row, true) . "</pre>";
 exit;
  
