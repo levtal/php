@@ -17,7 +17,7 @@
     <td colspan="2">
 	  <a href="./index.php"> Home</a>
     	 &nbsp; &middot; &nbsp; 
-      <a href="#">Products</a> 
+      <a href="scrp.php">scrap</a> 
 	     &nbsp; &middot; &nbsp;
       <a href="#">Help</a> 
 	    &nbsp; &middot; &nbsp; 

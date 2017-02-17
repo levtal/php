@@ -8,9 +8,11 @@
  <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-  <?php  include_once("template_pageTop.php"); ?>
+  <?php 
+  
+    include_once("template_pageTop.php"); ?>
    <div id="pageMiddle">
-      gtttttgg3 &nbsp;2ttttg
+       
    </div>
     <!--   footer -->
    <?php  include_once("template_pageBottom.php"); ?>

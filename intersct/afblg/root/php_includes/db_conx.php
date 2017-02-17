@@ -18,9 +18,7 @@ $db_conx = mysqli_connect(DB_HOST, DB_USER, DB_PASS,DB_NAME);
 if (mysqli_connect_errno()) {
     echo mysqli_connect_error();
     exit();
-} else {
-	echo "Successful database connection!";
-}
+}  
 
  define('SITE_TITLE', 'Welcome to Gkol - Zone');
   define('BASE_URI', 'http://'.$_SERVER['SERVER_NAME'].'/prj//intersct/afblg/');
