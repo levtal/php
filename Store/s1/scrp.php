@@ -30,10 +30,12 @@
 			  
 	    ?>
 		
-		<?php
+ <?php
+ //https://regex101.com/ 
 		 
 $regexp = '/href=([\'"])(.*?)\\1/is';
-$html =  file_get_contents('http://www.walla.com'); 
+$html =  file_get_contents('https://www.rami-levy.co.il/default.asp?catid=%7B9EDE83CE-2763-412A-B752-9EEC18797064%7D'); 
+//$html =  file_get_contents('http://www.walla.com'); 
 // get and print the array with all matches
 if (preg_match_all($regexp, $html, $matches)) {
  $length = count($matches[1]);
@@ -53,7 +55,7 @@ else {
  
  for($j=0;$j<count($matches[1]);$j++){
 	   
-    $matches[0][$j]= preg_replace("/href=/","", $matches[0][$j]);// Delete the substring href=
+    $matches[0][$j]= preg_replace("/href=/","", $matches[0][$j]);// Delete the substring 'href='
 
 	echo "[".$j."] ". $matches[0][$j] . "<br> ";
 	}

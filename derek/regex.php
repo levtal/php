@@ -15,7 +15,7 @@ $randomArray = array(
 '123 Main St','PA','12345','(412)-537-5555',
 '12/12/1974','dbanas123@gmail.com','$1,234','Turtle3Dove','123-45-6789','p* 1 ',
 '<p>Random Text</p>', 'Mailman', 'Mailwoman', 'Jennifer', 'Jenny', 'Jen','Doctor', 'Doug', 'Dog');
-
+//https://regex101.com/ 
 # Find my exact name and nothing else
 $matchName = preg_grep("%Derek%", $randomArray);
 
