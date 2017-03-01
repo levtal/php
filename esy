@@ -2,6 +2,7 @@
 http://data.ceh.vn/Ebook/ebooks.shahed.biz/HACK/WEB/Webbots,%20Spiders,%20And%20Screen%20Scrapers,%202nd%20Edition.pdf
    
 https://www.nostarch.com/ 
+http://intuitive.com/wicked/
  
 echo "<br><pre>".print_r($row, true) . "</pre>";
 exit;
