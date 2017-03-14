@@ -142,7 +142,7 @@ OUTPUT:
 ***********************************************************************/
 function download_images_for_page($target)
     {
-    echo "target = $target\n";
+    echo "target = $target<br>";
     
     # Download the web page
     $web_page = http_get($target, $referer="");
@@ -161,7 +161,7 @@ function download_images_for_page($target)
     
     if(count($img_tag_array)==0)
         {
-        echo "No images found at $target\n";
+        echo "No images found at $target<br>";
         exit;
         }
 
@@ -192,7 +192,7 @@ function download_images_for_page($target)
                 $fp = fopen($save_image_directory."/".$image_path, "w");
                 fputs($fp, $this_image_file);
                 fclose($fp);
-                echo "\n"; 
+                echo "<br>"; 
                 }
             }
         else

@@ -2,7 +2,7 @@
 include('simple_html_dom.php');
  
 // Retrieve the DOM from a given URL
-$html = file_get_html('https://davidwalsh.name/');
+$html = file_get_html('https://finance.yahoo.com/quote/CSTR?ltr=1');
 
 // Find all "A" tags and print their HREFs
 echo "Find all  A  tags and print their HREFs<br>----------------<br>";
@@ -28,7 +28,9 @@ foreach($html->find('div#myId') as $e)
 echo "Find all SPAN tags that have a class of myClass <br>----------------<br>";
 foreach($html->find('span.myClass') as $e)
     echo $e->outertext . '<br>';
-
+echo "Find any SPAN tags  <br>-------data-reactid-++++++++++++fffff--------<br>";
+foreach($html->find('span.Trsdu') as $e)
+    echo $e->outertext . '<br>';
 // Find all TD tags with "align=center"
 echo  "Find all TD tags with  align=center<br>----------------<br>";
 foreach($html->find('td[align=center]') as $e)
@@ -36,6 +38,7 @@ foreach($html->find('td[align=center]') as $e)
     
 // Extract all text from a given cell
 echo  "Extract all text from a given cell<br>----------------<br>";
-echo $html->find('td[align="center"]', 1)->plaintext.'<br><hr>';
+echo $html->find('span', 1)->plaintext.'<br><hr>';
 
+ 
 ?>

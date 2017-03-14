@@ -17,8 +17,8 @@ developers to parse specific attribute values from HTML tags.
 
 $tag = "img";
 $attribute="src";
-$target="http://www.walla.com";
-
+//$target="http://www.walla.com";
+$target="http://www.nasa.gov/mission_pages/viking/index.html";
 $web_page = http_get($target, $referer="");
 //////////
  
