@@ -1,38 +1,12 @@
  
-http://data.ceh.vn/Ebook/ebooks.shahed.biz/HACK/WEB/Webbots,%20Spiders,%20And%20Screen%20Scrapers,%202nd%20Edition.pdf
+ 
    
-https://www.nostarch.com/ 
-http://intuitive.com/wicked/
+ 
  
 echo "<br><pre>".print_r($row, true) . "</pre>";
 exit;
- //var_dump($match); 
+var_dump($match); 
  
-Cloud   gemfury.com/plans/personal 
-
-Drupal 8 Beginner, Lesson 15: Appearance
-https://www.youtube.com/watch?v=9f23_U9sCzM&list=PLtaXuX0nEZk9MKY_ClWcPkGtOEGyLTyCO&index=15
-
-http://vazcom8cib7gdf6k.devcloud.acquia-sites.com/
- 
- 
-https://insight.acquia.com 
-
-
- 
- vazlavgtt.esy.es 
- vaz@vazlavgtt.esy.es 
- cpanel.hostinger.co.il 
- /public_html/intersct/afblg/root   
-sudo ./Ampps &
-
-
-
-
-# windows     /var/www/html/index.html  
-# linux       /usr/local/ampps/www      
- firefox -new-tab -url  $url1  -new-tab -url $url2  -new-tab -url $url3  &
-
 
  Loaded Configuration File: 	C:\xampp\php\php.ini 
 

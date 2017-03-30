@@ -1,11 +1,13 @@
 <?php
- 
 include("lib/LIB_http.php");
 include("lib/LIB_parse.php");
 $product_array=array();
 $product_count=0;
 echo "start process";
- //https://code.tutsplus.com/tutorials/html-parsing-and-screen-scraping-with-the-simple-html-dom-library--net-11856
+/*
+https://code.tutsplus.com/tutorials/html-parsing-and-screen-scraping-with-the-simple-html-dom-library--net-11856
+*/
+
 $target = "https://finance.yahoo.com/quote/CSTR?ltr=1";
 //AEGY,CSTR,DIPSX ,TEVA
 $web_page = http_get($target, "");
@@ -41,5 +43,4 @@ for($i=0; $i<count($name_array); $i++) {
  echo "Price: ". $price[11]."<br>";
  echo $price[12]."<br>";
  echo $price[9];
-
- 
+?>
