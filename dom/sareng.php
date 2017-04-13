@@ -1,7 +1,7 @@
  <?php 
 include("simple_html_dom.php");
 
-$srcString = "jsoup source code";//PHP Simple HTML DOM";
+$srcString = "Kalsoy Island";//PHP Simple HTML DOM";
 $in = str_replace(' ','+',$srcString); // space is a +
 
 function WebScan($url,$linkTag,$descrTag ){
@@ -75,8 +75,15 @@ function EngResultsScan($url,$linkTag, $titleTag, $descrTag ){
 
 
 
+/*
+Always be careful about memory leak because it can slow own your website. You can add following lines to avoid memory leaks.
+ 
+ $html->clear();
+ 
+ 
+ 
 
-
+*/
  
 echo '<p>Search String <b> ' . $srcString  . '</b><br />';
 echo '<p> <b><H3> Google Results</H3></b><br />';
