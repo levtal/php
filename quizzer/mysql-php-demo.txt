@@ -44,4 +44,14 @@ $db = new Database();  //libreries/Database.php
  while($row = $posts->fetch_assoc()):
     echo $row['title'];
  endwhile; 
+ /////////////////
+  // Query retrieves the student data id is 1 or 2
+$query = "SELECT * FROM students WHERE student_id IN (1,2)";
+
+// Will hold all students retreived
+$student_array = array();
+
+if($result = $dbc->query($query)){
+
+	while ($obj = $result->fetch_object()){
 		  

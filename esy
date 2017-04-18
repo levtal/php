@@ -7,7 +7,7 @@ echo "<br><pre>".print_r($row, true) . "</pre>";
 exit;
 var_dump($match); 
  
-
+https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
  Loaded Configuration File: 	C:\xampp\php\php.ini 
 
 # kali apache2 configuration
