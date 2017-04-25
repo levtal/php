@@ -11,14 +11,17 @@ include("simple_html_dom.php");
  
  
 function TranslateToHebrew($word){
-    $morifix_url = 'http://www.morfix.co.il/'.$word;
-	 $morifix_html = file_get_html($morifix_url);	
-     echo 'morifix_url: ' . $morifix_url . '<br />'; 
-    $tran = $morifix_html->find('div[class="row"]',0)->plaintext;
-	return  $tran ;
+   
+   $google_url = 'https://translate.google.co.il/#en/iw/'.$word;
+	 $google_html = file_get_html($google_url);	
+     echo 'google_url: ' .  $google_url . '<br />'; 
+    $tran =  $google_html->find('span[id="result_box"')->plaintext;
+
+ return  $tran ;
+ 
  }
 
-
+ //<span id="result_box" class="short_text" lang="iw"><span class="">בטוח</span></span>
 function getRandWord(){
     $url='https://randomword.com/';
 	$html = file_get_html($url);	
@@ -93,12 +96,12 @@ function getdata(){
  echo '<b>word:</b> ' . $word . '<br /> </p>' ;
  echo '<b>meaning:</b> ' .  $meaning . '<br /> </p>' ;
  
- /*$str= TranslateToHebrew($word);
- $tragom = substr($str, 54);
- echo '<b>Translation:</b> ' .  $tragom.'<br />------' .$str. '<br /> </p>' ;
- $str2 = substr($str, 4);
+//$tragom= TranslateToHebrew($word);
+  
+ //echo '<b>Translation:</b> ' .  $tragom.'<br />------' .$word. '<br /> </p>' ;
  
- */
+ 
+
 
 $in = str_replace(' ','+',$meaning); // space is a + 
   
