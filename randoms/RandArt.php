@@ -10,19 +10,16 @@ function WebScan(){
 	$url  = 'http://www.the-athenaeum.org/art/random.php';
 	$html = file_get_html($url);	
  
-   //echo $html;
- 
    foreach( $html->find($cellTag) as $key => $info) {
 	         $title[$key] =  $info->plaintext;
-             	 
-   }
+    }
  
   foreach( $html->find( $ArtistTag) as $key => $info) {
 	         $artist[$key] =  $info->plaintext;
    }
 
 
-   $i=0;
+  $i=0;
   foreach ( $title as $t) {
      $artist[$i] = substr( $artist[$i], strlen ($t)+3);
 	$parts = explode("(", $artist[$i]);
@@ -34,7 +31,7 @@ function WebScan(){
   $paintinglnk='http://www.the-athenaeum.org/';
  $i=0;
   foreach($html->find('a') as $e) {  //find all links
-    $lnk[ $i] = $paintinglnk.$e->href; 
+    $lnk[ $i] = $paintinglnk . $e->href; 
     $i++;
   }
   
@@ -51,10 +48,24 @@ foreach($html->find('img') as $e){
   $i++;
 }
  
+ return array($lnk, $imag,$title,$artist);
+  
+}
+
  
-echo '<table width="94%" bgcolor="#0c0F0F" cellspacing="0" cellpadding="6" border="1" bordercolor="#F9F9F9">';
+
+
+
+function  PaintingTable($ar){
+   
+ 
+ $lnk = $ar[0];
+ $imag= $ar[1];
+ $title= $ar[2];
+ $artist= $ar[3];
+ echo '<table width="94%" bgcolor="#0c0F0F" cellspacing="0" cellpadding="6" border="1" bordercolor="#F9F9F9">';
   $i=0;  
-for ($row = 0; $row < 4; $row ++) {
+ for ($row = 0; $row < 4; $row ++) {
  echo "<tr>";
  for ($col = 1; $col <= 3; $col ++) {
          
@@ -62,57 +73,19 @@ for ($row = 0; $row < 4; $row ++) {
 		echo '<a href="'. $lnk[$i].'">';
         echo '<img src="'.$imag[$i] . '"></a><br>';
         echo  '<b><font color="gray">'.$title[$i].'</font></b><br>';
-        echo  '<font color="white">'.$artist[$i].'</font><br>';
-		echo  "</td>";
+        //echo  '<font color="white">'.$artist[$i].'</font><br>';
+        $text = str_replace(' ', '_', $artist[$i]);
+		echo  '<a href="https://en.wikipedia.org/wiki/'.$text.'">';
+		echo  '<font color="white">'.$artist[$i].'</font></a>';
+		echo "</td>";
 		$i++;
    }
 
    echo "</tr>";
 }
 
-echo "</table>"; 
-  
-  
- return  $lnk;
-}
-
-
-function getRandImage($url,$linkTag){
- $i=0;
-	 $html = file_get_html($url);
-// Extract links
- foreach($html->find('a') as $element){ 
-    
-   echo '['.$i.']'. $element->href . '<br>'; 
-	  $i++;
- }
-// Extract images
-
-//echo "<br><br><b>".'img list'. '</b><br><br>'; 
- //  foreach($html->find('img') as $element)
-  //      echo $element->src . '<br>';
-
-echo "<b>".'End of i  list'. '</b><br><br>'; 
-	
-}
-
-
-
-function GetPainting(){
+echo "</table>";
    
-  
-
-/*
-<div class="listItemContents">
-   <a href="/art/detail.php?ID=221353">
-   <img src="/art/display_image.php?id=700883" border="0" vspace="3" hspace="3">
-</a>
-<br> <a href="/art/detail.php?ID=221353"><em> Carmen</em></a><br>Alexander Golovin (1908)</div>
-*/
-
-$links =  WebScan();
-echo '<b>links :</b> ' . $links[1]  . '<br /> </p>'  ;
-    return "word";
  }
  
  ?>
@@ -121,10 +94,13 @@ echo '<b>links :</b> ' . $links[1]  . '<br /> </p>'  ;
 <html>
 <head>
 	 
-    <?php $title= GetPainting(); ?>
-	<title><?php echo $title; ?></title>
+    <?php $ar=  WebScan();
+    $title= $ar[2];	?> 
+     
+	<title><?php echo ($ar[3][0]); ?></title> 
 	 
- 	 
+ 	<?php PaintingTable($ar)	?> 
+	 
 </head>
 
 <body> 

@@ -1,11 +1,3 @@
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-
-   
-   
-
-
  <?php 
 include("simple_html_dom.php");
  
@@ -51,7 +43,7 @@ function WebScan($url,$linkTag){
    foreach ($linkObjs as $linkObj) {
       
 	  $title = trim($linkObj->plaintext);
-       $link  = trim($linkObj->href);
+      $link  = trim($linkObj->href);
 	   // if it is not a direct link but url reference found inside it, then extract
     if (!preg_match('/^https?/', $link) && preg_match('/q=(.+)&amp;sa=/U', $link, $matches)     &&    preg_match('/^https?/', $matches[1]))
 		{
@@ -127,7 +119,15 @@ echo '<b>links :</b> ' . $links[1]  . '<br /> </p>' ;
    echo '</tr></table>';
  //<img src="http://loremflickr.com/1820/1140/Surrealism" />
  //<img src="http://loremflickr.com/182/110/portrait" />
-    return $word;
+ 
+ 
+//$deviaURL  = 'https://www.deviantart.com/photography/?q='. $in;
+   
+
+  
+
+
+ return $word;
  }
  
  ?>
