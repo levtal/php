@@ -1,6 +1,7 @@
  <?php 
 include("simple_html_dom.php");
- 
+include('left.php');
+include('jumbotron.php'); 
  
 function TranslateToHebrew($word){
    
@@ -53,7 +54,9 @@ function WebScan($url,$linkTag){
                      continue;
              }
         $i++;   
-       echo '<p>['.$i.']  <a href="'.$link.'"><b>'. $title .'</b></a><br /> ';
+      
+       echo '<p><span class="badge">'.$i.'</span>';
+	   echo '<a href="'.$link.'"><b>'. $title .'</b></a><br /> ';
        echo 'Link: ' . $link . '<br />';
 	    $lnk[$i] = $link;
 	   }
@@ -97,10 +100,24 @@ function getdata(){
 
 $in = str_replace(' ','+',$meaning); // space is a + 
   
-$linkTag = 'h3[class=r] a';
+/*$linkTag = 'h3[class=r] a';
 $titleTag = 'h3[class=r] a';
 $googleURL  = 'http://www.google.com/search?hl=en&tbo=d&site=&source=hp&q='.$in.'&oq='.$in.'';
 $links =  WebScan($googleURL,$linkTag);
+
+$descrTag = '.lh-16'; 
+
+
+*/
+$yahooURL  = 'https://search.yahoo.com/search?fr=yfp-t&fp=1&toggle=1&cop=mss&ei=UTF-8&p='.$in;
+ 
+$linkTag = 'h3  a';
+$titleTag = 'h3  a';
+ 
+$links =  WebScan($yahooURL,$linkTag);
+
+
+
 echo '<b>links :</b> ' . $links[1]  . '<br /> </p>' ;
  $style=' alt="HTML5 Icon" style=" width="5100" height="400"';
  $in='Faroe  kalsoy Islands';
@@ -130,22 +147,11 @@ echo '<b>links :</b> ' . $links[1]  . '<br /> </p>' ;
  return $word;
  }
  
- ?>
+ getdata();
+   include('right.php');  
 
+?>
 
-<html>
-<head>
-	 
-    <?php $title= getdata(); ?>
-	<title><?php echo $title; ?></title>
-	 
+ 
  	 
-</head>
-
-<body> 
-
-
-
-</body>
-</html>
-   
+ 

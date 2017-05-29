@@ -2,7 +2,7 @@
 include('simple_html_dom.php');
  
 // Retrieve the DOM from a given URL
-$html = file_get_html('https://finance.yahoo.com/quote/CSTR?ltr=1');
+$html = file_get_html('http://www.the-athenaeum.org/art/full.php?ID=132970#');
 
 // Find all "A" tags and print their HREFs
 echo "Find all  A  tags and print their HREFs<br>----------------<br>";
