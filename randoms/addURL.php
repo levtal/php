@@ -21,16 +21,23 @@ if (isset($_POST['addURL'])) {
 	header('Location: showBookmark.php');  
   }
 ?>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html"  charset="utf-8"/>
+ <title>Add new URL</title>
+ </head>
 
-<h1>Add New URL</h1>
-<form action="addURL.php" method="post">
-Item name:<br>
-<input type="text" name="name" value="" placeholder="name"><p />
-URL:<br>
-<input type="text" name="url" value="" placeholder="url"><p />
+<body>
+ <h1 class="hero">Add New URL</h1>
+ <form id="frm"action="addURL.php" method="post">
+  Item name:<br>
+  <input type="text" name="name" value="" placeholder="name"><p />
+  URL:<br>
+  <input type="text" name="url" value="" placeholder="url"><p />
  
-<input type="hidden" name="category_id" value="<?php echo $_GET['cat_id'];?>" placeholder="id"><p />
-<input type="submit" name="addURL" value="Add URL">
-</form>
+  <input type="hidden" name="category_id" value="<?php echo $_GET['cat_id'];?>" placeholder="id"><p />
+  <input type="submit" name="addURL" value="Add URL">
+ </form>
+ </body>
 
- 
+</html>

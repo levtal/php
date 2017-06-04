@@ -1,4 +1,0 @@
-id ,product_id_array,payer_email,first_name,last_name, payment_date , mc_gross ,payment_currency, txn_id ,receiver_email, payment_type,payment_status ,
-txn_type , payer_status, address_street, address_city, address_state ,
-,address_zip , address_country, address_status, notify_version varchar(255) NOT NULL,
-  verify_sign ,payer_id , mc_currency
