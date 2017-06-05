@@ -39,14 +39,15 @@ function process(){ // this function is called from index..html
 
 function handleServerResponse(){
 	if(xmlHttp.readyState==4){ //Communication is over
-		if(xmlHttp.status==200){ //Communication is ok
-			xmlResponse = xmlHttp.responseXML;
-			xmlDocumentElement = xmlResponse.documentElement;//Root element
-			message = xmlDocumentElement.firstChild.data;
-			document.getElementById("underInput").innerHTML = '<span style="color:blue">' + message + '</span>';
-			setTimeout('process()', 1000);
-		}else{
-			alert('Something went wrong!');
+	 if(xmlHttp.status==200){ //Communication is ok
+		 xmlResponse = xmlHttp.responseXML;
+		 xmlDocumentElement = xmlResponse.documentElement;//Root element
+		 message = xmlDocumentElement.firstChild.data;
+		 document.getElementById("underInput").innerHTML = 
+			        '<span style="color:blue">' + message + '</span>';
+		 setTimeout('process()', 1000);
+	 }else{
+		  alert('Something went wrong!');
 		}
 	}
 }
