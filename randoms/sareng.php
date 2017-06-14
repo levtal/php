@@ -7,10 +7,18 @@ include('jumbotron.php');
 
  
 
-$srcString = $_POST["search_str"]; 
+if(!isset($_GET["search_str"])){
+	 $srcString = 'newyourker';
+}	 
+else {
+	 $srcString= $_GET["search_str"]; 
+	 if (strlen($srcString) == 0 ){
+		 $srcString = 'newyourker';
+	 }else{}
+}
+
  
- 
- 
+echo '<p><span class="badge">Search Word: </span>'.$srcString;
 $in = str_replace(' ','+',$srcString); // space is a +
 
  
@@ -73,28 +81,7 @@ $linkTag = 'h3[class=r] a';
 $titleTag = 'h3[class=r] a';
 $googleURL  = 'http://www.google.com/search?hl=en&tbo=d&site=&source=hp&q='.$in.'&oq='.$in.'';
 $html =  EngResultsScan($googleURL,$linkTag,$titleTag,$descrTag);
-*/
-
-
-echo '<p> <b><H3> Yahoo Results</H3></b><br />'; 
-$yahooURL  = 'https://search.yahoo.com/search?fr=yfp-t&fp=1&toggle=1&cop=mss&ei=UTF-8&p='.$in;
-$descrTag = '.lh-16'; 
-$linkTag = 'h3  a';
-$titleTag = 'h3  a';
-$html =  EngResultsScan($yahooURL,$linkTag,$titleTag, $descrTag);  
-
-
-
-echo '<p> <b><H3> ask.com</H3></b><br />'; 
-$askURL = 'http://www.ask.com/web?o=0&qo=homepageSearchBox&q='.$in;
-$linkTag = '.PartialSearchResults-item-title-link';
-$titleTag = '.PartialSearchResults-item-title';
-$descrTag ='.PartialSearchResults-item-abstract';
-$html = EngResultsScan($askURL,$linkTag,$titleTag, $descrTag);   
-
-
  
-/*
 /// The aol scan does not work
 echo '<p> <b><H3> aol.com</H3></b><br />';
 $aolURL = 'https://search.aol.com/aol/search?s_chn=prt_bon&s_it=comsearch&q='.$in;
@@ -106,13 +93,75 @@ $descrTag ='p property="f:desc"';
  $html = EngResultsScan($aolURL, $linkTag, $titleTag, $descrTag);    
  */
 echo '<p> <b><H3> bing.com</H3></b><br />'; 
-$bingURL = 'https://www.bing.com/search?qs=n&form=QBLH&sp=-1&pq=asad&sc=8-4&sk=&q='.$in;
-$linkTag = 'h2 a';
-$titleTag = 'h2 a span strong';
-$descrTag ='div.b_caption p'; 
-//$html = WebScan($bingURL, $linkTag, $descrTag);
-$html = EngResultsScan($bingURL,$linkTag,$titleTag, $descrTag);   
   
+
+ ?>
+
+
+ <div class="row">
+	  <div class="col-md-12">
+       <div class="card">   <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+			   <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Yahoo</a></li>
+            <li role="presentation">
+			   <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Ask.com</a></li>
+            <li role="presentation">
+			   <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">bing</a></li>
+            <li role="presentation">
+			   <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">search1</a></li>
+			<li role="presentation">
+			   <a href="#divid" aria-controls="settings" role="tab" data-toggle="tab">search1</a></li>   
+         </ul>
+
+                                    
+     <div class="tab-content"> <!-- Tab panes -->
+         <div role="tabpanel" class="tab-pane active" id="home">
+		   <?php 
+               $yahooURL  = 'https://search.yahoo.com/search?fr=yfp-t&fp=1&toggle=1&cop=mss&ei=UTF-8&p='.$in;
+			   $descrTag = '.lh-16'; 
+			   $linkTag = 'h3  a';
+			   $titleTag = 'h3  a';
+			   $html =  EngResultsScan($yahooURL,$linkTag,$titleTag, $descrTag);
+		   ?>
+		  </div>
+          <div role="tabpanel" class="tab-pane" id="profile"> 
+		    <?php 
+			   $askURL = 'http://www.ask.com/web?o=0&qo=homepageSearchBox&q='.$in;
+			   $linkTag = '.PartialSearchResults-item-title-link';
+			   $titleTag = '.PartialSearchResults-item-title';
+			   $descrTag ='.PartialSearchResults-item-abstract';
+			   $html = EngResultsScan($askURL,$linkTag,$titleTag, $descrTag); 
+			?>
+		 </div>
+        <div role=="tabpanel" class="tab-pane" id="messages">
+		    <?php 
+				$bingURL = 'https://www.bing.com/search?qs=n&form=QBLH&sp=-1&pq=asad&sc=8-4&sk=&q='.$in;
+				$linkTag = 'h2 a';
+				$titleTag = 'h2 a span strong';
+				$descrTag ='div.b_caption p'; 
+               $html = EngResultsScan($bingURL,$linkTag,$titleTag, $descrTag); 				 
+		    ?>
+		</div>
+         <div role="tabpanel" class="tab-pane" id="settings">
+		    <?php   ?>
+			</div>
+		  <div role="tabpanel" class="tab-pane" id="divid">
+		    <?php   ?>
+		  </div>	
+			
+	 </div>
+    </div>
+ </div>
+</div>
+
+
+
+
+
+
+<?php 
+$html->clear();  
 include('right.php');
 
 ?>

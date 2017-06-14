@@ -29,9 +29,9 @@
  
  echo '<table width="94%" bgcolor="#0c0F0F" cellspacing="0" cellpadding="3" border="1" bordercolor="#333333">';
   $i=0;  
- for ($row = 1; $row<=3; $row ++) {
+ for ($row = 1; $row<=5; $row ++) {
  echo "<tr>";
- for ($col = 1; $col<=7; $col ++) {
+ for ($col = 1; $col<=5; $col ++) {
          
 		echo '<td class="listItem" valign="top" align="left" width="33%">';
 		echo '<b><font size="5" color="#99ccff"> '.$category_rows[$i]["name"].'</b>';
@@ -39,7 +39,7 @@
 		echo '+</a>]</font><br>';
 		echo  '<b>---------------------------------</b> <br>' ; 
 	    //$sql_cat = $sql_cat . $i. ';';
-        $rows = DB::query($sql_cat . $i. ';',array());
+        $rows = DB::query($sql_cat . $i. ';',array()); 
 		 $cnt = count($rows);
          for($ii=0;$ii<$cnt;$ii++){
 		    echo '[<a href="delURL.php?durl='. $rows[$ii]["url"].'&name='. $rows[$ii]["name"];

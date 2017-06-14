@@ -47,9 +47,9 @@ function handleServerResponse(){
 	}else if(xmlHttp.readyState==4){
 		if(xmlHttp.status==200){
 			try{
-				text = xmlHttp.responseText;
+				text = xmlHttp.responseText;// Get content of "bacon.txt"
 				theD.innerHTML += "Status 4: request is finished and response is ready <br/>";
-				theD.innerHTML += text;
+				theD.innerHTML += text;// Output content of "bacon.txt"
 			}catch(e){
 				alert( e.toString() );
 			}

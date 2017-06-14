@@ -56,12 +56,14 @@ function handleStateChange(){
 function handleResponse(){
 	var xmlResponse = xmlHttp.responseXML;
 	root = xmlResponse.documentElement;
-	names = root.getElementsByTagName("name");
-	ssns = root.getElementsByTagName("ssn");
+	names = root.getElementsByTagName("name");//array of names
+	ssns = root.getElementsByTagName("ssn");//array of ssn
 
 	var stuff = "";
-	for(var i=0;i<ssns.length;i++){
+	for(var i=0;i<ssns.length;i++){//Both arrays are the same  size
 		stuff += names.item(i).firstChild.data + " - " + ssns.item(i).firstChild.data + "<br/>";
+	       // The name is stored in thee 'firstChild.data' .  (data is the text)
+	
 	}
 
 	theD = document.getElementById("theD");

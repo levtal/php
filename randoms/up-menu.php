@@ -1,4 +1,4 @@
- <nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -21,8 +21,11 @@
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
-            <li><a href="#">Act</a></li>
-            <li role="separator" class="divider"></li>
+            <li><a href="spider.php">	
+			      <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Spider   
+			    </a></li>
+ 
+           
             <li><a href="getRandPage.php">	
 			      <span class="glyphicon glyphicon-random" aria-hidden="true"></span> Radom Pages   
 			    </a></li>
@@ -33,12 +36,24 @@
           </ul>
         </li>
       </ul>
-      <form action="sareng.php" method="post" class="navbar-form navbar-left"  >
+   
+
+<form action="spider.php" method="get" class="navbar-form navbar-right"  >
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search_str" value="" >
         </div>
          <button type="submit" class="btn btn-default" value="submit">
-		                Submit
+		                Spider
+		 </button>
+      </form>
+
+
+ <form action="sareng.php" method="get" class="navbar-form navbar-left"  >
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="search_str" value="" >
+        </div>
+         <button type="submit" class="btn btn-default" value="submit">
+		                Search
 		 </button>
       </form>
       <ul class="nav navbar-nav navbar-right">
