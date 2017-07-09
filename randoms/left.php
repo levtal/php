@@ -19,6 +19,10 @@
 	<link href="css/custom.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
                                                                           rel="stylesheet">
+     
+	<!--script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script-->																  
+																		  
   </head>
   <body>
   

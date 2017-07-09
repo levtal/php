@@ -2,7 +2,14 @@
 include('simple_html_dom.php');
  
 // Retrieve the DOM from a given URL
-$html = file_get_html('http://www.the-athenaeum.org/art/full.php?ID=132970#');
+$html = file_get_html('https://ipinfo.io/');
+
+echo  $html;
+echo " DIV tag with calss spacer   <br>----- DIV tag with calss spacer-----------<br>";
+foreach($html->find('div.spacer') as $e)
+    echo $e->innertext . '<br>';
+
+
 
 // Find all "A" tags and print their HREFs
 echo "Find all  A  tags and print their HREFs<br>----------------<br>";

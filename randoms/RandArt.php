@@ -98,11 +98,18 @@ function  PaintingTable($ar){
 echo "</table>";
    
  }
+  $internetConnection = checkdnsrr('php.net');// ? print 1: print 0; // " prints" 1 (If internet is ON)
+  
+ if ($internetConnection){
+    $ar=  WebScan();
+    $title= $ar[2]; 
  
-  $ar=  WebScan();
-  $title= $ar[2]; 
-  echo ($ar[3][0]);   
-  PaintingTable($ar);	 
+    PaintingTable($ar);	
+	$ar=  WebScan();
+    PaintingTable($ar);	
+ }else {
+	echo '<H1> No Internet Connection </H1><br>'; 
+ }  
   
 ?> 
   

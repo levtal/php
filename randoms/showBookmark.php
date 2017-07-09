@@ -62,14 +62,14 @@
 }
 
 echo "</table>";
-  
+ 
 
 ?>
  
  
+  
  
 <?php include('right.php'); ?>
  
 
- <button value="send" onclick="openwindow('http://google.com')" />
  

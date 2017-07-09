@@ -4,7 +4,7 @@ include("simple_html_dom.php");
 include('left.php');
 include('jumbotron.php'); 
 
-
+include('hostdata.php'); 
  
 
 $already_crawled = array();
@@ -141,7 +141,8 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
             <li role="presentation">
 			   <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">div class</a></li>
 			<li role="presentation">
-			   <a href="#divid" aria-controls="settings" role="tab" data-toggle="tab">div id </a></li>   
+			   <a href="#divid" aria-controls="settings" role="tab" data-toggle="tab">div id </a></li> 
+              			   
          </ul>
 
                                     
@@ -167,7 +168,9 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
   		   ?>
 		 </div>
         <div role=="tabpanel" class="tab-pane" id="messages">
-			     <?php  echo get_details($url)."<br><br>";  ?>
+			     <?php  echo get_details($url)."<br><br>";  
+				        echo scanHost($url)."<br><br>";
+				 ?>
 		</div>
          <div role="tabpanel" class="tab-pane" id="settings">
 		    <?php  foreach($html->find('div[class]') as $key => $info) {
@@ -180,7 +183,8 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
                  echo '<p><span class="badge">'.($key + 1).' </span>';
 			     echo  $info->id .'<br>'. $info->plaintext. "<br>";
               }  ?>
-		  </div>	
+		  </div>
+          		  
 			
 	 </div>
     </div>

@@ -3,12 +3,15 @@
    <h1  align="center"><span class="label label-info">Random Art</span></h1>
     
 	
-   <?php include('carousel.php'); ?>
-   
-	  <?php  //include(  getcwd() . '/randart.php');
-
+<?php
+   $internetConnection = checkdnsrr('php.net'); 
+   if ($internetConnection){
+       include('carousel.php'); 
        include('RandArt.php');
-	  ?>
+   }else {
+	echo '<H1> No Internet Connection </H1><br>'; 
+ }   
+?>
  
  
  

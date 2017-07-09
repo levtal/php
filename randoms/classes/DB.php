@@ -37,7 +37,7 @@ class DB {
   public static function query($query, $params = array()) {
     try { 
    $statement = self::connect()->prepare($query);
-    // self::echoSQlParms($query,$params);//echo query and parmetrs
+    //self::echoSQlParms($query,$params);//echo query and parmetrs
 	 $statement->execute($params);
      if (explode(' ', $query)[0] == 'SELECT') {
         $data = $statement->fetchAll();
