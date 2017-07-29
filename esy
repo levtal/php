@@ -1,5 +1,15 @@
  
+//what is the PDO equivalent of  mysql_real_escape_string
 
+
+$req = mysqli_query('select password,id from users where username="'.$username.'"');
+
+$dn1  = DB::query($sql,array());
+$db1cnt = count($dn1); //$nb_cats = mysql_num_rows($dn1);
+
+for($ii=0;$ii<$db1-cnt;$ii++){
+   $posts[] = $dn1[$ii];
+}
    
  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>tinymce.init({ selector:'textarea' });</script>

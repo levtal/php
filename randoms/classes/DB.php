@@ -1,4 +1,4 @@
-<?php
+ <?php
  
 include('cfg.php');
 class DB {
@@ -15,12 +15,16 @@ class DB {
   public static function echoResults($data,$statement){ 
        	echo "<br><pre>".print_r($data, true) . "</pre>"; 
          echo "<b>Number of Items</b> = ".$statement->rowCount();
-        
+        echo self::GetlastInsertId();
 		echo "<br> END Output of  function query <br>";
         echo "---------------------------------<br><br>"; 
   }
 
- 
+ public static function  GetlastInsertId(){
+	$id = self::connect()->lastInsertId(); 
+	 
+	return $id;
+ } 
  private static function connect() {
   try { 
 	$hostdb = 'mysql:host='. DB_HOST  .';';
@@ -35,13 +39,17 @@ class DB {
  }//connect
 
   public static function query($query, $params = array()) {
-    try { 
+  
+ 
+  try { 
    $statement = self::connect()->prepare($query);
+     
+	$statement->execute($params);
     //self::echoSQlParms($query,$params);//echo query and parmetrs
-	 $statement->execute($params);
-     if (explode(' ', $query)[0] == 'SELECT') {
+	
+    if (strtolower(explode(' ', $query)[0]) == 'select') {
         $data = $statement->fetchAll();
-	    //self::echoResults($data,$statement);
+	    // self::echoResults($data,$statement);
        	 
         return $data;
      }

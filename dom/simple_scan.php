@@ -47,5 +47,14 @@ foreach($html->find('td[align=center]') as $e)
 echo  "Extract all text from a given cell<br>----------------<br>";
 echo $html->find('span', 1)->plaintext.'<br><hr>';
 
+
+///Get all Attributes
+
+$html = file_get_html('somefile.html');
+foreach ($html->find('a') as $e) {   //used a tag here, but use whatever you want
+    $e->getAllAttributes();
+    echo  '<br><br><br>';
+   echo "<br><pre>".print_r($e->attr, true) . "</pre>";
+}
  
 ?>

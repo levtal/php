@@ -29,11 +29,9 @@
  <div class="form-group">
    <div class="col-sm-11">
        <textarea placeholder="Enter Text here..." 
-	    style="font-size:26px"
-		class="form-control inputstl"    rows="15"        name="body"  >	
-		 
+	             style="font-size:26px"
+		         class="form-control inputstl"    rows="15"        name="body"  >	
 	   </textarea>
-	   
    </div>
  </div>
  

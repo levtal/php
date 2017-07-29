@@ -26,8 +26,8 @@
 			    </a></li>
  
            
-            <li><a href="getRandPage.php">	
-			      <span class="glyphicon glyphicon-random" aria-hidden="true"></span> Radom Pages   
+            <li><a href="RandArtist.php">	
+			      <span class="glyphicon glyphicon-random" aria-hidden="true"></span> Radom Artist   
 			    </a></li>
             <li role="separator" class="divider"></li>
             <li><a href="showBookmark.php">
