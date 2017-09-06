@@ -64,42 +64,39 @@ function  PaintingTable($ar){
  $title= $ar[2];
  $artist= $ar[3];
  
- echo '<table width="98%" bgcolor="#0c0F0F" cellspacing="0" cellpadding="6" border="0" bordercolor="#F9F9F9">';
+echo '<table width="98%" bgcolor="#0c0F0F" cellspacing="0" cellpadding="6" border="0" bordercolor="#F9F9F9">';
   $i=0;  
  
   
- for ($row = 0; $row < 4; $row ++) {
+ for ($row = 0; $row < 3; $row ++) {
  echo "<tr>";
- for ($col = 1; $col <= 3; $col ++) {
-        $id_num = substr($lnk[$i], strpos($lnk[$i], "=") + 1);  
-      
-        $link = 'GetArtist.php?pic_id='.$id_num;
-		//.'&title='.$title[$i].'&artist='.$artist[$i].',width=710,height=555,left=160,top=170';
-
-       echo '<td class="listItem" valign="top" align="center" width="33%">';
-        
-	    echo '<button value="send" onclick=window.open("'.$link .'","rtrtrt","status=1,scrollbars=1,menubar=1,resizable=1,width=900,height=700,left=300,top=170") > ';
-
-		 echo '<img src="'.$imag[$i] . '"> </button><br>';
-        echo  '<b><font color="gray">'.$title[$i].'</font></b><br>';
-        
-        $text = str_replace(' ', '_', $artist[$i]);
-		echo  '<a href="https://en.wikipedia.org/wiki/'.$text.'">';
-		echo  '<font color="white">'.$artist[$i].'</font></a>';
-	 
-		echo "</td>";
-		$i++;
-   }                
+  for ($col = 1; $col <= 4; $col ++) {
+   $id_num = substr($lnk[$i], strpos($lnk[$i], "=") + 1); 
+   echo '<td class="listItem" valign="top" align="center" width="33%">';
+   echo  '<form action="GetPainting.php" method="POST">';
+   echo      '<input type="hidden" name="pic_id" value="'.$id_num.'"/>';
+   echo      '<input type="hidden" name="artist_name"" value="'.$artist[$i].'"/>';
+   //echo      '<input type="hidden" name="artist_name"" value="gggggg"/>';
+   echo      '<input type="hidden" name="title" value="'.$title[$i].'"/>';
+   echo      '<button type="submit" width="48" height="48">';
+   echo           '<img src="'.$imag[$i].'"  />';
+   echo      '</button>';
+  
+   echo  '</form>';
+   
+   echo   '<b><font color="gray">'.$title[$i].'</font></b><br>';
+   $artist_name = str_replace(' ', '_', $artist[$i]);   
+   echo  '<a href="https://en.wikipedia.org/wiki/'. $artist_name.'">';
+   echo  '<font color="white">'.$artist[$i].'</font></a>';
+   echo "</td>";
+   $i++;
+  }                
  
- 
-
-   echo "</tr>";
+ echo "</tr>";
 }
 echo "<tr>";
-    echo '<td class="listItem" valign="top" align="center" width="33%">';
-	 echo  '<a href="https://www.wikiart.org/en/App/Painting/Random">';
-		echo  '<font color="white">Random wikiart</font></a>';
-   echo '</td>';
+    echo '<td  valign="top" align="center">';
+	echo '</td>';
  echo "</tr>";
 echo "</table>";
    

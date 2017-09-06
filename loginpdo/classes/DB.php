@@ -1,7 +1,6 @@
  <?php
  
 include('cfg.php');
-define("DEBUG", false);
 class DB {
 	
   public static function echoSQlParms($query,$params){
@@ -44,16 +43,14 @@ class DB {
  
   try { 
    $statement = self::connect()->prepare($query);
-  
-	if(DEBUG){
-          self::echoSQlParms($query,$params);//echo query and parmetrs
-	}  
+     
 	$statement->execute($params);
+    //self::echoSQlParms($query,$params);//echo query and parmetrs
+	
     if (strtolower(explode(' ', $query)[0]) == 'select') {
         $data = $statement->fetchAll();
-	    if(DEBUG){
-			self::echoResults($data,$statement);
-       	} 
+	    // self::echoResults($data,$statement);
+       	 
         return $data;
      }
 	}//try 

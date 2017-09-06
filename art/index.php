@@ -1,6 +1,7 @@
- <?php include('left.php'); ?>
+
+
  
-    
+ <?php   include('left.php'); ?>    
 	
 <?php
    $internetConnection = checkdnsrr('php.net'); 

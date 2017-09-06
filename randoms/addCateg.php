@@ -9,6 +9,7 @@ if (isset($_POST['addCateg'])) {
     $holders = ' (\'\',:category_name)';
     $sql = $q. $holders;
     DB::query($sql, $parm);
+	header('Location: showBookmark.php');  
   }
 ?>
 

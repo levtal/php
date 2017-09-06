@@ -1,6 +1,6 @@
  
 //what is the PDO equivalent of  mysql_real_escape_string
-
+'''''''''''''''''''''''''''''''''''' ־   —    —  ־ ־ ־  —        “”      “”      “”      “ ”
 
 $req = mysqli_query('select password,id from users where username="'.$username.'"');
 

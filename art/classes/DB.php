@@ -1,31 +1,33 @@
  <?php
- 
+  
 include('cfg.php');
-define("DEBUG", false);
+define("DEBUG",false);
 class DB {
 	
   public static function echoSQlParms($query,$params){
-     echo "DB.php Output of  function query";
-	 echo "<br>----------------------------<br>";
-	 echo "<br><b>". $query."</b><br>";
-	 
-	 echo "<br><pre>".print_r($params, true) . "</pre>";
-   
+    echo "<br><br>-- DB.php Output of  function query ---";
+	echo "<br>----------------------------------------------<br>";
+	echo "<br><b>". $query."</b><br>";
+	echo "<br><pre>".print_r($params, true) . "</pre>";
+    echo "<br><br>------ End  ------<br>";
  }
  
   public static function echoResults($data,$statement){ 
        	echo "<br><pre>".print_r($data, true) . "</pre>"; 
-         echo "<b>Number of Items</b> = ".$statement->rowCount();
+        echo "<b>Number of Items</b> = ".$statement->rowCount();
         echo self::GetlastInsertId();
 		echo "<br> END Output of  function query <br>";
         echo "---------------------------------<br><br>"; 
   }
 
+  
+  
  public static function  GetlastInsertId(){
 	$id = self::connect()->lastInsertId(); 
-	 
-	return $id;
+ 	return $id;
  } 
+ 
+ 
  private static function connect() {
   try { 
 	$hostdb = 'mysql:host='. DB_HOST  .';';
@@ -35,11 +37,13 @@ class DB {
     return $pdo;
 	}
   catch (PDOException $e){
-    	exit ("<b>Error in function connect: </b>".$e->getMessage());
+    	exit ("<br><b>Error in function connect():<br> </b>".$e->getMessage());
+	    	
 	}
+ 
  }//connect
 
-  public static function query($query, $params = array()) {
+ public static function query($query, $params = array()) {
   
  
   try { 

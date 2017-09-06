@@ -1,3 +1,27 @@
+<?php 
+	
+    session_start();
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+	    //$login_file_location ='location: '.getcwd().'\classes\login.php';
+	    //header($login_file_location);
+        //echo $login_file_location;
+		echo '<meta http-equiv="refresh" content="0;url=classes/login.php">';
+	    exit();  
+	}
+
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['username']);
+		header("location: login.php");
+	}
+
+?> 
+
+
+
+
+
 <!DOCTYPE html>
  
 
@@ -35,9 +59,15 @@
  
  <div class="row">
     <div class="col-md-1"> 
-	<h1> left</h1>
-	<p> fr bdf    </p>
-	 
+	<h1>Links</h1>
+	<a href="https://www.wikiart.org/en/artists-by-art-movement/">Movements </a><br>
+    <a href="http://www.the-athenaeum.org/">The-athenaeum </a><br>
+	<a href="https://www.wikiart.org/en/App/Painting/Random">Wikiart</a><br>
+	<a href="https://www.nationalgallery.org.uk/">N-gallery</a><br>
+	<a href="https://www.allartclassic.com/">allartclassic</a><br>
+	
+	
+	
   </div>
  
  <div class="col-md-10"> 

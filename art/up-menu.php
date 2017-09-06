@@ -15,18 +15,20 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="posts.php">Posts</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Randoms <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+ 		       aria-haspopup="true" aria-expanded="false">
+		      View   <span class="caret"></span>
+		     
+		  </a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
-            <li><a href="spider.php">	
-			      <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Spider   
-			    </a></li>
- 
-           
-              <li><a href="index.php?id=1">	
+            <li><a href="movmentsMenu.php">	
+			    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Art Movments    
+			    </a>
+			</li>
+            <li><a href="index.php?id=1">	
 			      <span class="glyphicon glyphicon-random" aria-hidden="true"></span> Random Artist   
 			    </a></li>
             <li role="separator" class="divider"></li>
@@ -34,16 +36,48 @@
 			         <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> Bookmark
 				</a></li>
           </ul>
-        </li>
-      </ul>
-   
+      </li>
+    </ul>
+	
+	  <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+ 		       aria-haspopup="true" aria-expanded="false">
+		       Add   <span class="caret"></span>
+		   </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            
+            <li><a href="addPainting.php">	
+			    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add Painting   
+			    </a>
+			</li>
+            <li><a href="addArtist.php?id=1">	
+			      <span class="glyphicon glyphicon-king " aria-hidden="true"></span>Add Artist   
+			    </a>
+			</li>
+           
 
-<form action="spider.php" method="get" class="navbar-form navbar-right"  >
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="search_str" value="" >
-        </div>
+            <li><a href=" addMovment.php">	
+			      <span class="glyphicon glyphicon-education " aria-hidden="true"></span>Add Movement   
+			    </a>
+			</li> 
+
+
+		 <li role="separator" class="divider"></li>
+            <li><a href="showBookmark.php">
+			         <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> Bookmark
+				</a></li>
+          </ul>
+      </li>
+    </ul>
+	
+   
+      
+<form action="classes/indx.php?logout='1'" method="get" class="navbar-form navbar-right"  >
+         
          <button type="submit" class="btn btn-default" value="submit">
-		                Spider
+		                Login
 		 </button>
       </form>
 

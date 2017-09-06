@@ -1,22 +1,9 @@
    <?php 
- function scanHost($url) {
-	 
-   $data = parse_url($url);
-   echo 'IP-List <br>' ;
-   echo "-------------------------<br>" ;
-   $ip_list = gethostbynamel($data['host']);
    
-   echo "<br><pre>".print_r($ip_list, true) . "</pre>";
-    /*$max = sizeof($ip_list);
    
-   for($i = 0; $i < $max;$i++){
-         echo'['.$i.'] = '. $ip_list[$i].'<br>';
-    }
- */
-  
-
-  $ip_info_url='https://ipinfo.io/'.$ip_list[0];
- 
+ function  getIpInfo($ip_list){
+	  
+  $ip_info_url='https://ipinfo.io/'.$ip_list;
   $h = file_get_html($ip_info_url);
  
  echo ' OutPut of ipinfo.io <br>-------------------<br>';
@@ -29,8 +16,8 @@
  echo '<p><span class="badge">Host: </span>';
  
  echo '<a href="//'. $jason_array['hostname'] .'">';
-			echo  '<font size="4" color="#ffcc66">'.$jason_array['hostname'].'</font><br>';
-            echo  '</a>';
+     echo  '<font size="4" color="#ffcc66">'.$jason_array['hostname'].'</font><br>';
+ echo  '</a>';
  
  
  //echo $jason_array['hostname'].'<br>'; 
@@ -82,7 +69,27 @@ echo '<a href="'.  $robex_whois_url .'">';
  embed google map <a href="http://www.embedgooglemap.net">embedgooglemap.net</a>
  </div>
  <style>.mapouter{overflow:hidden;height:500px;width:600px;}.gmap_canvas {background:none!important;height:500px;width:600px;}</style></div>
- '; 
+ ';
+	  
+	  
+  } 
+   
+   
+   
+   
+   
+ function scanHost($url) {
+	 
+   $data = parse_url($url);
+   echo 'IP-List <br>' ;
+   echo "-------------------------<br>" ;
+   $ip_list = gethostbynamel($data['host']);
+   
+   echo "<br><pre>".print_r($ip_list, true) . "</pre>";
+    
+  
+   getIpInfo($ip_list[0]);
+  
  
  }  
  ?>

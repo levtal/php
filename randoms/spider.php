@@ -3,13 +3,24 @@
 include("simple_html_dom.php");
 include('left.php');
 include('jumbotron.php'); 
-
+//include('scanip.php');
 include('hostdata.php'); 
  
 
 $already_crawled = array();
 $crawling = array();
 $ext_link  = array();
+
+function scanip($ip){
+	 
+	 echo  $ip.'<br>';  
+    $chkHostUrl='https://check-host.net/ip-info?host='.$ip;
+     echo '<a href='.$chkHostUrl.'>'.$chkHostUrl.'</a><br>';
+  //	$h = file_get_html($chkHostUrl);
+	getIpInfo($ip);
+}
+ 
+
 
 function get_details($url) {
 
@@ -59,13 +70,26 @@ else {
 	 $url = $_GET["search_str"]; 
 	 if (strlen($url) == 0 ){
 		  $url = 'https://www.walla.co.il/';
-	 }else{}
+	 }else{  }
 }
+ 
+
+if  (substr( $url, 0, 4 ) !== "http") { 
+                //include('scanip.php');
+	             scanip($url);
+				include('right.php'); 
+	            return;
+	        }  
 
 $data = parse_url($url);
 echo $url."<br>" ;
- 
+
 echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></pre>";
+
+
+ 
+ 
+ 
  
  /*
  parse_url($url) result

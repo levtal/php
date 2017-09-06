@@ -1,9 +1,9 @@
  <?php
- 
+define("DEBUG", false);//false true
 include('cfg.php');
-define("DEBUG", false);
+ 
 class DB {
-	
+  	 
   public static function echoSQlParms($query,$params){
      echo "DB.php Output of  function query";
 	 echo "<br>----------------------------<br>";
@@ -27,7 +27,8 @@ class DB {
 	return $id;
  } 
  private static function connect() {
-  try { 
+ 
+ try { 
 	$hostdb = 'mysql:host='. DB_HOST  .';';
     $hostdb = $hostdb . 'dbname=' . DB_NAME.';charset=utf8';
     $pdo = new PDO( $hostdb, DB_USER, DB_PASS);
@@ -41,19 +42,21 @@ class DB {
 
   public static function query($query, $params = array()) {
   
- 
+    
   try { 
    $statement = self::connect()->prepare($query);
-  
-	if(DEBUG){
-          self::echoSQlParms($query,$params);//echo query and parmetrs
-	}  
+     
+	
+    if (DEBUG )	     {
+			 self::echoSQlParms($query,$params);//echo query and parmetrs
+		 }	 
 	$statement->execute($params);
     if (strtolower(explode(' ', $query)[0]) == 'select') {
         $data = $statement->fetchAll();
-	    if(DEBUG){
-			self::echoResults($data,$statement);
-       	} 
+	      if (DEBUG){
+			  self::echoResults($data,$statement);
+		  }  
+       	 
         return $data;
      }
 	}//try 

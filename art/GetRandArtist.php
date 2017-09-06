@@ -1,8 +1,26 @@
   <?php 
-
+ define("NUM_OF_COLUMN",3);
 include("simple_html_dom.php");
  
+function RandomArtistScan() {
+	
+  $wikiurl='https://www.wikiart.org/';
+	$ArtistNameTag = 'a[class=artist-name]';
+	$url  = 'https://www.wikiart.org/en/App/Painting/Random';//Random artist
+	$html = file_get_html($url);	
+    $ArtistName = $html->find($ArtistNameTag,0)->href;
+    
+    $ArtistLink =  'https://www.wikiart.org'.$ArtistName;
+    $ArtistName = str_replace("/en/", "", $ArtistName);
+    //echo  $ArtistLink;
+    echo '<br><a href='. $ArtistLink.'>'.$ArtistName.'</a>';
+
  
+	$i=0;
+	
+return array($ArtistLink);//, $TitleArray,$PicArray,$i--);	
+	
+} 
 
 function WebScan(){
 	
@@ -16,7 +34,9 @@ function WebScan(){
 	$html = file_get_html($url);	
     $ArtistName = $html->find($ArtistNameTag,0)->href;
 	$ArtistLink =  '<a href="'.'https://www.wikiart.org'.$ArtistName.'">';
-     $ArtistName = str_replace("/en/", "", $ArtistName);
+    
+
+    $ArtistName = str_replace("/en/", "", $ArtistName);
     $ArtistLink = $ArtistLink . $ArtistName .'</a>';
   
 
@@ -62,7 +82,7 @@ function WebScan(){
 
 function  PaintingTable($ar){
    
-  //return array($ArtistLink, $TitleArray,$PicArray[$i],$i--);
+   
  $artist= $ar[0];
  $title= $ar[1];
  
@@ -71,23 +91,27 @@ function  PaintingTable($ar){
  
  
   echo '<table width="98%" bgcolor="#0c0F0F" cellspacing="0" cellpadding="6" border="0" bordercolor="#F9F9F9">';
-  for ($row = 0; $row < $itemNum; $row ++) {
-   echo "<tr>";
-     echo '<td class="listItem" valign="top"  width="33%">';
-             echo $imag[$row].'<br>'; 
-		   echo $title[$row].'<br>';
-          
-       echo "</td>";
-  echo "</tr>";
- echo "</table>";
- }
- 
+ $col=0;
+ echo "<tr>";
+ for ($row = 0; $row < $itemNum; $row ++) {
+      echo '<td class="listItem" valign="top"  width="33%">';
+            echo $title[$row].'<br>';
+		    echo $imag[$row].'<br>'; 
+		echo "</td>";
+  $col++;
+	if ($col>NUM_OF_COLUMN) {
+		$col = 1; 
+		echo "</tr><tr>";
+	 }
+   
+  }
+ echo "</tr></table>"; 
 }
  
- 
  $ar = WebScan() ; 
+ //$ar = RandomArtistScan() ; 
   echo '<br><b>'.$ar[0].'</b><br><br>';
- PaintingTable($ar);	
+  PaintingTable($ar);	
  
    
 ?> 

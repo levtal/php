@@ -25,41 +25,45 @@
     
     $category_rows = DB::query($sql,array());
 
- //$cnt = count($rows);
- 
+ $category_counter = count( $category_rows);
+ echo '[<a href="addCateg.php"> Add New Category </a>]<br>';
  echo '<table width="94%" bgcolor="#0c0F0F" cellspacing="0" cellpadding="3" border="1" bordercolor="#333333">';
   $i=0;  
- for ($row = 1; $row<=5; $row ++) {
- echo "<tr>";
- for ($col = 1; $col<=5; $col ++) {
-         
-		echo '<td class="listItem" valign="top" align="left" width="33%">';
-		echo '<b><font size="5" color="#99ccff"> '.$category_rows[$i]["name"].'</b>';
-		echo '[<a href="addURL.php?cat_id='. $i.'">';
-		echo '+</a>]</font><br>';
-		echo  '<b>---------------------------------</b> <br>' ; 
-	    //$sql_cat = $sql_cat . $i. ';';
-        $rows = DB::query($sql_cat . $i. ';',array()); 
-		 $cnt = count($rows);
-         for($ii=0;$ii<$cnt;$ii++){
-		    echo '[<a href="delURL.php?durl='. $rows[$ii]["url"].'&name='. $rows[$ii]["name"];
-			echo '">';
-		    echo '-</a>] ';
-			
-           
-			echo '<a href="'. $rows[$ii]["url"] .'">';
-			echo  '<font size="4" color="#ffcc66"> '. $rows[$ii]["name" ].'</font><br>';
-            echo  '</a>';
-			
-		 }
+  $col = 1;
+            //for ($row = 1; $row<=6; $row ++) {
+ while ($i < $category_counter){
+   	 
+    echo '<td class="listItem" valign="top" align="left" width="33%">';
+	echo '<b><font size="5" color="#99ccff"> '.$category_rows[$i]["name"].'</b>';
+	echo '  [<a href="addURL.php?cat_id='.$category_rows[$i]["id"].'">';
+	echo '+</a>]</font>';
+    echo '    [<a href="editCateg.php?cat_id='. $category_rows[$i]["id"].'&name='.$category_rows[$i]["name"].'">';
+	echo 'E</a>]</font><br>';
+        // echo $i.' '. $category_counter;
+	echo  '<b>---------------------------------</b> <br>' ; 
+	     
+    $rows = DB::query($sql_cat .$category_rows[$i]["id"]. ';',array()); 
+	$cnt = count($rows);
+    for($ii=0;$ii<$cnt;$ii++){
+       echo '[<a href="delURL.php?durl='. $rows[$ii]["url"].'&name=';
+       echo $rows[$ii]["name"].'">';
+	   echo '-</a>] ';
+	   echo '<a href="'. $rows[$ii]["url"] .'">';
+	   echo  '<font size="4" color="#ffcc66"> '. $rows[$ii]["name" ].'</font><br>';
+       echo  '</a>';
+	 }
 		 
-		
-		echo "</td>";
-		$i++;
-   }
+	//echo "</td>";
+	$i++;
+    $col++;
+	if ($col>5) {
+		$col = 1; 
+		 echo "</tr>";
+	 }
+ }
 
-   echo "</tr>";
-}
+  //
+//}
 
 echo "</table>";
  
