@@ -8,7 +8,7 @@ if (isset($_POST['addMovment'])) {
 		     );
  	$q='INSERT INTO movement VALUES';  
     $holders = ' (\'\',:title,:notes)';
-    echo "<br><pre>".print_r($parm, true) . "</pre>"; 
+    //echo "<br><pre>".print_r($parm, true) . "</pre>"; 
     $sql = $q. $holders;
     DB::query($sql, $parm);
                   
