@@ -3,7 +3,8 @@
 include('classes/DB.php');
  
 if (isset($_POST['addArtist'])) {
-        
+    $mov_id  = $_POST["mov_select"]; 
+    echo 	$mov_id; exit();
     $sql='SELECT id 
 	      FROM       movement
 		  WHERE  title = "'. $_POST['movement'].'"';
@@ -51,7 +52,21 @@ if (isset($_POST['addArtist'])) {
  ImageURL:<br>
    <input type="text" name="pic" style=" color:#131333" value="" placeholder="pic url"><p />
  Movement:<br>
-  <input type="text" name="movement" style=" color:#131333" value="<?php echo $mov_name;   ?>" placeholder="movement"><p /> 
+  <select name='mov_select' style=" color:#131333">
+   
+  <?php $sql='SELECT  id,title 
+	   FROM       movement 
+	   ORDER BY   title';
+  
+  $movment_rows = DB::query($sql,array());
+  $movment_counter = count( $movment_rows);
+   
+  for ($i = 0; $i <  $movment_counter; $i++) {
+    echo "<option value='" . $movment_rows[$i]["id"] . "'>" ;
+    echo $movment_rows[$i]["title"] . "</option>";
+  }
+ ?>
+ </select>
   School::<br>
    <input type="text" name="notes" style=" color:#131333" value="" placeholder="school"><p /> 
 <input type="submit" name="addArtist" style=" color:#131333" value="Add Artist">
