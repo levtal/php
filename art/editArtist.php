@@ -18,12 +18,25 @@ $artist_rows = DB::query($sql,array());
   ImageURL:<br> <input type="text" name="pic"  
             style=" color:#131333"    
             value="<?php echo $artist_rows[0]['pic'];?>" 
-			placeholder="Image URL"><p /><br> 
-  Movement:<br> <input type="text" name="movement" 
-            style=" color:#131333"
-            value="<?php echo $artist_rows[0]['movement'];?>" 
-			placeholder="nd"><p /><br> 	
-  School:<br> <input type="text" name="school" 
+			placeholder="Image URL"><p />  
+ Movement: [<?php echo $artist_rows[0]['movement'];?>] <br>
+  <select name='mov_select' style=" color:#131333">
+   
+  <?php $sql='SELECT  id,title 
+	   FROM       movement 
+	   ORDER BY   title';
+  
+  $movment_rows = DB::query($sql,array());
+  $movment_counter = count( $movment_rows);
+   
+  for ($i = 0; $i <  $movment_counter; $i++) {
+    echo "<option value='" . $movment_rows[$i]["id"] . "'>" ;
+    echo $movment_rows[$i]["title"] . "</option>";
+  }
+ ?>
+ </select>
+ <br>  	
+  Notes:<br> <input type="text" name="school" 
             style=" color:#131333"  
             value="<?php echo $artist_rows[0]['school'];?>" 
 			placeholder="nd"><p /><br> 			

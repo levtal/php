@@ -4,26 +4,18 @@ include('classes/DB.php');
  
 if (isset($_POST['addArtist'])) {
     $mov_id  = $_POST["mov_select"]; 
-    echo 	$mov_id; exit();
-    $sql='SELECT id 
+    $sql='SELECT  title 
 	      FROM       movement
-		  WHERE  title = "'. $_POST['movement'].'"';
-    $movement_id = DB::query($sql,array());
-    $movment_counter = count( $movement_id);
-    //echo  'movment_counter= '.$movment_counter;
-    if ($movment_counter == 0 ) { // No such movment so choose id of 'na'   
-	      $mov_id = 1;
-		  $mov_name = 'na';
-	   } else {
-		   $mov_id = $movement_id[0]['id'];
-		   $mov_name = $_POST['movement'];
-	   }	   
-	//echo $mov_id;
-	
+		  WHERE  id = '. $mov_id;
+
+  $movement_name = DB::query($sql,array());
+  $mov_name = $movement_name[0]['title'];
+  //echo $mov_name;
+//	echo 	$mov_id; exit();
     $parm=array(':name'=>$_POST['artist_name'], 
 		        ':pic'=>$_POST['pic'], 
 	            ':movement'=>$mov_name,
-				':school'=>$_POST['school'] 
+				':school'=>$_POST['notes'] 
 		     );
 	$q='INSERT INTO artists  VALUES';  
     $holders = ' (\'\',:name,:pic,:movement,:school)';    
@@ -67,8 +59,8 @@ if (isset($_POST['addArtist'])) {
   }
  ?>
  </select>
-  School::<br>
-   <input type="text" name="notes" style=" color:#131333" value="" placeholder="school"><p /> 
+ <br> Notes:<br>
+   <input type="text" name="notes" style=" color:#131333" value="" placeholder=""><p /> 
 <input type="submit" name="addArtist" style=" color:#131333" value="Add Artist">
 </form>
 <?php include('right.php'); ?>
