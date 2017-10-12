@@ -3,7 +3,7 @@
  <div id="footer">
   <div class="container">
     <p>Tags: 
-    <a href="#"><span class="label label-info">Snipp</span></a> 
+    <a href="ip-data.txt"><span class="label label-info">ip</span></a> 
 	<a href="#"><span class="label label-info">Bootstrap</span></a> 
 	<a href="#"><span class="label label-info">UI</span></a> 
 	<a href="#"><span class="label label-info">growth</span></a>

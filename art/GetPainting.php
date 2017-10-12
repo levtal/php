@@ -49,12 +49,12 @@ foreach($html->find('img') as $e){
  <img src="<?php  echo  $img[3];?>"  border="2">
 <?php 
 
- echo  '<form action="StorePainting.php" method="POST">';
- echo    '<input type="hidden" name="image_url" value="'.$img[3].'"/>';
- echo    '<input type="hidden" name="artist_name" value="'. $artist_name .'"/>';
- echo    '<input type="hidden" name="title" value="'.$_POST['title'].'"/>';
- echo    '<input type="submit" value="Store" style="color:#131333;height:50px; width:150px" />';
- echo '</form>';  
+ //echo  '<form action="StorePainting.php" method="POST">';
+ //echo    '<input type="hidden" name="image_url" value="'.$img[3].'"/>';
+// echo    '<input type="hidden" name="artist_name" value="'. $artist_name .'"/>';
+// echo    '<input type="hidden" name="title" value="'.$_POST['title'].'"/>';
+// echo    '<input type="submit" value="Store" style="color:#131333;height:50px; width:150px" />';
+// echo '</form>';  
  ?>
  <?php include('right.php'); ?>
  

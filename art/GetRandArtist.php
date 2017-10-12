@@ -12,10 +12,7 @@ function RandomArtistScan() {
     
     $ArtistLink =  'https://www.wikiart.org'.$ArtistName;
     $ArtistName = str_replace("/en/", "", $ArtistName);
-    //echo  $ArtistLink;
-    echo '<br><a href='. $ArtistLink.'>'.$ArtistName.'</a>';
-
- 
+     echo '<br><a href='. $ArtistLink.'>'.$ArtistName.'</a>';
 	$i=0;
 	
 return array($ArtistLink);//, $TitleArray,$PicArray,$i--);	

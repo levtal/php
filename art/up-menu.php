@@ -8,14 +8,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php">Arc Art</a>
+      <a class="navbar-brand" href="index.php" style="color: rgb(0,255,125)">ArtBokMak</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li class="dropdown">
+        <li class="Random">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
  		       aria-haspopup="true" aria-expanded="false">
 		      View   <span class="caret"></span>
@@ -32,9 +32,11 @@
 			      <span class="glyphicon glyphicon-random" aria-hidden="true"></span> Random Artist   
 			    </a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="showBookmark.php">
-			         <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> Bookmark
-				</a></li>
+             
+				
+			
+				
+				
           </ul>
       </li>
     </ul>
@@ -46,17 +48,11 @@
 		       Add   <span class="caret"></span>
 		   </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            
             <li><a href="addPainting.php">	
 			    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add Painting   
 			    </a>
 			</li>
-            <li><a href="addArtist.php?id=1">	
-			      <span class="glyphicon glyphicon-king " aria-hidden="true"></span>Add Artist   
-			    </a>
-			</li>
-           
+             
 
             <li><a href=" addMovment.php">	
 			      <span class="glyphicon glyphicon-education " aria-hidden="true"></span>Add Movement   
@@ -65,9 +61,19 @@
 
 
 		 <li role="separator" class="divider"></li>
-            <li><a href="showBookmark.php">
+            <li><a href="http://vazlavgtt.esy.es/prj/randoms/showBookmark.php">
 			         <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> Bookmark
 				</a></li>
+			<li><a href="loadVnudata.php">
+			 <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 
+			  Load Vnu 
+			  </a>
+			 </li>	
+			<li><a href="#">
+			 <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 
+			 Load   
+			  </a>
+			 </li>	
           </ul>
       </li>
     </ul>
@@ -93,10 +99,10 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Random <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
+            <li><a href="odysseyrand.php">Odyssey</a></li>
+            <li><a href="vnurand.php">Venus</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>

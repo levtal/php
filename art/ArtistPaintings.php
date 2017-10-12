@@ -1,4 +1,4 @@
-<?php   // Find pating of one artist_id
+<?php   // Find painting of one artist_id
   
  include('classes/DB.php');
  include('left.php');   
@@ -19,7 +19,8 @@
   $movment_rows = DB::query($sql,array());
   
   echo '<h3 align= "center"> <a href="movments.php?id='.$movment_rows[0]["id"].'">';
-  echo  $movment_rows[0]["title"].'</a></h3> ';
+ 
+ echo  $movment_rows[0]["title"].'</a></h3> ';
   echo  $rows[0]["school" ].'<br>';
 
 

@@ -1,6 +1,10 @@
  
 <?php
 include('DB.php');
+ 
+
+
+ 
 session_start();
 
 
@@ -48,6 +52,7 @@ if (isset($_POST['reg_user'])) {
 
  // LOGIN USER
 if (isset($_POST['login_user'])) {
+    include('scanip.php'); 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
    

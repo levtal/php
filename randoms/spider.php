@@ -61,7 +61,9 @@ function get_details($url) {
 		 '<br> <b>  Keywords: </b>'. $keywords .
 		 '<br> <b>URL: </b>'.$url ;
 
-}
+}//get_details($url)
+//*************************************************
+
 
 if(!isset($_GET["search_str"])){
 	 $url = 'depresion';
@@ -69,7 +71,8 @@ if(!isset($_GET["search_str"])){
 else {
 	 $url = $_GET["search_str"]; 
 	 if (strlen($url) == 0 ){
-		  $url = 'https://www.walla.co.il/';
+		  $url = 'http://www.uroulette.com/';
+		  
 	 }else{  }
 }
  
@@ -106,7 +109,7 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
  
  $html = new simple_html_dom();
  $html->load_file($url);
- 
+
  $linklist = $html->find("a");
  
  //echo get_details($url)."<br><br>"; 
@@ -149,7 +152,7 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
 		    }else{}
 		}
 }		
-
+ 
 ?>
 
   <div class="row">
@@ -165,7 +168,12 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
             <li role="presentation">
 			   <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">div class</a></li>
 			<li role="presentation">
-			   <a href="#divid" aria-controls="settings" role="tab" data-toggle="tab">div id </a></li> 
+			   <a href="#divid" aria-controls="settings" role="tab" data-toggle="tab">div id </a>
+			</li> 
+			
+			<li role="presentation">
+			   <a href="#img" aria-controls="settings" role="tab" data-toggle="tab">img </a>
+			</li>
               			   
          </ul>
 
@@ -175,7 +183,12 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
 		   <?php 
 		    	$max = sizeof($already_crawled);
                 for($i = 0; $i < $max;$i++){
-                        echo '<p><span class="badge">'.$i.'</span>';
+                        
+						
+						 echo   '<a href="'.$already_crawled[$i].'">';
+                        echo '<p><span class="badge">'.$i.'</span>'."</a>";
+						
+						
                     	echo   '<a href="spider.php?search_str='.$already_crawled[$i].'">';
                         echo  $already_crawled[$i]."</a> <br />";
                 }
@@ -185,8 +198,11 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
 		    <?php 
 		    	$max = sizeof($ext_link);
                 for($i = 0; $i < $max;$i++){
-                      echo '<p><span class="badge">'.$i.'</span>';
-                      echo   '<a href="spider.php?search_str='.$ext_link[$i].'">';
+                      
+                       echo   '<a href="'.$ext_link[$i].'">';
+                       echo '<p><span class="badge">'.$i.'</span>'."</a>";
+
+        			   echo   '<a href="spider.php?search_str='.$ext_link[$i].'">';
                       echo  $ext_link[$i]."</a> <br />";
                    } 
   		   ?>
@@ -208,6 +224,42 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
 			     echo  $info->id .'<br>'. $info->plaintext. "<br>";
               }  ?>
 		  </div>
+		  
+		  <div role="tabpanel" class="tab-pane" id="img">
+		 
+		  <?php  
+		    echo $url.'<br>';
+		    $imgurl = substr($url, 0, strrpos( $url, '/')); 
+		    
+			foreach($html->find('img') as $key => $info) {
+                echo '<p><span class="badge">'.($key + 1).' </span>';
+			 
+			 if ( strpos($info->attr['src'], 'http') !== false) {
+                $img_src = $info->attr['src'];
+				   //echo 'yes http ='. $img_src .'<br>';  
+				 
+               }else{
+				   $img_src = $imgurl.'/'.$info->attr['src'];
+				  // echo 'no http'. $img_src .'<br>';
+				  
+			   }
+			 
+			 
+			 
+ 			
+			  echo '<a href = '. $img_src .'>';
+			   echo '<img src=  '.$img_src. ' alt="+" height="90" width="90">'; 
+			  echo '</a>';
+
+			  echo "<br><pre>".print_r($info->attr, true) . "</pre>";
+              
+
+			}  
+			 ?>
+		  </div>
+		  
+		  
+		  
           		  
 			
 	 </div>

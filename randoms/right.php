@@ -4,6 +4,8 @@
  <!-- right  menu -->
  <div class="col-md-1"> 
      <button type="button" class="btn-xs btn-info">Info</button>
+	 <a href="http://s03.flagcounter.com/more/r82h"><img src="http://s03.flagcounter.com/count/r82h/bg=FFFFFF/txt=000000/border=CCCCCC/columns=1/maxflags=350/viewers=0/labels=0/" alt="free counters" border="0"></a>
+	 
     <button type="button" class="btn-sm btn-info">Info</button>
  </div>
    

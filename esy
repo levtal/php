@@ -17,6 +17,13 @@ for($ii=0;$ii<$db1-cnt;$ii++){
 echo "<br><pre>".print_r($row, true) . "</pre>";
 exit;
 var_dump($match); 
+
+
+
+// print all attributes of an ekment
+foreach($html->find('div') as $div) {
+ echo "<br><pre>".print_r($div->attr, true) . "</pre>";
+}
  
 https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
  Loaded Configuration File: 	C:\xampp\php\php.ini 

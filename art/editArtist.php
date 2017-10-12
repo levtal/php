@@ -30,7 +30,12 @@ $artist_rows = DB::query($sql,array());
   $movment_counter = count( $movment_rows);
    
   for ($i = 0; $i <  $movment_counter; $i++) {
-    echo "<option value='" . $movment_rows[$i]["id"] . "'>" ;
+	 
+   if (strcmp($movment_rows[$i]["title"],$artist_rows[0]['movement'])==0){
+	 echo '<option selected="selected"'. $movment_rows[$i]["id"].'">' ;    
+	}else { 
+	echo "<option value='" . $movment_rows[$i]["id"] . "'>" ;
+     }
     echo $movment_rows[$i]["title"] . "</option>";
   }
  ?>

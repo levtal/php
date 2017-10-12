@@ -1,10 +1,14 @@
-
-
+<?php   include('left.php'); 
  
- <?php   include('left.php'); ?>    
-	
-<?php
-   $internetConnection = checkdnsrr('php.net'); 
+   $ip = getenv("REMOTE_ADDR") ; 
+   Echo "Your IP is " . $ip; 
+ ?>
+ 
+ 
+ 
+ 
+ <?php
+ $internetConnection = checkdnsrr('php.net'); 
    if ($internetConnection){
        if(isset($_GET['id'])){
 		    include('GetRandArtist.php');
@@ -16,9 +20,6 @@
 	echo '<H1> No Internet Connection </H1><br>'; 
  }   
 ?>
- 
- 
- 
 <?php include('right.php'); ?>
  
  

@@ -1,30 +1,22 @@
 <?php 
-	
+/*	
     session_start();
 	if (!isset($_SESSION['username'])) {
+		
 		$_SESSION['msg'] = "You must log in first";
-	    //$login_file_location ='location: '.getcwd().'\classes\login.php';
-	    //header($login_file_location);
-        //echo $login_file_location;
-		echo '<meta http-equiv="refresh" content="0;url=classes/login.php">';
+	    echo '<meta http-equiv="refresh" content="0;url=classes/login.php">';
 	    exit();  
 	}
 
 	if (isset($_GET['logout'])) {
 		session_destroy();
 		unset($_SESSION['username']);
-		header("location: login.php");
+		header("location: classes/login.php");
 	}
-
+*/
 ?> 
 
-
-
-
-
 <!DOCTYPE html>
- 
-
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -37,24 +29,20 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">-->
 	<!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  
-	                       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
-						   crossorigin="anonymous">
+	     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+		 crossorigin="anonymous">
 	
 	<link href="css/custom.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
                                                                           rel="stylesheet">
-     
-	<!--script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea' });</script-->																  
-																		  
-  </head>
-  <body>
+ </head>
+<body>
   
 <div class="container">
   <div class="row"> 
     <?php include('up-menu.php'); ?>
  </div>
- </div> <!-- end of--<div class="container"> --> 
+</div> <!-- end of--<div class="container"> --> 
   
  
  <div class="row">
@@ -65,10 +53,9 @@
 	<a href="https://www.wikiart.org/en/App/Painting/Random">Wikiart</a><br>
 	<a href="https://www.nationalgallery.org.uk/">N-gallery</a><br>
 	<a href="https://www.allartclassic.com/">allartclassic</a><br>
+	<a href="http://artodyssey1.blogspot.de/">artodyssey1</a><br>
 	
-	
-	
-  </div>
+</div>
  
  <div class="col-md-10"> 
  

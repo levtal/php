@@ -8,7 +8,7 @@
   
    $sql='SELECT  title,notes 
 	      FROM       movement
-		  WHERE  id = '.$_GET['id'];
+		  WHERE  id = '.$_GET['id'];//id  of movment
 
   $movement_name = DB::query($sql,array());
   
@@ -36,7 +36,7 @@
  
  while ($i < $artist_counter){  
    	
-    echo '<td class="listItem" valign="top" align="center" width="16%">';
+    echo '<td class="listItem"   align="center" width="16%">';
 	echo '<font size="5" color="#99ccff">';
    
 	echo ' <a href="ArtistPaintings.php?artist_id='.$artist_rows[$i]["id"];
