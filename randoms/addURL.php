@@ -17,8 +17,8 @@ if (isset($_POST['addURL'])) {
     //session_start();
    
    $_SESSION['msg'] =  'URL: <b>'.$_POST['name'] . ' </b> add to category = '. $_POST['category_id'];
-    
-	header('Location: showBookmark.php');  
+    echo '<script> location.replace("showBookmark.php");</script>';
+	//header('Location: showBookmark.php');  
   }
 ?>
 <html>

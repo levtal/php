@@ -1,6 +1,6 @@
 <?php 
   session_start(); 
-include('classes/DB.php');
+  include('classes/DB.php');
 
  
  // echo $_GET['id'];// This data is loaded in the posts.php by pressing the '-' sigin
@@ -8,12 +8,8 @@ include('classes/DB.php');
   $parm=array(':id'=> $_GET['id'] );
   
   $q = "DELETE FROM posts WHERE id =  :id";			 
- 
- 
-   
- DB::query($q, $parm);
+  DB::query($q, $parm);
   
-  header('Location: posts.php');   
-   
-  
+  //header('Location: posts.php');   
+  echo '<script> location.replace("posts.php");</script>';  
 ?>

@@ -1,4 +1,4 @@
-   <?php 
+  <?php 
   
 include("simple_html_dom.php");
 include('left.php');
@@ -6,11 +6,9 @@ include('jumbotron.php');
 //include('scanip.php');
 include('hostdata.php'); 
  
-
 $already_crawled = array();
 $crawling = array();
 $ext_link  = array();
-
 function scanip($ip){
 	 
 	 echo  $ip.'<br>';  
@@ -20,10 +18,7 @@ function scanip($ip){
 	getIpInfo($ip);
 }
  
-
-
 function get_details($url) {
-
 	// The array that we pass to stream_context_create() to modify our User Agent.
 	$options = array('http'=>array('method'=>"GET", 'headers'=>"User-Agent: howBot/0.1\n"));
 	// Create the stream context.
@@ -33,7 +28,6 @@ function get_details($url) {
 	// Use file_get_contents() to download the page, pass the output of file_get_contents()
 	// to PHP's DOMDocument class.
 	@$doc->loadHTML(@file_get_contents($url, false, $context));
-
 	// Create an array of all of the title tags.
 	$title = $doc->getElementsByTagName("title");
 	// There should only be one <title> on each page, so our array should have only 1 element.
@@ -51,7 +45,6 @@ function get_details($url) {
 			$description = $meta->getAttribute("content");
 		if (strtolower($meta->getAttribute("name")) == "keywords")
 			$keywords = $meta->getAttribute("content");
-
 	}
 	// Return our JSON string containing the title, description, keywords and URL.
 	//return '{ "Title": "'.str_replace("\n", "", $title).'", "  Description": "'.str_replace("\n", "", $description).'", "  Keywords": "'.str_replace("\n", "", $keywords).'", "  URL": "'.$url.'"},';
@@ -60,11 +53,8 @@ function get_details($url) {
 		 '<br> <b> Description:</b> '. $description.
 		 '<br> <b>  Keywords: </b>'. $keywords .
 		 '<br> <b>URL: </b>'.$url ;
-
 }//get_details($url)
 //*************************************************
-
-
 if(!isset($_GET["search_str"])){
 	 $url = 'depresion';
 }	 
@@ -76,20 +66,15 @@ else {
 	 }else{  }
 }
  
-
 if  (substr( $url, 0, 4 ) !== "http") { 
                 //include('scanip.php');
 	             scanip($url);
 				include('right.php'); 
 	            return;
 	        }  
-
 $data = parse_url($url);
 echo $url."<br>" ;
-
 echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></pre>";
-
-
  
  
  
@@ -109,7 +94,6 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
  
  $html = new simple_html_dom();
  $html->load_file($url);
-
  $linklist = $html->find("a");
  
  //echo get_details($url)."<br><br>"; 
@@ -138,7 +122,6 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
 		} else if (substr($l, 0, 5) != "https" && substr($l, 0, 4) != "http") {
 			$l = parse_url($url)["scheme"]."://".parse_url($url)["host"]."/".$l;
 		}
-
         if (strpos($l,  parse_url($url)["host"]) === false) {    //extrnel links
                  // If the link isn't already in our ext_link array
      			  if (!in_array($l, $ext_link)){
@@ -201,7 +184,6 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
                       
                        echo   '<a href="'.$ext_link[$i].'">';
                        echo '<p><span class="badge">'.$i.'</span>'."</a>";
-
         			   echo   '<a href="spider.php?search_str='.$ext_link[$i].'">';
                       echo  $ext_link[$i]."</a> <br />";
                    } 
@@ -226,45 +208,12 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
 		  </div>
 		  
 		  <div role="tabpanel" class="tab-pane" id="img">
-		 
-		  <?php  
-		    echo $url.'<br>';
-		    $imgurl = substr($url, 0, strrpos( $url, '/')); 
-		    
-			foreach($html->find('img') as $key => $info) {
-                echo '<p><span class="badge">'.($key + 1).' </span>';
-			 
-			 if ( strpos($info->attr['src'], 'http') !== false) {
-                $img_src = $info->attr['src'];
-				   //echo 'yes http ='. $img_src .'<br>';  
-				 
-               }else{
-				   $img_src = $imgurl.'/'.$info->attr['src'];
-				  // echo 'no http'. $img_src .'<br>';
-				  
-			   }
-			 
-			 
-			 
- 			
-			  echo '<a href = '. $img_src .'>';
-			   echo '<img src=  '.$img_src. ' alt="+" height="90" width="90">'; 
-			  echo '</a>';
-
-			  echo "<br><pre>".print_r($info->attr, true) . "</pre>";
-              
-
-			}  
-			 ?>
+		      <?php include("getImages.php");  ?>
 		  </div>
 		  
-		  
-		  
-          		  
-			
-	 </div>
+	</div>
     </div>
  </div>
 </div>
 
- <?php  include('right.php');?>
+<?php  include('right.php');?>
