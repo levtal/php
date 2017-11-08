@@ -1,7 +1,7 @@
 <?php   // Find painting of one artist_id
-  
+  include('left.php');  
  include('classes/DB.php');
- include('left.php');   
+  
  define("NUM_OF_COLUMN",4); 
  
  echo '<h1 align= "center">'.$_GET['artist_name'].'</h1>';
@@ -47,21 +47,29 @@
   $i=0;  
   $col = 1;
   while ($i < $numOfPaintings){  
-  
-	   echo '<td class="listItem" valign="top" align="center" width="25%">';
-      
-	 
-       echo '<a href="'.$rows[$i]["url"] .'">';
-	   echo '<font size="4" color="#ffcc66"> '. $rows[$i]["name" ].'</font>';
-       echo '</a>';
+    echo '<td class="listItem" valign="top" align="center" width="25%">';
+    echo '<a href="'.$rows[$i]["url"] .'">';
+	echo '<font size="4" color="#ffcc66"> '. $rows[$i]["name" ].'</font>';
+    echo '</a>';
 
     echo '<br><img src="'.$rows[$i]["url"] . '" height="250" width="250"><br>';
-   
+    
+	$yandex = 'https://www.yandex.com/images/search?text='. $rows[$i]["url"];
+    $yandex = $yandex.'&img_url='. $rows[$i]["url"] .'&rpt=imageview';
+    echo '<a href = "'. $yandex.'" target="_blank">Ydx </a>';
+        
+	$google = 'https://www.google.co.il/search?tbm=isch&q='.$rows[$i]["url"];
+	echo '<a href = "'. $google.'" target="_blank">'.' Gg</a>';
+	
+	$lunapic = 'http://lunapic.com/editor/?action=info&url='.$rows[$i]["url"];
+	echo '<a href = "'. $lunapic.'" target="_blank">'.' Edit</a>';
+	
+	
     echo '<a href="delPainting.php?id='. $rows[$i]["id"];
     echo  '&artist_name='.$_GET['artist_name'];
-    echo '&artist_id='.$_GET['artist_id'].'">';
-	echo 'X</a>';
-
+    echo '&artist_id='.$_GET['artist_id'].' " >';
+	echo ' <font color="red"  style="text-align:right">dell </font></a>';
+    
 
 
    echo ' </td>';

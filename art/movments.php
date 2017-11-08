@@ -1,10 +1,7 @@
-
- <?php 
- //List artists from one movment
-  include('classes/DB.php');
-  include('left.php');
-  define("NUM_OF_COLUMN",6);
-   
+<?php  include('left.php');
+     include('classes/DB.php');
+     define("NUM_OF_COLUMN",6);
+   //List artists from one movment
   
    $sql='SELECT  title,notes 
 	      FROM       movement
@@ -49,12 +46,13 @@
 	echo 'E</a>]</font> ';
  
     //// count painting of this artist
-    $sql = 'SELECT * FROM  paintings  WHERE   artist_id ="'.$artist_rows[$i]["id"].'"';
+    $sql = 'SELECT * FROM  paintings  
+	        WHERE  artist_id ="'.$artist_rows[$i]["id"].'"';
    
-   $rows = DB::query($sql,array());
+    $rows = DB::query($sql,array());
     $counter = count( $rows);
 	echo ' ('.$counter.')';
-    /////
+   
     echo '</td>';
 	$i++;
     $col++;

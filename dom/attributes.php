@@ -19,7 +19,7 @@ $html = file_get_html($url);
 
 // print all attributes of an ekment
 foreach($html->find('div') as $div) {
- cho "<br><pre>".print_r($div->attr, true) . "</pre>";
+ echo "<br><pre>".print_r($div->attr, true) . "</pre>";
 }
 
 //<div id="push"> 

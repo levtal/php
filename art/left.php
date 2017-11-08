@@ -1,19 +1,18 @@
-<?php 
-/*	
-    session_start();
+<?php  session_start();
+	 
+   // echo '{left.php 4 = '.$_SESSION['username'].'}<br>' ;
+	 
 	if (!isset($_SESSION['username'])) {
-		
-		$_SESSION['msg'] = "You must log in first";
-	    echo '<meta http-equiv="refresh" content="0;url=classes/login.php">';
-	    exit();  
-	}
+		 $_SESSION['msg'] = "You must log in first";
+		 echo '<script> location.replace("classes/login.php");</script>';
+	 }
 
 	if (isset($_GET['logout'])) {
 		session_destroy();
 		unset($_SESSION['username']);
 		header("location: classes/login.php");
 	}
-*/
+  
 ?> 
 
 <!DOCTYPE html>

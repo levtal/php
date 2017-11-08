@@ -1,5 +1,5 @@
 <?php 
- include('left.php');  
+include('left.php');  
 include('classes/DB.php');
  
 if (isset($_POST['addArtist'])) {
@@ -13,15 +13,12 @@ if (isset($_POST['addArtist'])) {
     $holders = ' (\'\',:name,:pic,:movement,:school)';    
     $sql = $q. $holders;
     DB::query($sql, $parm);
-	 
     $h = 'movments.php?id='.$_POST["mov_id"]; 
 	echo 'Adding  Artist '.$_POST['artist_name'];	
-	 
-	echo '<meta http-equiv="refresh" content="0;url='.$h .'">';
-	exit();
+ 	//echo '<meta http-equiv="refresh" content="0;url='.$h .'">';
+	echo '<script> location.replace("'.$h.'");</script>';
+ 	//exit();
   } 
-  
-  
 ?>
 
 <h1>Add  Artist</h1>

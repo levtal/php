@@ -43,19 +43,21 @@ foreach($html->find('img') as $e){
   $lnk[15]=  'http://www.the-athenaeum.org/art/list.php?m=a&s=tu&aid='.$lnk[15];// Artist List of paintings   
  ?>
  
-
- 
- <p id="pic-data"><h1><?php  echo $title[0];   ?></h1> </p>
+<p id="pic-data"><h1><?php  echo $title[0];   ?></h1> </p>
  <img src="<?php  echo  $img[3];?>"  border="2">
 <?php 
-
- //echo  '<form action="StorePainting.php" method="POST">';
- //echo    '<input type="hidden" name="image_url" value="'.$img[3].'"/>';
-// echo    '<input type="hidden" name="artist_name" value="'. $artist_name .'"/>';
-// echo    '<input type="hidden" name="title" value="'.$_POST['title'].'"/>';
-// echo    '<input type="submit" value="Store" style="color:#131333;height:50px; width:150px" />';
-// echo '</form>';  
- ?>
+ 	$yandex = 'https://www.yandex.com/images/search?text='. $img[3];
+    $yandex = $yandex.'&img_url='. $img[3] .'&rpt=imageview';
+    echo '<a href = "'. $yandex.'" target="_blank">Ydx </a>';
+        
+	$google = 'https://www.google.co.il/search?tbm=isch&q='.$img[3];
+	echo '<a href = "'. $google.'" target="_blank">'.' Gg</a>';
+	
+	 
+	$lunapic = 'http://lunapic.com/editor/?action=info&url='.$img[3];
+	echo '<a href = "'. $lunapic.'" target="_blank">'.' Edit</a>'; 
+	
+?>
  <?php include('right.php'); ?>
  
     

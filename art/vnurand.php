@@ -1,7 +1,8 @@
   <?php 
-  include("simple_html_dom.php");
+ //include('left.php'); 
+ include("simple_html_dom.php");
  require_once ('classes/DB.php'); 
- include('left.php'); 
+  
 
  function GetVnuArtist(){
 	$sql = 'SELECT * FROM  vnartists'  ;

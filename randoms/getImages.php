@@ -2,8 +2,15 @@
  $imgurl = substr($url, 0, strrpos( $url, '/')); 
  foreach($html->find('img') as $key => $info) {
         
-		
-		
+	$typ = substr($info->attr['src'], -3);	
+	 
+   //echo "<br><pre>".print_r($info->attr, true) . "</pre>";
+ 
+
+
+
+ 	
+	if ($typ =='jpg'){
 		if ( strpos($info->attr['src'], 'http') !== false) {
              $img_src = $info->attr['src'];
 		 }else{
@@ -24,7 +31,7 @@
 		echo '</a>';
 		echo "<br><pre>".print_r($info->attr, true) . "</pre>";
        
-    
+    }
   } 
   
  ?>

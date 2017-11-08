@@ -201,7 +201,11 @@ echo '<br><pre><font size="4" color="black">'.print_r($data, true) . "</font></p
               }  ?>
 			</div>
 		  <div role="tabpanel" class="tab-pane" id="divid">
-		    <?php  foreach($html->find('div[id]') as $key => $info) {
+		    <?php 
+			//$dom = file_get_html($url);
+           // print_r($dom, true) ;			
+            //echo "<br><pre>".print_r($dom, true) . "</pre>";
+			foreach($html->find('div[id]') as $key => $info) {
                  echo '<p><span class="badge">'.($key + 1).' </span>';
 			     echo  $info->id .'<br>'. $info->plaintext. "<br>";
               }  ?>

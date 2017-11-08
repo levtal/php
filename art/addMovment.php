@@ -13,9 +13,12 @@ if (isset($_POST['addMovment'])) {
     DB::query($sql, $parm);
                   
     $h='movmentsMenu.php';
-	echo 'Added Movement '.$_POST['name'];	
-	echo '<meta http-equiv="refresh" content="0;url='.$h .'">';
-    exit();
+	//echo 'Added Movement '.$_POST['name'];	
+	//echo '<meta http-equiv="refresh" content="0;url='.$h .'">';
+   // exit();
+	echo '<script> location.replace("'.$h.'");</script>';
+	
+	
   }
 ?>
   <h1 class="hero">Add Movement</h1>

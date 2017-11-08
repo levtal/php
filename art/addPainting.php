@@ -14,10 +14,12 @@ include('classes/DB.php');
      
     $h='ArtistPaintings.php?artist_id='.$_POST['artist_id'].'&artist_name='.$_POST['artist_name'];
 	  
-    echo 'Adding Painting '.$_POST['name']. ' to Artist ' .$_POST['artist_name'];	
-	 
-	echo '<meta http-equiv="refresh" content="0;url='.$h .'">';
-    exit();  
+   // echo 'Adding Painting '.$_POST['name']. ' to Artist ' .$_POST['artist_name'];	
+	
+   echo '<script> location.replace("'.$h.'");</script>';
+	
+	//echo '<meta http-equiv="refresh" content="0;url='.$h .'">';
+   // exit();  
   }
 ?>
 

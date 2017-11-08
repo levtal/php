@@ -1,11 +1,7 @@
- 
 <?php
-include('DB.php');
- 
-
-
- 
 session_start();
+include('DB.php');
+
 
 
 $errors = array(); 
@@ -14,6 +10,7 @@ $_SESSION['success'] = "";
  
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
+	echo 'REGISTER USER';exit;
 	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$password_1 = $_POST['password_1'];
@@ -51,8 +48,10 @@ if (isset($_POST['reg_user'])) {
 }
 
  // LOGIN USER
+// echo 'server.php l55';
 if (isset($_POST['login_user'])) {
-    include('scanip.php'); 
+	
+    //include('scanip.php'); 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
    
@@ -65,20 +64,21 @@ if (isset($_POST['login_user'])) {
 
 	if (count($errors) == 0) {
 		$password = md5($password);
-		///
+		 
 	   $sql="SELECT *  FROM users 
 	         WHERE username='$username' AND password='$password'";
 
         $users_raw = DB::query($sql,array());
 		 
         $users_counter = count($users_raw); 
-		//echo $users_counter; 
-       // echo '<br>'.$username. $password.'<br>';
-		//echo '<br>'. $sql.'<br>';
-       if ($users_counter == 1) {
+	  if ($users_counter == 1) {
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
-			header('location: ../index.php');
+		    //echo '{server.php 81 = '.$_SESSION['username'].'}<br>' ;
+			
+			echo '<script> location.replace("../index.php");</script>';
+			 
+			 
 		}else {
 			array_push($errors, "Wrong username/password combination");
 		}

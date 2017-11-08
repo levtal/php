@@ -1,7 +1,8 @@
 <?php 
+ include('left.php'); 
  include("simple_html_dom.php");
  require_once ('classes/DB.php'); 
- include('left.php'); 
+ 
 
  function GetOdysseyArtist(){  //Return random artist name
 	$url = 'http://artodyssey1.blogspot.co.il/search/label/';
@@ -32,9 +33,17 @@ function getOdysseyPaintingList(){
 	$html->load_file($name);
     $img_tag = 'a';
     foreach($html->find($img_tag) as $e){
-      if ((empty($e->attr['href']) == 0)  && (strcmp( substr($e->attr['href'], -3),"jpg")==0) )  {
-			    echo '<img src="'.$e->attr['href'] .'"  > ';
-	  }
+      if ((empty($e->attr['href']) == 0)  && (strcmp( substr($e->attr['href'], -3),"jpg")==0) ) 
+		{
+			echo '<img src="'.$e->attr['href'] .'"  > ';
+			$yandex = 'https://www.yandex.com/images/search?text='. $e->attr['href'];
+            $yandex = $yandex.'&img_url='.  $e->attr['href'] .'&rpt=imageview';
+            echo '<a href = "'. $yandex.'" target="_blank">Ydx </a>';
+        
+	       $google = 'https://www.google.co.il/search?tbm=isch&q='.$e->attr['href'];
+	        echo '<a href = "'. $google.'" target="_blank">'.' Gg</a>';	
+ 				
+	    }
 	}   
  }//getOdysseyPaintingList
  

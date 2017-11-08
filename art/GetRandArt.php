@@ -73,21 +73,32 @@ echo '<table width="98%" bgcolor="#0c0F0F" cellspacing="0" cellpadding="6" borde
   for ($col = 1; $col <= 4; $col ++) {
    $id_num = substr($lnk[$i], strpos($lnk[$i], "=") + 1); 
    echo '<td class="listItem" valign="top" align="center" width="33%">';
-   echo  '<form action="GetPainting.php" method="POST">';
-   echo      '<input type="hidden" name="pic_id" value="'.$id_num.'"/>';
-   echo      '<input type="hidden" name="artist_name"" value="'.$artist[$i].'"/>';
-   //echo      '<input type="hidden" name="artist_name"" value="gggggg"/>';
-   echo      '<input type="hidden" name="title" value="'.$title[$i].'"/>';
-   echo      '<button type="submit" width="48" height="48">';
-   echo           '<img src="'.$imag[$i].'"  />';
-   echo      '</button>';
+   echo  '<form action="GetPainting.php" method="POST" target="_blank">';
+   echo    '<input type="hidden" name="pic_id" value="'.$id_num.'"/>';
+   echo    '<input type="hidden" name="artist_name"" value="'.$artist[$i].'"/>';
+   
+   echo    '<input type="hidden" name="title" value="'.$title[$i].'"/>';
+   echo    '<button type="submit" width="48" height="48">';
+   echo         '<img src="'.$imag[$i].'"  />';
+   echo    '</button>';
   
    echo  '</form>';
    
    echo   '<b><font color="gray">'.$title[$i].'</font></b><br>';
    $artist_name = str_replace(' ', '_', $artist[$i]);   
    echo  '<a href="https://en.wikipedia.org/wiki/'. $artist_name.'">';
-   echo  '<font color="white">'.$artist[$i].'</font></a>';
+   echo  '<font color="white">'.$artist[$i].'</font></a><br>';
+   
+   
+   $yandex = 'https://www.yandex.com/images/search?text='. $imag[$i];
+    $yandex = $yandex.'&img_url='. $imag[$i] .'&rpt=imageview';
+    echo '<a href = "'. $yandex.'" target="_blank">Ydx </a>';
+        
+	$google = 'https://www.google.co.il/search?tbm=isch&q='.$imag[$i];
+	echo '<a href = "'. $google.'" target="_blank">'.' Gg</a>';
+   
+   
+   
    echo "</td>";
    $i++;
   }                

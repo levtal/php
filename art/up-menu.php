@@ -102,7 +102,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Random <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="odysseyrand.php">Odyssey</a></li>
-            <li><a href="vnurand.php">Venus</a></li>
+            <li><a href="vurand.php">Venus</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
