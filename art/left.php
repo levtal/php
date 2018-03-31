@@ -1,8 +1,6 @@
 <?php  session_start();
 	 
-   // echo '{left.php 4 = '.$_SESSION['username'].'}<br>' ;
-	 
-	if (!isset($_SESSION['username'])) {
+   if (!isset($_SESSION['username'])) {
 		 $_SESSION['msg'] = "You must log in first";
 		 echo '<script> location.replace("classes/login.php");</script>';
 	 }
@@ -52,7 +50,8 @@
 	<a href="https://www.wikiart.org/en/App/Painting/Random">Wikiart</a><br>
 	<a href="https://www.nationalgallery.org.uk/">N-gallery</a><br>
 	<a href="https://www.allartclassic.com/">allartclassic</a><br>
-	<a href="http://artodyssey1.blogspot.de/">artodyssey1</a><br>
+	<a href="http://artodyssey1.blogspot.de/">Artodyssey1</a><br>
+	<a href="http://www.classicartpaintings.com//">classic</a><br>
 	
 </div>
  

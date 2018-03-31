@@ -1,6 +1,6 @@
- <?php
- include('left.php');  
- require_once ('classes/DB.php');
+<?php
+include('left.php');  
+require_once ('classes/DB.php');
  
 $sql=   'SELECT  title ,notes
 	     FROM  movement 

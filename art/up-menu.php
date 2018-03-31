@@ -48,10 +48,7 @@
 		       Add   <span class="caret"></span>
 		   </a>
           <ul class="dropdown-menu">
-            <li><a href="addPainting.php">	
-			    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add Painting   
-			    </a>
-			</li>
+             
              
 
             <li><a href=" addMovment.php">	
@@ -103,9 +100,11 @@
           <ul class="dropdown-menu">
             <li><a href="odysseyrand.php">Odyssey</a></li>
             <li><a href="vurand.php">Venus</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="carta2.php">Carta</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+             
+            <li><a href="http://vazlavgtt.esy.es/prj/randoms" target="_blank">Spider</a></li>
+       
           </ul>
         </li>
       </ul>
