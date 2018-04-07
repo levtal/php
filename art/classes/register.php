@@ -1,6 +1,6 @@
 <?php include('server.php'); 
 
-exit();//  Erase this line to allow  registration og a new user
+//exit();//  Erase this line to allow  registration og a new user
 
 
 

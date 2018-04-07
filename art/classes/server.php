@@ -9,8 +9,8 @@ $_SESSION['success'] = "";
 
  
 // REGISTER USER
-if (isset($_POST['reg_user'])) {
-	echo 'REGISTER USER';exit;
+if (isset($_POST['reg_user'])) {// Register New user
+	
 	$username = $_POST['username'];
 	$email = $_POST['email'];
 	$password_1 = $_POST['password_1'];
@@ -27,7 +27,7 @@ if (isset($_POST['reg_user'])) {
 
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
-	    echo $password_1;
+	     
     	$password = md5($password_1);//encrypt the password before saving in the database
 		$parm=array(':email'=>$email,
 		            ':username'=>$username, 
@@ -37,18 +37,19 @@ if (isset($_POST['reg_user'])) {
 	    $q='INSERT INTO users  VALUES';  
         $holders = ' (\'\',:email,:username,:password)';    
         $sql = $q. $holders;
-         
+
         DB::query($sql, $parm);
 	 
 	    $_SESSION['username'] = $username;
 		$_SESSION['success'] = "You are now logged in";
-		header('location: indx.php');
+		echo ' <script> location.replace("login.php"); </script> ';
+		//header('location:indx.php');
 	}
 
 }
 
  // LOGIN USER
-// echo 'server.php l55';
+ 
 if (isset($_POST['login_user'])) {
 	
     //include('scanip.php'); 
@@ -74,7 +75,7 @@ if (isset($_POST['login_user'])) {
 	  if ($users_counter == 1) {
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
-		    //echo '{server.php 81 = '.$_SESSION['username'].'}<br>' ;
+		    
 			
 			echo '<script> location.replace("../index.php");</script>';
 			 

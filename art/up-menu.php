@@ -76,15 +76,17 @@
     </ul>
 	
    
-      
-<form action="classes/indx.php?logout='1'" method="get" class="navbar-form navbar-right"  >
+<?php if ( isset($_SESSION['username'])){
+		      
+?>		      
+<form action="classes/register.php" method="get" class="navbar-form navbar-right"  >
          
          <button type="submit" class="btn btn-default" value="submit">
-		                Login
+		                Register
 		 </button>
       </form>
 
-
+<?php } ?>
  <form action="sareng.php" method="get" class="navbar-form navbar-left"  >
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search_str" value="" >
@@ -98,7 +100,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Random <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="odysseyrand.php">Odyssey</a></li>
+            <li><a href="users.php">Users</a></li>
             <li><a href="vurand.php">Venus</a></li>
             <li><a href="carta2.php">Carta</a></li>
             <li role="separator" class="divider"></li>

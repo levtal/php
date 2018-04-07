@@ -1,16 +1,7 @@
  
 </div>
 
- <!-- right  menu -->
- <div class="col-md-1"> 
-     <button type="button" class="btn-xs btn-info">Visitors</button>
-      <a href="http://s03.flagcounter.com/more/x32u"><img src="http://s03.flagcounter.com/count/x32u/bg=F8F4F8/txt=000000/border=CCCCCC/columns=1/maxflags=350/viewers=0/labels=0/" alt="free counters" border="0"></a>
-	 
-	 
-	 
-
-	 <button type="button" class="btn-sm btn-info">***</button>
- </div>
+  
    
 </div>
 
