@@ -58,7 +58,7 @@
 
 
 		 <li role="separator" class="divider"></li>
-            <li><a href="http://vazlavgtt.esy.es/prj/randoms/showBookmark.php">
+            <li><a href="https://vazamb.000webhostapp.com/prj/randoms/showBookmark.php">
 			         <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> Bookmark
 				</a></li>
 			<li><a href="loadVnudata.php">
@@ -101,11 +101,11 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Random <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="users.php">Users</a></li>
-            <li><a href="vurand.php">Venus</a></li>
-            <li><a href="carta2.php">Carta</a></li>
+            <li><a href="lambada.php">lam</a></li>
+            <li><a href="cart.php">Carta</a></li>
             <li role="separator" class="divider"></li>
              
-            <li><a href="http://vazlavgtt.esy.es/prj/randoms" target="_blank">Spider</a></li>
+            <li><a href="http://sid.com" target="_blank">Spider</a></li>
        
           </ul>
         </li>

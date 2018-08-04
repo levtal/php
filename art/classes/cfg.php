@@ -10,7 +10,7 @@ define ('DB_PASS' , 'gumgum935');
   
 define ('DB_HOST' , 'localhost'); 
 define ('DB_USER' , 'root');  
-define ('DB_NAME' , 'artdb');
+define ('DB_NAME' , 'art');
 define ('DB_PASS' , '');   
  
 
