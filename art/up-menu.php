@@ -86,7 +86,7 @@
 		 </button>
       </form>
 
-<?php } ?>
+<?php  }    ?>
  <form action="sareng.php" method="get" class="navbar-form navbar-left"  >
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search_str" value="" >
@@ -101,7 +101,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Random <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="users.php">Users</a></li>
-            <li><a href="lambada.php">lam</a></li>
+            <li><a href="lambada.php">lambda</a></li>
             <li><a href="cart.php">Carta</a></li>
             <li role="separator" class="divider"></li>
              
